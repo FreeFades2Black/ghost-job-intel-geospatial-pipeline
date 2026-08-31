@@ -1,7 +1,7 @@
 """
 Gunslinger Lore: Chapter II - Separating Iron From Phantoms (Silver SCD Type 2)
-Here the Gunslinger reads the brand on every iron spur, recording when each
-bounty was nailed to the post and when it turned cold.
+Processes Bronze snapshots into Silver normalized schema with SCD Type 2 lifecycle tracking
+and preserves multi-year trend telemetry.
 """
 
 import json
@@ -32,34 +32,19 @@ class SilverLifecycleEngine:
             raw = snap.get("raw_payload", {})
 
             jobs = []
-            if ats_type in ["greenhouse", "corporate_api", "workday"] and isinstance(raw, dict):
+            if isinstance(raw, dict) and "jobs" in raw:
                 jobs = raw.get("jobs", [])
-            elif ats_type == "lever" and isinstance(raw, list):
+            elif isinstance(raw, list):
                 jobs = raw
-            elif isinstance(raw, dict) and "jobs" in raw:
-                jobs = raw.get("jobs", [])
 
             for j in jobs:
                 req_id = str(j.get("id", ""))
                 title = j.get("title") or j.get("text", "Unknown Position")
                 updated_at = j.get("updated_at") or observed_at
-                
-                # Department & Location parsing
                 dept = j.get("dept") or "General Engineering"
-                if "departments" in j and j["departments"]:
-                    dept = j["departments"][0].get("name", "Engineering")
-                elif "categories" in j and isinstance(j["categories"], dict):
-                    dept = j["categories"].get("department", "Engineering")
-
                 loc = j.get("location") or "Remote"
-                if isinstance(loc, dict):
-                    loc = loc.get("name", "Remote")
-                elif "location" in j and isinstance(j["location"], dict):
-                    loc = j["location"].get("name", "Remote")
-                elif "categories" in j and "location" in j["categories"]:
-                    loc = j["categories"].get("location", "Remote")
+                age = j.get("age_days", 45)
 
-                age = j.get("age_days") if "age_days" in j else (int(req_id) % 180 if req_id.isdigit() else 75)
                 silver_records.append({
                     "requisition_id": req_id,
                     "company_token": company_token,
@@ -77,7 +62,8 @@ class SilverLifecycleEngine:
                     "is_currently_active": True,
                     "lat": snap.get("lat", 37.7749),
                     "lon": snap.get("lon", -122.4194),
-                    "description": snap.get("description", "")
+                    "description": snap.get("description", ""),
+                    "historical_trend": snap.get("historical_trend", [])
                 })
 
         silver_file = SILVER_DIR / "silver_active_requisitions.json"

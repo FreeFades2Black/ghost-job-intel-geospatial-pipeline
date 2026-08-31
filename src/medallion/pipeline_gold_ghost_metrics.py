@@ -1,7 +1,7 @@
 """
 Gunslinger Lore: Chapter III - The High Noon Ledger (Gold Ghost Metrics)
-The final reckoning where phantom bounties exceeding ninety days are exposed,
-revealing the true velocity of the frontier saloon with focus on Greenville, SC Top 10 Public & Tech Employers.
+Aggregates precision ghost job indices, stale posting durations, multi-year historical trends (2022-2026),
+and departmental variance across Greenville, SC and National Public Enterprise organizations.
 """
 
 import json
@@ -14,7 +14,7 @@ class GoldGhostMetricsEngine:
     """Aggregates ghost job indices, stale posting durations, and posting-to-headcount anomalies."""
 
     def run_gold_aggregation(self) -> Dict[str, Any]:
-        """Calculates Ghost Risk Index (>90 days active) across companies and departments."""
+        """Calculates Ghost Risk Index (>90 days active) with multi-year time-series trends."""
         silver_file = SILVER_DIR / "silver_active_requisitions.json"
         if not silver_file.exists():
             return {"status": "error", "message": "Silver layer missing"}
@@ -48,6 +48,7 @@ class GoldGhostMetricsEngine:
                     "lat": r.get("lat", 37.7749),
                     "lon": r.get("lon", -122.4194),
                     "description": r.get("description", ""),
+                    "historical_trend": r.get("historical_trend", []),
                     "total_active_listings": 0,
                     "total_days_sum": 0,
                     "stale_listings_over_90d": 0,
@@ -112,9 +113,10 @@ class GoldGhostMetricsEngine:
                 "ghost_risk_pct": ghost_pct,
                 "risk_tier": risk_tier,
                 "sample_confidence": confidence,
+                "historical_trend": stats["historical_trend"],
                 "top_stale_role": next((x["title"] for x in stats["roles"] if x["is_stale"]), "N/A"),
                 "department_breakdown": stats["department_breakdown"],
-                "sample_roles": stats["roles"][:15]
+                "sample_roles": stats["roles"][:30]
             })
 
         # Sort descending by ghost_risk_pct
