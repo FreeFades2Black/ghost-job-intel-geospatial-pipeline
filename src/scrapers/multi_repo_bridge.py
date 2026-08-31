@@ -13,21 +13,44 @@ logger = logging.getLogger(__name__)
 class MultiRepoGeospatialBridge:
     """Ingests data from uap-scraper-pipeline and For-Your-Service into GeoJSON FeatureCollections."""
 
-    UAP_DATA_PATH = Path(r"C:\Users\FreeF\projects\uap-scraper-pipeline\docs\data.json")
-    FYS_JOBS_PATH = Path(r"C:\Users\FreeF\projects\For-Your-Service\data\raw\live_federal_jobs.json")
+    @property
+    def uap_data_path(self) -> Path:
+        candidates = [
+            Path(r"C:\Users\FreeF\projects\uap-scraper-pipeline\docs\data.json"),
+            Path("/home/free/projects/uap-scraper-pipeline/docs/data.json"),
+            Path.home() / "projects" / "uap-scraper-pipeline" / "docs" / "data.json"
+        ]
+        for c in candidates:
+            if c.exists():
+                return c
+        return candidates[0]
+
+    @property
+    def fys_jobs_path(self) -> Path:
+        candidates = [
+            Path(r"C:\Users\FreeF\projects\For-Your-Service\data\raw\live_federal_jobs.json"),
+            Path("/home/free/projects/For-Your-Service/data/raw/live_federal_jobs.json"),
+            Path.home() / "projects" / "For-Your-Service" / "data" / "raw" / "live_federal_jobs.json"
+        ]
+        for c in candidates:
+            if c.exists():
+                return c
+        return candidates[0]
 
     def load_uap_sightings_geojson(self) -> Dict[str, Any]:
         """Convert UAP pipeline data into GeoJSON FeatureCollection."""
         features = []
-        if self.UAP_DATA_PATH.exists():
+        target_path = self.uap_data_path
+        if target_path.exists():
             try:
-                with open(self.UAP_DATA_PATH, "r", encoding="utf-8") as f:
+                with open(target_path, "r", encoding="utf-8") as f:
                     data = json.load(f)
                     sightings = data.get("sightings") or data.get("all_sightings") or []
                     for s in sightings:
                         lat = float(s.get("latitude", 0) or 0)
                         lon = float(s.get("longitude", 0) or 0)
                         if lat != 0 and lon != 0:
+
                             features.append({
                                 "type": "Feature",
                                 "geometry": {
@@ -61,10 +84,12 @@ class MultiRepoGeospatialBridge:
     def load_veteran_jobs_geojson(self) -> Dict[str, Any]:
         """Convert For-Your-Service USAJOBS and civilian listings into GeoJSON FeatureCollection."""
         features = []
-        if self.FYS_JOBS_PATH.exists():
+        target_path = self.fys_jobs_path
+        if target_path.exists():
             try:
-                with open(self.FYS_JOBS_PATH, "r", encoding="utf-8") as f:
+                with open(target_path, "r", encoding="utf-8") as f:
                     data = json.load(f)
+
                     
                     items = []
                     if "SearchResult" in data and "SearchResultItems" in data["SearchResult"]:
