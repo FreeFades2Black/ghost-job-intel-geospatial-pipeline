@@ -1,0 +1,119 @@
+[
+  {
+    "title": "Clarify Capital Survey: 43% of Hiring Managers Admit to Posting Ghost Jobs",
+    "source": "Clarify Capital Intelligence",
+    "published_at": "2026-06-15T00:00:00Z",
+    "summary": "Key reasons cited: keeping talent pipeline warm (40%), projecting company growth to investors (34%), and placating burned-out employees (28%).",
+    "url": "https://clarifycapital.com/ghost-jobs-survey",
+    "risk_impact": "CRITICAL",
+    "category": "Industry Benchmark"
+  },
+  {
+    "title": "SEC Enforcement Guidance on Public Tech Hiring Representations vs 10-K Headcount",
+    "source": "SEC EDGAR Legal Review",
+    "published_at": "2026-07-22T00:00:00Z",
+    "summary": "Scrutiny increases on public tech companies advertising hundreds of unfilled engineering requisitions while concurrently executing net-negative headcount restructuring in quarterly 10-Q filings.",
+    "url": "https://www.sec.gov/edgar/searchedgar/companysearch",
+    "risk_impact": "REGULATORY",
+    "category": "SEC Compliance"
+  },
+  {
+    "title": "The 90-Day Phantom Requisition Loop: Algorithmic Reposting on Greenhouse & Workday",
+    "source": "Gunslinger Intelligence Dispatch",
+    "published_at": "2026-08-10T00:00:00Z",
+    "summary": "Automated ATS bots wipe and reissue identical requisition IDs every 30-60 days to reset job board freshness algorithms without ever scheduling candidate screens.",
+    "url": "https://github.com/FreeFades2Black/ghost-job-intel-geospatial-pipeline",
+    "risk_impact": "TECHNICAL_REPOST_LOOP",
+    "category": "ATS Telemetry"
+  },
+  {
+    "title": "\u2018Ghost Job\u2019 Ads Are Getting So Bad That Lawmakers Want to Ban Them - WSJ",
+    "source": "Google News Live RSS",
+    "published_at": "Fri, 21 Aug 2026 07:00:00 GMT",
+    "summary": "Live coverage tracking phantom job postings: \u2018Ghost Job\u2019 Ads Are Getting So Bad That Lawmakers Want to Ban Them - WSJ",
+    "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPSUR6MWdteWVfcHgwM0lTWTh1SHFFTTVmWkhqS0JpX0hmazJCYnQtSEw0Y1Y0WGdKTHhJOFVrbFpNN1U3Y2c1aXdtcG1uSy1abExtOGhHMTJfV1puRmtaZkYxQ3BocUtqc0dBZkY5WWZfQmswN3ljVl9mS1kyOVVIWmQ0Q1M1Z3hLVFJ0dERqemRtM0FHMVNxZ1Z1MjJxMTJqN1BjX2FoWDJzU1VWelNsRg?oc=5",
+    "risk_impact": "MARKET_INTELLIGENCE",
+    "category": "Live RSS"
+  },
+  {
+    "title": "The End of Ghost Jobs: Why Companies Could Soon Face Huge Fines for Fake Listings - inc.com",
+    "source": "Google News Live RSS",
+    "published_at": "Tue, 25 Aug 2026 18:08:29 GMT",
+    "summary": "Live coverage tracking phantom job postings: The End of Ghost Jobs: Why Companies Could Soon Face Huge Fines for Fake Listings - inc.com",
+    "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNTG5vVEhWck1ueWZXRkJFbDc2R3l4eDNMcm9iWWdlQkFkYW1yT0RNUDJ1OTNIc24zQ0Q5ajZpMjhrWWtuMWF4bV9fU3FqSTRzZ09rV3Q4NWx2UVpQbFNld2prdnJCNDVhQ0xyTFdjckRiS2owSGxCU0c2X2JlMWJyd2RLb0xIWTY0Q3UxYjRPcjNjVThZYVhRemtPRHZ3OWNTUE02b2lHamo?oc=5",
+    "risk_impact": "MARKET_INTELLIGENCE",
+    "category": "Live RSS"
+  },
+  {
+    "title": "40% of companies posted fake job listings in 2024 \u2014 now lawmakers in multiple states are moving to ban them - Yahoo Finance",
+    "source": "Google News Live RSS",
+    "published_at": "Sun, 23 Aug 2026 15:30:00 GMT",
+    "summary": "Live coverage tracking phantom job postings: 40% of companies posted fake job listings in 2024 \u2014 now lawmakers in multiple states are moving to ban them - Yahoo Finance",
+    "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNU1hMXy1GT0l6MTBSS2hnZ0ZLQTdGR092LVo1YTBNOEZhUE1PSW9xOFZhVFFHR3lHa0pxaXNlV3dndjNKdUN6Y05iMnRkQ2NrZ1FjSUhXcFY1RmVnYjA2WW5Yc2JNWkM5YzFhaUZoZUpSQzhMTkR6dE1LWDhYQlFETzlZOW9VWGk1bFVxejFxLW5UcTdjLWZjbA?oc=5",
+    "risk_impact": "MARKET_INTELLIGENCE",
+    "category": "Live RSS"
+  },
+  {
+    "title": "The job application got faster. The job search got worse. - Axios",
+    "source": "Google News Live RSS",
+    "published_at": "Fri, 21 Aug 2026 07:00:00 GMT",
+    "summary": "Live coverage tracking phantom job postings: The job application got faster. The job search got worse. - Axios",
+    "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5SMmVVOUk4dTVsUm02MDAzZmx5OE1ROFRLSDVoSEhwRzZHT2lubXpWMy12SzNkSjJyeWJ6OFVfdzhDakpSUlhnY0x1d3hJazZiOTQtQXh4TU00Qm1VSHh6WGdBSGhydzNYZXFCZGpuWVB4NVp5NHJ3N3FwZw?oc=5",
+    "risk_impact": "MARKET_INTELLIGENCE",
+    "category": "Live RSS"
+  },
+  {
+    "title": "Lawmakers take aim at 'ghost job' advertisements - Morning Brew",
+    "source": "Google News Live RSS",
+    "published_at": "Fri, 21 Aug 2026 07:00:00 GMT",
+    "summary": "Live coverage tracking phantom job postings: Lawmakers take aim at 'ghost job' advertisements - Morning Brew",
+    "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQeVhWdzU5RFNveTVOSHZGUC1GTHVKMGJmS2dHbGxyU0gtTTJpVXdzRWNOLUlqNElxUkVUVlV3ZG9lazR0SENaMFh1V3Z0VE40YkVXd0IyMG52a2NoR3o4bGNhTC1YbTBXdXc4V0t6QXRwRmhkQUtUZTRNQWF0TDZTOXF0SjBkWGd2VVE?oc=5",
+    "risk_impact": "MARKET_INTELLIGENCE",
+    "category": "Live RSS"
+  },
+  {
+    "title": "Top Companies that Announced Major Layoffs & Hiring Freezes-2026 - Intellizence",
+    "source": "Google News Live RSS",
+    "published_at": "Tue, 18 Aug 2026 07:00:00 GMT",
+    "summary": "Live coverage tracking phantom job postings: Top Companies that Announced Major Layoffs & Hiring Freezes-2026 - Intellizence",
+    "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNaWxJMW1sTjUwRVNKSXpQWHN3OWFieURKZWlHSGF1MVFMdUl5Z0FkRE5zb2J0allacVZQYWplSC1HNXhENjJwbnIxMEN2ZkRNODhHLTIxQXNqWUxkZXUzbnVKMXNvQnRLVUhtY1hIMUthX25NcW95S0RDRzg4ZEttTW5IYmRncm41RTVHNWdpYy1RS1ZuNFpaQnVIS1U?oc=5",
+    "risk_impact": "MARKET_INTELLIGENCE",
+    "category": "Live RSS"
+  },
+  {
+    "title": "Agencies told to prioritize hiring early-career employees, tech talent - Federal News Network",
+    "source": "Google News Live RSS",
+    "published_at": "Wed, 05 Aug 2026 07:00:00 GMT",
+    "summary": "Live coverage tracking phantom job postings: Agencies told to prioritize hiring early-career employees, tech talent - Federal News Network",
+    "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxONkN0NzZVN2tLeEswTEdfczJXZGNLblB4RGRhbUFmZU9pN29DdGl5SElHdjhuekxzN1V2YjVxRkNpUkx1UldPOGx1OTFRUURQM0FYb3lGRnFFeEV1bW1UQmljaHpzaWNXQ1hwSEdPS0xqQjlCNkVuZnM4WlJ4ZFVqdE01OHdOS3hDdmNXb1JlYmN4RTc3a3JlZGVLQUVTZk81UDNoWmlVUzFwWUF4TTlSc3JlTjNCeVpLMW4zLXJCT05zb09z?oc=5",
+    "risk_impact": "MARKET_INTELLIGENCE",
+    "category": "Live RSS"
+  },
+  {
+    "title": "Companies laying off staff this year include Meta, Amazon, and Visa \u2014 see the list - Business Insider",
+    "source": "Google News Live RSS",
+    "published_at": "Thu, 06 Aug 2026 07:00:00 GMT",
+    "summary": "Live coverage tracking phantom job postings: Companies laying off staff this year include Meta, Amazon, and Visa \u2014 see the list - Business Insider",
+    "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNQUtSVkJCN0tBeHVpR3owbi1YTzFyVHNOZlBWOWt4empJQ29tTnpBQ1ZjbEIySlZ3YnhWN3pLRTRocTdLTURIaXo3RmJqY3RKeHlOc1kxbHBSQ0NSM0NHamVZWjNPOWpKRlpkVEprdW1EQ0RVSW52TEtGem95bDlHVVcyUHg?oc=5",
+    "risk_impact": "MARKET_INTELLIGENCE",
+    "category": "Live RSS"
+  },
+  {
+    "title": "Layoff Tracker: Cellares cuts jobs after losing pharma customer - BioSpace",
+    "source": "Google News Live RSS",
+    "published_at": "Tue, 25 Aug 2026 07:00:00 GMT",
+    "summary": "Live coverage tracking phantom job postings: Layoff Tracker: Cellares cuts jobs after losing pharma customer - BioSpace",
+    "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFB1N2d4NnYwN0JiU181Tm9vV0dUM1c1NWVMUHNCdlZFVmRSZXpmRFp3TnBQUVJXYnFYV1VlNVBIZXU0TzY4bE5BNTd4NGpIT21aYlZHMy1qSW1HWDFH?oc=5",
+    "risk_impact": "MARKET_INTELLIGENCE",
+    "category": "Live RSS"
+  },
+  {
+    "title": "3 police jobs will stay vacant for now as Winter Springs freezes hiring - WKMG",
+    "source": "Google News Live RSS",
+    "published_at": "Fri, 28 Aug 2026 00:32:47 GMT",
+    "summary": "Live coverage tracking phantom job postings: 3 police jobs will stay vacant for now as Winter Springs freezes hiring - WKMG",
+    "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOX3BYRENGN3NoVXM1c0t1aHRPM1NPcEE1enNzU1VvUW1zVFhJb2V6ZElkMWsxNkozcmVfWENRMVZXczh0TS1VNmxYT1AzcVFUQUd6VGk3NUFDMG1oNUZ4TlB1THpZZmtpSXBGb2laX3lkVjZuVllzbGN2eVlibVp0VURHU0p2UFJEeTVZZHZyWHk4dmVSc1FFZXp1MVRDeUl6WWNibl9lMkpYUWhNTWVHeDQ2ck5RUkJFbzlzS0wzRGY?oc=5",
+    "risk_impact": "MARKET_INTELLIGENCE",
+    "category": "Live RSS"
+  }
+]
