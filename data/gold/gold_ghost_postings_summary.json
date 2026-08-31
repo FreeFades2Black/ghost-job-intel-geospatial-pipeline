@@ -1,0 +1,38 @@
+[
+  {
+    "company_token": "block",
+    "company_name": "Block Inc.",
+    "lat": 37.7749,
+    "lon": -122.4194,
+    "total_active_listings": 189,
+    "avg_listing_age_days": 86.3,
+    "stale_listings_over_90d": 92,
+    "ghost_risk_pct": 48.68,
+    "risk_tier": "ELEVATED_STALE_RISK",
+    "top_stale_role": "Account Manager, SMB "
+  },
+  {
+    "company_token": "robinhood",
+    "company_name": "Robinhood Markets",
+    "lat": 37.4538,
+    "lon": -122.1822,
+    "total_active_listings": 128,
+    "avg_listing_age_days": 88.5,
+    "stale_listings_over_90d": 58,
+    "ghost_risk_pct": 45.31,
+    "risk_tier": "ELEVATED_STALE_RISK",
+    "top_stale_role": "Account Maintenance Associate"
+  },
+  {
+    "company_token": "gitlab",
+    "company_name": "GitLab Inc.",
+    "lat": 37.7749,
+    "lon": -122.4194,
+    "total_active_listings": 221,
+    "avg_listing_age_days": 80.9,
+    "stale_listings_over_90d": 97,
+    "ghost_risk_pct": 43.89,
+    "risk_tier": "ELEVATED_STALE_RISK",
+    "top_stale_role": "Account Executive - Italy"
+  }
+]

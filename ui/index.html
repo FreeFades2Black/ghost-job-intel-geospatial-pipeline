@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌐 Unified Geospatial Visualizer &amp; Ghost Job Intelligence Radar</title>
+  
+  <!-- CDN Dependencies: TailwindCSS, Leaflet, Chart.js -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+
+  <style>
+    body { background-color: #0b0f19; color: #e2e8f0; font-family: system-ui, -apple-system, sans-serif; }
+    .glass-card { background: rgba(17, 24, 39, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(59, 130, 246, 0.2); }
+    .glow-cyan { text-shadow: 0 0 12px rgba(6, 182, 212, 0.6); }
+    .glow-amber { text-shadow: 0 0 12px rgba(245, 158, 11, 0.6); }
+    #map { height: 480px; border-radius: 12px; }
+  </style>
+</head>
+<body class="min-h-screen p-4 md:p-8">
+
+  <!-- Header -->
+  <header class="max-w-7xl mx-auto mb-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-blue-900/40 pb-5">
+    <div>
+      <div class="flex items-center gap-3">
+        <span class="text-3xl">🌐</span>
+        <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight text-white glow-cyan">Unified Geospatial &amp; Ghost Job Intelligence Radar</h1>
+      </div>
+      <p class="text-xs md:text-sm text-cyan-300/80 mt-1">Multi-Repo Visualizer (UAP Lakehouse + For-Your-Service) &amp; Top 100 Public ATS Ghost Requisition Engine</p>
+    </div>
+    <div class="flex items-center gap-3 flex-wrap">
+      <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Multi-Repo Sync: 100%
+      </span>
+      <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/30">
+        <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span> Ghost Index Active
+      </span>
+    </div>
+  </header>
+
+  <!-- KPI Matrix -->
+  <section class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+    <div class="glass-card p-4 rounded-xl">
+      <div class="text-[11px] uppercase tracking-wider text-blue-400 font-semibold mb-1">🛸 UAP Sightings Layer</div>
+      <div class="text-2xl font-black text-white" id="kpi-uap">1,041</div>
+      <div class="text-[10px] text-slate-400 mt-1">Repository A • Multi-Era Lakehouse</div>
+    </div>
+    <div class="glass-card p-4 rounded-xl">
+      <div class="text-[11px] uppercase tracking-wider text-emerald-400 font-semibold mb-1">🎖️ Veteran Jobs Layer</div>
+      <div class="text-2xl font-black text-emerald-300" id="kpi-jobs">15+ Positions</div>
+      <div class="text-[10px] text-slate-400 mt-1">Repository B • For-Your-Service MOS</div>
+    </div>
+    <div class="glass-card p-4 rounded-xl">
+      <div class="text-[11px] uppercase tracking-wider text-amber-400 font-semibold mb-1">👻 Top 100 Public ATS</div>
+      <div class="text-2xl font-black text-amber-300" id="kpi-ghost">15 Companies</div>
+      <div class="text-[10px] text-slate-400 mt-1">Greenhouse / Lever Scraped</div>
+    </div>
+    <div class="glass-card p-4 rounded-xl">
+      <div class="text-[11px] uppercase tracking-wider text-purple-400 font-semibold mb-1">⏱️ Stale Postings (>90d)</div>
+      <div class="text-2xl font-black text-purple-300" id="kpi-stale">34.8% Avg</div>
+      <div class="text-[10px] text-slate-400 mt-1">Medallion Gold Ghost Index</div>
+    </div>
+  </section>
+
+  <!-- Geospatial Visualizer Section -->
+  <section class="max-w-7xl mx-auto glass-card p-5 rounded-2xl mb-6">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-3">
+      <div>
+        <h2 class="text-base md:text-lg font-bold text-white flex items-center gap-2">
+          <span>🗺️</span> Open-Source Multi-Layer Basemap (OpenStreetMap / CartoDB Dark)
+        </h2>
+        <p class="text-xs text-slate-400">Toggle layers independently to inspect UAP sightings, Veteran jobs, and corporate Ghost Postings.</p>
+      </div>
+      
+      <!-- Interactive Layer Toggles -->
+      <div class="flex items-center gap-2 flex-wrap">
+        <label class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-950/80 border border-blue-700/50 text-xs text-blue-300 cursor-pointer">
+          <input type="checkbox" id="toggleUAP" checked class="rounded text-blue-600 focus:ring-0"> 🛸 UAP Sightings
+        </label>
+        <label class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-950/80 border border-emerald-700/50 text-xs text-emerald-300 cursor-pointer">
+          <input type="checkbox" id="toggleJobs" checked class="rounded text-emerald-600 focus:ring-0"> 🎖️ Veteran Jobs
+        </label>
+        <label class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-amber-950/80 border border-amber-700/50 text-xs text-amber-300 cursor-pointer">
+          <input type="checkbox" id="toggleGhost" checked class="rounded text-amber-600 focus:ring-0"> 👻 Ghost Requisitions
+        </label>
+      </div>
+    </div>
+    <div id="map"></div>
+  </section>
+
+  <!-- Ghost Job Intelligence Grid: News Feed + Company Matrix -->
+  <section class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+    <!-- Top 100 Companies Ghost Risk Table -->
+    <div class="glass-card p-5 rounded-xl lg:col-span-2">
+      <div class="flex justify-between items-center mb-3">
+        <h3 class="text-sm font-bold text-white flex items-center gap-2">
+          <span>🏢</span> Top 100 Public Companies — Medallion Gold Ghost Index
+        </h3>
+        <span class="text-[11px] text-slate-400">SCD Type 2 Lifecycle Analyzed</span>
+      </div>
+      <div class="overflow-x-auto max-h-80 overflow-y-auto">
+        <table class="w-full text-left text-xs border-collapse">
+          <thead class="sticky top-0 bg-slate-900 text-slate-400 border-b border-slate-700/60">
+            <tr>
+              <th class="py-2 px-3">Company</th>
+              <th class="py-2 px-3">Active Listings</th>
+              <th class="py-2 px-3">Avg Age (Days)</th>
+              <th class="py-2 px-3">Stale (&gt;90d)</th>
+              <th class="py-2 px-3">Ghost Risk %</th>
+              <th class="py-2 px-3">Risk Tier</th>
+            </tr>
+          </thead>
+          <tbody id="ghostTableBody" class="divide-y divide-slate-800 text-slate-300">
+            <!-- Injected via JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Ghost Jobs OSINT News Feed -->
+    <div class="glass-card p-5 rounded-xl">
+      <h3 class="text-sm font-bold text-white mb-3 flex items-center gap-2">
+        <span>📰</span> Ghost Jobs News &amp; SEC Telemetry
+      </h3>
+      <div id="newsFeed" class="space-y-3 max-h-80 overflow-y-auto pr-1">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Application Logic -->
+  <script>
+    let map, uapCluster, jobsCluster, ghostCluster;
+    let uapData = [], jobsData = [], ghostData = [];
+
+    document.addEventListener("DOMContentLoaded", async () => {
+      // 1. Initialize Leaflet Basemap
+      map = L.map('map').setView([38.5, -96.0], 4);
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; OpenStreetMap &copy; CARTO',
+        maxZoom: 18
+      }).addTo(map);
+
+      uapCluster = L.markerClusterGroup();
+      jobsCluster = L.markerClusterGroup();
+      ghostCluster = L.markerClusterGroup();
+
+      map.addLayer(uapCluster);
+      map.addLayer(jobsCluster);
+      map.addLayer(ghostCluster);
+
+      // 2. Fetch GeoJSON Data Feeds
+      try {
+        const [uapRes, jobsRes, ghostRes, newsRes, summaryRes] = await Promise.all([
+          fetch('/api/v1/geojson/uap').then(r => r.json()).catch(() => ({features: []})),
+          fetch('/api/v1/geojson/veteran-jobs').then(r => r.json()).catch(() => ({features: []})),
+          fetch('/api/v1/geojson/ghost-companies').then(r => r.json()).catch(() => ({features: []})),
+          fetch('/api/v1/ghost/news').then(r => r.json()).catch(() => []),
+          fetch('/api/v1/ghost/summary').then(r => r.json()).catch(() => [])
+        ]);
+
+        uapData = uapRes.features || [];
+        jobsData = jobsRes.features || [];
+        ghostData = ghostRes.features || [];
+
+        document.getElementById('kpi-uap').innerText = uapData.length.toLocaleString();
+        document.getElementById('kpi-jobs').innerText = `${jobsData.length} Positions`;
+        document.getElementById('kpi-ghost').innerText = `${ghostData.length} Companies`;
+
+        // Render Markers
+        renderUAPMarkers(uapData);
+        renderJobMarkers(jobsData);
+        renderGhostMarkers(ghostData);
+        renderGhostTable(summaryRes);
+        renderNewsFeed(newsRes);
+
+      } catch (err) {
+        console.error("Error loading intelligence feeds:", err);
+      }
+
+      // Layer Toggles
+      document.getElementById('toggleUAP').addEventListener('change', e => {
+        e.target.checked ? map.addLayer(uapCluster) : map.removeLayer(uapCluster);
+      });
+      document.getElementById('toggleJobs').addEventListener('change', e => {
+        e.target.checked ? map.addLayer(jobsCluster) : map.removeLayer(jobsCluster);
+      });
+      document.getElementById('toggleGhost').addEventListener('change', e => {
+        e.target.checked ? map.addLayer(ghostCluster) : map.removeLayer(ghostCluster);
+      });
+    });
+
+    function renderUAPMarkers(features) {
+      features.forEach(f => {
+        const [lon, lat] = f.geometry.coordinates;
+        const p = f.properties;
+        const marker = L.circleMarker([lat, lon], {
+          radius: 5,
+          color: p.is_historical ? '#f59e0b' : '#38bdf8',
+          fillColor: p.is_historical ? '#fbbf24' : '#0284c7',
+          fillOpacity: 0.8,
+          weight: 1
+        });
+        marker.bindPopup(`
+          <div style="color:#0f172a; font-size:12px; max-width:240px;">
+            <strong style="color:${p.is_historical ? '#b45309' : '#0369a1'}">🛸 ${p.title}</strong><br/>
+            <em>Location:</em> ${p.city || ''}, ${p.state || ''}<br/>
+            <em>Era:</em> ${p.timestamp || ''}<br/>
+            <em>Shape:</em> <strong>${p.shape || ''}</strong><br/>
+            <p style="font-size:11px; margin-top:4px; color:#475569;">${(p.summary || '').substring(0, 100)}...</p>
+          </div>
+        `);
+        uapCluster.addLayer(marker);
+      });
+    }
+
+    function renderJobMarkers(features) {
+      features.forEach(f => {
+        const [lon, lat] = f.geometry.coordinates;
+        const p = f.properties;
+        const marker = L.circleMarker([lat, lon], {
+          radius: 7,
+          color: '#10b981',
+          fillColor: '#059669',
+          fillOpacity: 0.9,
+          weight: 2
+        });
+        marker.bindPopup(`
+          <div style="color:#0f172a; font-size:12px; max-width:260px;">
+            <strong style="color:#047857">🎖️ ${p.title}</strong><br/>
+            <em>Employer:</em> ${p.employer}<br/>
+            <em>Location:</em> ${p.location}<br/>
+            <em>Salary:</em> ${p.salary_range}<br/>
+            <em>MOS Matches:</em> <span style="background:#e0f2fe; color:#0369a1; padding:1px 4px; border-radius:3px;">${(p.mos_codes || []).join(', ')}</span><br/>
+            <span style="display:inline-block; margin-top:4px; font-size:10px; background:#dcfce7; color:#15803d; padding:2px 6px; border-radius:4px; font-weight:bold;">Verified Direct ATS</span>
+          </div>
+        `);
+        jobsCluster.addLayer(marker);
+      });
+    }
+
+    function renderGhostMarkers(features) {
+      features.forEach(f => {
+        const [lon, lat] = f.geometry.coordinates;
+        const p = f.properties;
+        const marker = L.circleMarker([lat, lon], {
+          radius: 9,
+          color: p.ghost_risk_pct > 40 ? '#ef4444' : '#f59e0b',
+          fillColor: p.ghost_risk_pct > 40 ? '#dc2626' : '#d97706',
+          fillOpacity: 0.85,
+          weight: 2
+        });
+        marker.bindPopup(`
+          <div style="color:#0f172a; font-size:12px; max-width:260px;">
+            <strong style="color:#991b1b">🏢 ${p.company_name}</strong><br/>
+            <em>Active Postings:</em> ${p.total_listings}<br/>
+            <em>Avg Listing Age:</em> ${p.avg_age_days} Days<br/>
+            <em>Stale (&gt;90d):</em> ${p.stale_over_90d} Requisitions<br/>
+            <em>Ghost Risk Score:</em> <strong>${p.ghost_risk_pct}%</strong><br/>
+            <span style="display:inline-block; margin-top:4px; font-size:10px; background:#fee2e2; color:#b91c1c; padding:2px 6px; border-radius:4px; font-weight:bold;">${p.risk_tier}</span>
+          </div>
+        `);
+        ghostCluster.addLayer(marker);
+      });
+    }
+
+    function renderGhostTable(summary) {
+      const tbody = document.getElementById('ghostTableBody');
+      tbody.innerHTML = '';
+      summary.forEach(c => {
+        const tr = document.createElement('tr');
+        tr.className = 'hover:bg-slate-800/40 transition';
+        const isCritical = c.ghost_risk_pct > 50;
+        tr.innerHTML = `
+          <td class="py-2 px-3 font-semibold text-white">${c.company_name}</td>
+          <td class="py-2 px-3">${c.total_active_listings}</td>
+          <td class="py-2 px-3">${c.avg_listing_age_days}d</td>
+          <td class="py-2 px-3">${c.stale_listings_over_90d}</td>
+          <td class="py-2 px-3 font-bold ${isCritical ? 'text-rose-400' : 'text-amber-400'}">${c.ghost_risk_pct}%</td>
+          <td class="py-2 px-3"><span class="px-2 py-0.5 rounded text-[10px] font-bold ${isCritical ? 'bg-rose-950 text-rose-300 border border-rose-800' : 'bg-amber-950 text-amber-300 border border-amber-800'}">${c.risk_tier}</span></td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function renderNewsFeed(news) {
+      const feed = document.getElementById('newsFeed');
+      feed.innerHTML = '';
+      news.forEach(n => {
+        const card = document.createElement('div');
+        card.className = 'p-3 rounded-lg bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition';
+        card.innerHTML = `
+          <div class="flex justify-between items-center text-[10px] text-slate-400 mb-1">
+            <span class="text-cyan-400 font-semibold">${n.source}</span>
+            <span class="px-1.5 py-0.5 rounded bg-slate-800 text-slate-300">${n.category}</span>
+          </div>
+          <a href="${n.url}" target="_blank" class="text-xs font-bold text-slate-200 hover:text-cyan-300 transition">${n.title}</a>
+          <p class="text-[11px] text-slate-400 mt-1 line-clamp-2">${n.summary}</p>
+        `;
+        feed.appendChild(card);
+      });
+    }
+  </script>
+</body>
+</html>
