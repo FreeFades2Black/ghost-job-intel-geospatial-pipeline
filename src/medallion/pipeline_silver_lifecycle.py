@@ -39,21 +39,22 @@ class SilverLifecycleEngine:
             elif isinstance(raw, dict) and "jobs" in raw:
                 jobs = raw.get("jobs", [])
 
-
             for j in jobs:
                 req_id = str(j.get("id", ""))
                 title = j.get("title") or j.get("text", "Unknown Position")
                 updated_at = j.get("updated_at") or observed_at
                 
                 # Department & Location parsing
-                dept = "General Engineering"
+                dept = j.get("dept") or "General Engineering"
                 if "departments" in j and j["departments"]:
                     dept = j["departments"][0].get("name", "Engineering")
                 elif "categories" in j and isinstance(j["categories"], dict):
                     dept = j["categories"].get("department", "Engineering")
 
-                loc = "Remote"
-                if "location" in j and isinstance(j["location"], dict):
+                loc = j.get("location") or "Remote"
+                if isinstance(loc, dict):
+                    loc = loc.get("name", "Remote")
+                elif "location" in j and isinstance(j["location"], dict):
                     loc = j["location"].get("name", "Remote")
                 elif "categories" in j and "location" in j["categories"]:
                     loc = j["categories"].get("location", "Remote")
@@ -63,6 +64,10 @@ class SilverLifecycleEngine:
                     "requisition_id": req_id,
                     "company_token": company_token,
                     "company_name": company_name,
+                    "ticker": snap.get("ticker", "N/A"),
+                    "region": snap.get("region", "National / Global"),
+                    "hq_city": snap.get("hq_city", "San Francisco"),
+                    "hq_state": snap.get("hq_state", "CA"),
                     "job_title": title,
                     "department_name": dept,
                     "location_name": loc,
@@ -71,9 +76,9 @@ class SilverLifecycleEngine:
                     "last_seen_at": observed_at,
                     "is_currently_active": True,
                     "lat": snap.get("lat", 37.7749),
-                    "lon": snap.get("lon", -122.4194)
+                    "lon": snap.get("lon", -122.4194),
+                    "description": snap.get("description", "")
                 })
-
 
         silver_file = SILVER_DIR / "silver_active_requisitions.json"
         with open(silver_file, "w", encoding="utf-8") as f:

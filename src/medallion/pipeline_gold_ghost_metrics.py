@@ -1,7 +1,7 @@
 """
 Gunslinger Lore: Chapter III - The High Noon Ledger (Gold Ghost Metrics)
 The final reckoning where phantom bounties exceeding ninety days are exposed,
-revealing the true velocity of the frontier saloon.
+revealing the true velocity of the frontier saloon with focus on Greenville, SC Top 10 Public & Tech Employers.
 """
 
 import json
@@ -41,20 +41,34 @@ class GoldGhostMetricsEngine:
                 company_stats[token] = {
                     "company_token": token,
                     "company_name": name,
+                    "ticker": r.get("ticker", "N/A"),
+                    "region": r.get("region", "National / Global"),
+                    "hq_city": r.get("hq_city", "San Francisco"),
+                    "hq_state": r.get("hq_state", "CA"),
                     "lat": r.get("lat", 37.7749),
                     "lon": r.get("lon", -122.4194),
+                    "description": r.get("description", ""),
                     "total_active_listings": 0,
                     "total_days_sum": 0,
                     "stale_listings_over_90d": 0,
+                    "department_breakdown": {},
                     "roles": []
                 }
+
+            dept = r.get("department_name", "General Engineering")
+            if dept not in company_stats[token]["department_breakdown"]:
+                company_stats[token]["department_breakdown"][dept] = {"total": 0, "stale": 0}
+            company_stats[token]["department_breakdown"][dept]["total"] += 1
+            company_stats[token]["department_breakdown"][dept]["stale"] += is_stale
 
             company_stats[token]["total_active_listings"] += 1
             company_stats[token]["total_days_sum"] += days_active
             company_stats[token]["stale_listings_over_90d"] += is_stale
             company_stats[token]["roles"].append({
+                "req_id": r.get("requisition_id", ""),
                 "title": r["job_title"],
-                "dept": r["department_name"],
+                "dept": dept,
+                "location": r.get("location_name", "Remote"),
                 "days_active": days_active,
                 "is_stale": bool(is_stale)
             })
@@ -85,17 +99,23 @@ class GoldGhostMetricsEngine:
             gold_summary.append({
                 "company_token": token,
                 "company_name": stats["company_name"],
+                "ticker": stats["ticker"],
+                "region": stats["region"],
+                "hq_city": stats["hq_city"],
+                "hq_state": stats["hq_state"],
                 "lat": stats["lat"],
                 "lon": stats["lon"],
+                "description": stats["description"],
                 "total_active_listings": total,
                 "avg_listing_age_days": avg_days,
                 "stale_listings_over_90d": stale,
                 "ghost_risk_pct": ghost_pct,
                 "risk_tier": risk_tier,
                 "sample_confidence": confidence,
-                "top_stale_role": next((x["title"] for x in stats["roles"] if x["is_stale"]), "N/A")
+                "top_stale_role": next((x["title"] for x in stats["roles"] if x["is_stale"]), "N/A"),
+                "department_breakdown": stats["department_breakdown"],
+                "sample_roles": stats["roles"][:15]
             })
-
 
         # Sort descending by ghost_risk_pct
         gold_summary.sort(key=lambda x: x["ghost_risk_pct"], reverse=True)
@@ -107,7 +127,6 @@ class GoldGhostMetricsEngine:
         return {
             "status": "success",
             "tier": "GOLD",
-            "companies_analyzed": len(gold_summary),
-            "output_file": str(gold_file),
-            "summary": gold_summary
+            "companies_evaluated": len(gold_summary),
+            "output_file": str(gold_file)
         }

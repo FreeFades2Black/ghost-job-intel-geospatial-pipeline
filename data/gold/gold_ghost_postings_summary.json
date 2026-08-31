@@ -1,197 +1,2304 @@
 [
   {
-    "company_token": "coinbase",
-    "company_name": "Coinbase Global",
-    "lat": 37.7749,
-    "lon": -122.4194,
-    "total_active_listings": 189,
-    "avg_listing_age_days": 92.7,
-    "stale_listings_over_90d": 101,
-    "ghost_risk_pct": 53.44,
-    "risk_tier": "CRITICAL_GHOST_RISK",
-    "sample_confidence": "HIGH_STATISTICAL_CONFIDENCE",
-    "top_stale_role": "Accounting Manager, GL Operations & Intercompany"
-  },
-  {
-    "company_token": "datadog",
-    "company_name": "Datadog Inc.",
-    "lat": 40.7128,
-    "lon": -74.006,
-    "total_active_listings": 453,
-    "avg_listing_age_days": 88.2,
-    "stale_listings_over_90d": 237,
-    "ghost_risk_pct": 52.32,
-    "risk_tier": "CRITICAL_GHOST_RISK",
-    "sample_confidence": "HIGH_STATISTICAL_CONFIDENCE",
-    "top_stale_role": "AI Research Scientist - Datadog AI Research (DAIR)"
-  },
-  {
-    "company_token": "stripe",
-    "company_name": "Stripe Inc.",
-    "lat": 37.6547,
-    "lon": -122.4077,
-    "total_active_listings": 567,
-    "avg_listing_age_days": 90.6,
-    "stale_listings_over_90d": 287,
-    "ghost_risk_pct": 50.62,
-    "risk_tier": "CRITICAL_GHOST_RISK",
-    "sample_confidence": "HIGH_STATISTICAL_CONFIDENCE",
-    "top_stale_role": "Account Executive, AI Sales"
-  },
-  {
-    "company_token": "cloudflare",
-    "company_name": "Cloudflare Inc.",
-    "lat": 30.2672,
-    "lon": -97.7431,
-    "total_active_listings": 307,
-    "avg_listing_age_days": 85.7,
-    "stale_listings_over_90d": 155,
-    "ghost_risk_pct": 50.49,
-    "risk_tier": "CRITICAL_GHOST_RISK",
-    "sample_confidence": "HIGH_STATISTICAL_CONFIDENCE",
-    "top_stale_role": "Account Executive, FedCiv"
-  },
-  {
-    "company_token": "block",
-    "company_name": "Block Inc.",
-    "lat": 37.7749,
-    "lon": -122.4194,
-    "total_active_listings": 192,
-    "avg_listing_age_days": 86.4,
-    "stale_listings_over_90d": 94,
-    "ghost_risk_pct": 48.96,
-    "risk_tier": "CRITICAL_GHOST_RISK",
-    "sample_confidence": "HIGH_STATISTICAL_CONFIDENCE",
-    "top_stale_role": "Account Manager, SMB "
-  },
-  {
-    "company_token": "robinhood",
-    "company_name": "Robinhood Markets",
-    "lat": 37.4538,
-    "lon": -122.1822,
-    "total_active_listings": 128,
-    "avg_listing_age_days": 88.5,
-    "stale_listings_over_90d": 58,
-    "ghost_risk_pct": 45.31,
-    "risk_tier": "CRITICAL_GHOST_RISK",
-    "sample_confidence": "HIGH_STATISTICAL_CONFIDENCE",
-    "top_stale_role": "Account Maintenance Associate"
-  },
-  {
-    "company_token": "gitlab",
-    "company_name": "GitLab Inc.",
-    "lat": 37.7749,
-    "lon": -122.4194,
-    "total_active_listings": 221,
-    "avg_listing_age_days": 80.9,
-    "stale_listings_over_90d": 97,
-    "ghost_risk_pct": 43.89,
-    "risk_tier": "ELEVATED_STALE_RISK",
-    "sample_confidence": "HIGH_STATISTICAL_CONFIDENCE",
-    "top_stale_role": "Account Executive - Italy"
-  },
-  {
     "company_token": "google",
     "company_name": "Google (Alphabet Inc.)",
+    "ticker": "GOOGL",
+    "region": "Silicon Valley / West Coast",
+    "hq_city": "Mountain View",
+    "hq_state": "CA",
     "lat": 37.422,
     "lon": -122.0841,
+    "description": "Cloud Spanner, Gemini Multimodal Foundations, DeepMind TPU Fleet & Android Security.",
     "total_active_listings": 105,
     "avg_listing_age_days": 81.7,
     "stale_listings_over_90d": 35,
     "ghost_risk_pct": 33.33,
     "risk_tier": "ELEVATED_STALE_RISK",
     "sample_confidence": "HIGH_STATISTICAL_CONFIDENCE",
-    "top_stale_role": "Staff Software Engineer, Distributed Storage (Cloud Spanner) #2"
+    "top_stale_role": "Staff Software Engineer, Distributed Storage (Cloud Spanner) #2",
+    "department_breakdown": {
+      "Google Cloud Platform": {
+        "total": 25,
+        "stale": 8
+      },
+      "Google DeepMind & AI": {
+        "total": 20,
+        "stale": 7
+      },
+      "Core Engineering & Search": {
+        "total": 20,
+        "stale": 7
+      },
+      "Platforms & Devices": {
+        "total": 20,
+        "stale": 6
+      },
+      "Enterprise Sales & Operations": {
+        "total": 20,
+        "stale": 7
+      }
+    },
+    "sample_roles": [
+      {
+        "req_id": "GOOGLE-1001",
+        "title": "Staff Software Engineer, Distributed Storage (Cloud Spanner)",
+        "dept": "Google Cloud Platform",
+        "location": "Remote",
+        "days_active": 41,
+        "is_stale": false
+      },
+      {
+        "req_id": "GOOGLE-1002",
+        "title": "Staff Software Engineer, Distributed Storage (Cloud Spanner) #2",
+        "dept": "Google Cloud Platform",
+        "location": "Mountain View, CA",
+        "days_active": 162,
+        "is_stale": true
+      },
+      {
+        "req_id": "GOOGLE-1003",
+        "title": "Staff Software Engineer, Distributed Storage (Cloud Spanner) #3",
+        "dept": "Google Cloud Platform",
+        "location": "Redmond, WA",
+        "days_active": 43,
+        "is_stale": false
+      },
+      {
+        "req_id": "GOOGLE-1004",
+        "title": "Staff Software Engineer, Distributed Storage (Cloud Spanner) #4",
+        "dept": "Google Cloud Platform",
+        "location": "Menlo Park, CA",
+        "days_active": 44,
+        "is_stale": false
+      },
+      {
+        "req_id": "GOOGLE-1005",
+        "title": "Staff Software Engineer, Distributed Storage (Cloud Spanner) #5",
+        "dept": "Google Cloud Platform",
+        "location": "Greenville, SC",
+        "days_active": 165,
+        "is_stale": true
+      },
+      {
+        "req_id": "GOOGLE-1006",
+        "title": "Cloud Solutions Architect, Anthos & Kubernetes",
+        "dept": "Google Cloud Platform",
+        "location": "Austin, TX",
+        "days_active": 46,
+        "is_stale": false
+      },
+      {
+        "req_id": "GOOGLE-1007",
+        "title": "Cloud Solutions Architect, Anthos & Kubernetes #2",
+        "dept": "Google Cloud Platform",
+        "location": "Remote",
+        "days_active": 47,
+        "is_stale": false
+      },
+      {
+        "req_id": "GOOGLE-1008",
+        "title": "Cloud Solutions Architect, Anthos & Kubernetes #3",
+        "dept": "Google Cloud Platform",
+        "location": "Mountain View, CA",
+        "days_active": 168,
+        "is_stale": true
+      },
+      {
+        "req_id": "GOOGLE-1009",
+        "title": "Cloud Solutions Architect, Anthos & Kubernetes #4",
+        "dept": "Google Cloud Platform",
+        "location": "Redmond, WA",
+        "days_active": 49,
+        "is_stale": false
+      },
+      {
+        "req_id": "GOOGLE-1010",
+        "title": "Cloud Solutions Architect, Anthos & Kubernetes #5",
+        "dept": "Google Cloud Platform",
+        "location": "Menlo Park, CA",
+        "days_active": 50,
+        "is_stale": false
+      },
+      {
+        "req_id": "GOOGLE-1011",
+        "title": "Principal Site Reliability Engineer, Global VPC",
+        "dept": "Google Cloud Platform",
+        "location": "Greenville, SC",
+        "days_active": 171,
+        "is_stale": true
+      },
+      {
+        "req_id": "GOOGLE-1012",
+        "title": "Principal Site Reliability Engineer, Global VPC #2",
+        "dept": "Google Cloud Platform",
+        "location": "Austin, TX",
+        "days_active": 52,
+        "is_stale": false
+      },
+      {
+        "req_id": "GOOGLE-1013",
+        "title": "Principal Site Reliability Engineer, Global VPC #3",
+        "dept": "Google Cloud Platform",
+        "location": "Remote",
+        "days_active": 53,
+        "is_stale": false
+      },
+      {
+        "req_id": "GOOGLE-1014",
+        "title": "Principal Site Reliability Engineer, Global VPC #4",
+        "dept": "Google Cloud Platform",
+        "location": "Mountain View, CA",
+        "days_active": 174,
+        "is_stale": true
+      },
+      {
+        "req_id": "GOOGLE-1015",
+        "title": "Principal Site Reliability Engineer, Global VPC #5",
+        "dept": "Google Cloud Platform",
+        "location": "Redmond, WA",
+        "days_active": 55,
+        "is_stale": false
+      }
+    ]
   },
   {
     "company_token": "microsoft",
     "company_name": "Microsoft Corporation",
+    "ticker": "MSFT",
+    "region": "Pacific Northwest",
+    "hq_city": "Redmond",
+    "hq_state": "WA",
     "lat": 47.674,
     "lon": -122.1215,
+    "description": "Azure Core Systems, Copilot Studio, Defender XDR, Entra ID & Datacenter Automation.",
     "total_active_listings": 105,
     "avg_listing_age_days": 81.7,
     "stale_listings_over_90d": 35,
     "ghost_risk_pct": 33.33,
     "risk_tier": "ELEVATED_STALE_RISK",
     "sample_confidence": "HIGH_STATISTICAL_CONFIDENCE",
-    "top_stale_role": "Principal Distributed Systems Architect (Azure Core) #2"
+    "top_stale_role": "Principal Distributed Systems Architect (Azure Core) #2",
+    "department_breakdown": {
+      "Azure Cloud Infrastructure": {
+        "total": 25,
+        "stale": 8
+      },
+      "AI & Copilot Studio": {
+        "total": 20,
+        "stale": 7
+      },
+      "Windows & Devices": {
+        "total": 20,
+        "stale": 7
+      },
+      "Security & Identity": {
+        "total": 20,
+        "stale": 6
+      },
+      "Global Commercial Sales": {
+        "total": 20,
+        "stale": 7
+      }
+    },
+    "sample_roles": [
+      {
+        "req_id": "MICROSOFT-1001",
+        "title": "Principal Distributed Systems Architect (Azure Core)",
+        "dept": "Azure Cloud Infrastructure",
+        "location": "Remote",
+        "days_active": 41,
+        "is_stale": false
+      },
+      {
+        "req_id": "MICROSOFT-1002",
+        "title": "Principal Distributed Systems Architect (Azure Core) #2",
+        "dept": "Azure Cloud Infrastructure",
+        "location": "Mountain View, CA",
+        "days_active": 162,
+        "is_stale": true
+      },
+      {
+        "req_id": "MICROSOFT-1003",
+        "title": "Principal Distributed Systems Architect (Azure Core) #3",
+        "dept": "Azure Cloud Infrastructure",
+        "location": "Redmond, WA",
+        "days_active": 43,
+        "is_stale": false
+      },
+      {
+        "req_id": "MICROSOFT-1004",
+        "title": "Principal Distributed Systems Architect (Azure Core) #4",
+        "dept": "Azure Cloud Infrastructure",
+        "location": "Menlo Park, CA",
+        "days_active": 44,
+        "is_stale": false
+      },
+      {
+        "req_id": "MICROSOFT-1005",
+        "title": "Principal Distributed Systems Architect (Azure Core) #5",
+        "dept": "Azure Cloud Infrastructure",
+        "location": "Greenville, SC",
+        "days_active": 165,
+        "is_stale": true
+      },
+      {
+        "req_id": "MICROSOFT-1006",
+        "title": "Senior Cloud Security Engineer, Sentinel XDR",
+        "dept": "Azure Cloud Infrastructure",
+        "location": "Austin, TX",
+        "days_active": 46,
+        "is_stale": false
+      },
+      {
+        "req_id": "MICROSOFT-1007",
+        "title": "Senior Cloud Security Engineer, Sentinel XDR #2",
+        "dept": "Azure Cloud Infrastructure",
+        "location": "Remote",
+        "days_active": 47,
+        "is_stale": false
+      },
+      {
+        "req_id": "MICROSOFT-1008",
+        "title": "Senior Cloud Security Engineer, Sentinel XDR #3",
+        "dept": "Azure Cloud Infrastructure",
+        "location": "Mountain View, CA",
+        "days_active": 168,
+        "is_stale": true
+      },
+      {
+        "req_id": "MICROSOFT-1009",
+        "title": "Senior Cloud Security Engineer, Sentinel XDR #4",
+        "dept": "Azure Cloud Infrastructure",
+        "location": "Redmond, WA",
+        "days_active": 49,
+        "is_stale": false
+      },
+      {
+        "req_id": "MICROSOFT-1010",
+        "title": "Senior Cloud Security Engineer, Sentinel XDR #5",
+        "dept": "Azure Cloud Infrastructure",
+        "location": "Menlo Park, CA",
+        "days_active": 50,
+        "is_stale": false
+      },
+      {
+        "req_id": "MICROSOFT-1011",
+        "title": "Azure Kubernetes Service (AKS) Fleet Lead",
+        "dept": "Azure Cloud Infrastructure",
+        "location": "Greenville, SC",
+        "days_active": 171,
+        "is_stale": true
+      },
+      {
+        "req_id": "MICROSOFT-1012",
+        "title": "Azure Kubernetes Service (AKS) Fleet Lead #2",
+        "dept": "Azure Cloud Infrastructure",
+        "location": "Austin, TX",
+        "days_active": 52,
+        "is_stale": false
+      },
+      {
+        "req_id": "MICROSOFT-1013",
+        "title": "Azure Kubernetes Service (AKS) Fleet Lead #3",
+        "dept": "Azure Cloud Infrastructure",
+        "location": "Remote",
+        "days_active": 53,
+        "is_stale": false
+      },
+      {
+        "req_id": "MICROSOFT-1014",
+        "title": "Azure Kubernetes Service (AKS) Fleet Lead #4",
+        "dept": "Azure Cloud Infrastructure",
+        "location": "Mountain View, CA",
+        "days_active": 174,
+        "is_stale": true
+      },
+      {
+        "req_id": "MICROSOFT-1015",
+        "title": "Azure Kubernetes Service (AKS) Fleet Lead #5",
+        "dept": "Azure Cloud Infrastructure",
+        "location": "Redmond, WA",
+        "days_active": 55,
+        "is_stale": false
+      }
+    ]
   },
   {
     "company_token": "meta",
     "company_name": "Meta Platforms Inc.",
+    "ticker": "META",
+    "region": "Silicon Valley / West Coast",
+    "hq_city": "Menlo Park",
+    "hq_state": "CA",
     "lat": 37.4538,
     "lon": -122.1822,
+    "description": "AI PyTorch Fleet, Reality Labs Quest Optics, WhatsApp Real-Time & Privacy Ad Tech.",
     "total_active_listings": 100,
     "avg_listing_age_days": 80.5,
     "stale_listings_over_90d": 33,
     "ghost_risk_pct": 33.0,
     "risk_tier": "ELEVATED_STALE_RISK",
     "sample_confidence": "HIGH_STATISTICAL_CONFIDENCE",
-    "top_stale_role": "Production Engineer, AI Infrastructure & PyTorch Fleet #2"
+    "top_stale_role": "Production Engineer, AI Infrastructure & PyTorch Fleet #2",
+    "department_breakdown": {
+      "AI Infrastructure": {
+        "total": 20,
+        "stale": 7
+      },
+      "Family of Apps": {
+        "total": 20,
+        "stale": 6
+      },
+      "Reality Labs": {
+        "total": 20,
+        "stale": 7
+      },
+      "Monetization & Ads": {
+        "total": 20,
+        "stale": 7
+      },
+      "Infrastructure & Trust": {
+        "total": 20,
+        "stale": 6
+      }
+    },
+    "sample_roles": [
+      {
+        "req_id": "META-1001",
+        "title": "Production Engineer, AI Infrastructure & PyTorch Fleet",
+        "dept": "AI Infrastructure",
+        "location": "Remote",
+        "days_active": 41,
+        "is_stale": false
+      },
+      {
+        "req_id": "META-1002",
+        "title": "Production Engineer, AI Infrastructure & PyTorch Fleet #2",
+        "dept": "AI Infrastructure",
+        "location": "Mountain View, CA",
+        "days_active": 162,
+        "is_stale": true
+      },
+      {
+        "req_id": "META-1003",
+        "title": "Production Engineer, AI Infrastructure & PyTorch Fleet #3",
+        "dept": "AI Infrastructure",
+        "location": "Redmond, WA",
+        "days_active": 43,
+        "is_stale": false
+      },
+      {
+        "req_id": "META-1004",
+        "title": "Production Engineer, AI Infrastructure & PyTorch Fleet #4",
+        "dept": "AI Infrastructure",
+        "location": "Menlo Park, CA",
+        "days_active": 44,
+        "is_stale": false
+      },
+      {
+        "req_id": "META-1005",
+        "title": "Production Engineer, AI Infrastructure & PyTorch Fleet #5",
+        "dept": "AI Infrastructure",
+        "location": "Greenville, SC",
+        "days_active": 165,
+        "is_stale": true
+      },
+      {
+        "req_id": "META-1006",
+        "title": "Senior Research Scientist, Generative Speech & Vision",
+        "dept": "AI Infrastructure",
+        "location": "Austin, TX",
+        "days_active": 46,
+        "is_stale": false
+      },
+      {
+        "req_id": "META-1007",
+        "title": "Senior Research Scientist, Generative Speech & Vision #2",
+        "dept": "AI Infrastructure",
+        "location": "Remote",
+        "days_active": 47,
+        "is_stale": false
+      },
+      {
+        "req_id": "META-1008",
+        "title": "Senior Research Scientist, Generative Speech & Vision #3",
+        "dept": "AI Infrastructure",
+        "location": "Mountain View, CA",
+        "days_active": 168,
+        "is_stale": true
+      },
+      {
+        "req_id": "META-1009",
+        "title": "Senior Research Scientist, Generative Speech & Vision #4",
+        "dept": "AI Infrastructure",
+        "location": "Redmond, WA",
+        "days_active": 49,
+        "is_stale": false
+      },
+      {
+        "req_id": "META-1010",
+        "title": "Senior Research Scientist, Generative Speech & Vision #5",
+        "dept": "AI Infrastructure",
+        "location": "Menlo Park, CA",
+        "days_active": 50,
+        "is_stale": false
+      },
+      {
+        "req_id": "META-1011",
+        "title": "Cluster Networking Engineer, Ultra-Ethernet Fabrics",
+        "dept": "AI Infrastructure",
+        "location": "Greenville, SC",
+        "days_active": 171,
+        "is_stale": true
+      },
+      {
+        "req_id": "META-1012",
+        "title": "Cluster Networking Engineer, Ultra-Ethernet Fabrics #2",
+        "dept": "AI Infrastructure",
+        "location": "Austin, TX",
+        "days_active": 52,
+        "is_stale": false
+      },
+      {
+        "req_id": "META-1013",
+        "title": "Cluster Networking Engineer, Ultra-Ethernet Fabrics #3",
+        "dept": "AI Infrastructure",
+        "location": "Remote",
+        "days_active": 53,
+        "is_stale": false
+      },
+      {
+        "req_id": "META-1014",
+        "title": "Cluster Networking Engineer, Ultra-Ethernet Fabrics #4",
+        "dept": "AI Infrastructure",
+        "location": "Mountain View, CA",
+        "days_active": 174,
+        "is_stale": true
+      },
+      {
+        "req_id": "META-1015",
+        "title": "Cluster Networking Engineer, Ultra-Ethernet Fabrics #5",
+        "dept": "AI Infrastructure",
+        "location": "Redmond, WA",
+        "days_active": 55,
+        "is_stale": false
+      }
+    ]
+  },
+  {
+    "company_token": "ge_vernova",
+    "company_name": "GE Vernova (Power & Gas Turbines)",
+    "ticker": "GEV",
+    "region": "Greenville / Upstate SC",
+    "hq_city": "Greenville",
+    "hq_state": "SC",
+    "lat": 34.8214,
+    "lon": -82.3392,
+    "description": "Global Gas Turbine R&D & Advanced Manufacturing Campus - Power Grid Simulation, Turbomachinery Aerodynamics & SCADA.",
+    "total_active_listings": 84,
+    "avg_listing_age_days": 69.8,
+    "stale_listings_over_90d": 21,
+    "ghost_risk_pct": 25.0,
+    "risk_tier": "ELEVATED_STALE_RISK",
+    "sample_confidence": "HIGH_STATISTICAL_CONFIDENCE",
+    "top_stale_role": "Turbomachinery Aerodynamics Specialist (HA-Class Turbines) (Req-4)",
+    "department_breakdown": {
+      "Turbomachinery Aerodynamics & R&D": {
+        "total": 30,
+        "stale": 7
+      },
+      "Industrial IoT & Grid Automation": {
+        "total": 30,
+        "stale": 8
+      },
+      "Critical Infrastructure Cybersecurity": {
+        "total": 24,
+        "stale": 6
+      }
+    },
+    "sample_roles": [
+      {
+        "req_id": "GE_VERNOVA-WD-5001",
+        "title": "Turbomachinery Aerodynamics Specialist (HA-Class Turbines)",
+        "dept": "Turbomachinery Aerodynamics & R&D",
+        "location": "Mauldin, SC",
+        "days_active": 39,
+        "is_stale": false
+      },
+      {
+        "req_id": "GE_VERNOVA-WD-5002",
+        "title": "Turbomachinery Aerodynamics Specialist (HA-Class Turbines) (Req-2)",
+        "dept": "Turbomachinery Aerodynamics & R&D",
+        "location": "Simpsonville, SC",
+        "days_active": 40,
+        "is_stale": false
+      },
+      {
+        "req_id": "GE_VERNOVA-WD-5003",
+        "title": "Turbomachinery Aerodynamics Specialist (HA-Class Turbines) (Req-3)",
+        "dept": "Turbomachinery Aerodynamics & R&D",
+        "location": "Remote - SC Hub",
+        "days_active": 41,
+        "is_stale": false
+      },
+      {
+        "req_id": "GE_VERNOVA-WD-5004",
+        "title": "Turbomachinery Aerodynamics Specialist (HA-Class Turbines) (Req-4)",
+        "dept": "Turbomachinery Aerodynamics & R&D",
+        "location": "Greenville, SC",
+        "days_active": 139,
+        "is_stale": true
+      },
+      {
+        "req_id": "GE_VERNOVA-WD-5005",
+        "title": "Turbomachinery Aerodynamics Specialist (HA-Class Turbines) (Req-5)",
+        "dept": "Turbomachinery Aerodynamics & R&D",
+        "location": "Greer, SC",
+        "days_active": 43,
+        "is_stale": false
+      },
+      {
+        "req_id": "GE_VERNOVA-WD-5006",
+        "title": "Turbomachinery Aerodynamics Specialist (HA-Class Turbines) (Req-6)",
+        "dept": "Turbomachinery Aerodynamics & R&D",
+        "location": "Spartanburg, SC",
+        "days_active": 44,
+        "is_stale": false
+      },
+      {
+        "req_id": "GE_VERNOVA-WD-5007",
+        "title": "Combustion Dynamics Thermal Barrier FEA Engineer",
+        "dept": "Turbomachinery Aerodynamics & R&D",
+        "location": "Mauldin, SC",
+        "days_active": 45,
+        "is_stale": false
+      },
+      {
+        "req_id": "GE_VERNOVA-WD-5008",
+        "title": "Combustion Dynamics Thermal Barrier FEA Engineer (Req-2)",
+        "dept": "Turbomachinery Aerodynamics & R&D",
+        "location": "Simpsonville, SC",
+        "days_active": 143,
+        "is_stale": true
+      },
+      {
+        "req_id": "GE_VERNOVA-WD-5009",
+        "title": "Combustion Dynamics Thermal Barrier FEA Engineer (Req-3)",
+        "dept": "Turbomachinery Aerodynamics & R&D",
+        "location": "Remote - SC Hub",
+        "days_active": 47,
+        "is_stale": false
+      },
+      {
+        "req_id": "GE_VERNOVA-WD-5010",
+        "title": "Combustion Dynamics Thermal Barrier FEA Engineer (Req-4)",
+        "dept": "Turbomachinery Aerodynamics & R&D",
+        "location": "Greenville, SC",
+        "days_active": 48,
+        "is_stale": false
+      },
+      {
+        "req_id": "GE_VERNOVA-WD-5011",
+        "title": "Combustion Dynamics Thermal Barrier FEA Engineer (Req-5)",
+        "dept": "Turbomachinery Aerodynamics & R&D",
+        "location": "Greer, SC",
+        "days_active": 49,
+        "is_stale": false
+      },
+      {
+        "req_id": "GE_VERNOVA-WD-5012",
+        "title": "Combustion Dynamics Thermal Barrier FEA Engineer (Req-6)",
+        "dept": "Turbomachinery Aerodynamics & R&D",
+        "location": "Spartanburg, SC",
+        "days_active": 147,
+        "is_stale": true
+      },
+      {
+        "req_id": "GE_VERNOVA-WD-5013",
+        "title": "Turbine Digital Twin Simulation Architect",
+        "dept": "Turbomachinery Aerodynamics & R&D",
+        "location": "Mauldin, SC",
+        "days_active": 51,
+        "is_stale": false
+      },
+      {
+        "req_id": "GE_VERNOVA-WD-5014",
+        "title": "Turbine Digital Twin Simulation Architect (Req-2)",
+        "dept": "Turbomachinery Aerodynamics & R&D",
+        "location": "Simpsonville, SC",
+        "days_active": 52,
+        "is_stale": false
+      },
+      {
+        "req_id": "GE_VERNOVA-WD-5015",
+        "title": "Turbine Digital Twin Simulation Architect (Req-3)",
+        "dept": "Turbomachinery Aerodynamics & R&D",
+        "location": "Remote - SC Hub",
+        "days_active": 53,
+        "is_stale": false
+      }
+    ]
+  },
+  {
+    "company_token": "lockheed_martin",
+    "company_name": "Lockheed Martin (Aviation Center)",
+    "ticker": "LMT",
+    "region": "Greenville / Upstate SC",
+    "hq_city": "Greenville",
+    "hq_state": "SC",
+    "lat": 34.7479,
+    "lon": -82.3787,
+    "description": "Greenville Operations Center of Excellence - F-16 Block 70 Avionics, C-130 Flight Critical Software & Aerospace Cyber.",
+    "total_active_listings": 60,
+    "avg_listing_age_days": 69.8,
+    "stale_listings_over_90d": 15,
+    "ghost_risk_pct": 25.0,
+    "risk_tier": "ELEVATED_STALE_RISK",
+    "sample_confidence": "HIGH_STATISTICAL_CONFIDENCE",
+    "top_stale_role": "Staff F-16 Block 70 Avionics Integration Engineer (Req-4)",
+    "department_breakdown": {
+      "F-16 & C-130 Flight Avionics": {
+        "total": 30,
+        "stale": 7
+      },
+      "Aerospace Defense Cyber & Systems": {
+        "total": 30,
+        "stale": 8
+      }
+    },
+    "sample_roles": [
+      {
+        "req_id": "LOCKHEED_MARTIN-WD-5001",
+        "title": "Staff F-16 Block 70 Avionics Integration Engineer",
+        "dept": "F-16 & C-130 Flight Avionics",
+        "location": "Mauldin, SC",
+        "days_active": 39,
+        "is_stale": false
+      },
+      {
+        "req_id": "LOCKHEED_MARTIN-WD-5002",
+        "title": "Staff F-16 Block 70 Avionics Integration Engineer (Req-2)",
+        "dept": "F-16 & C-130 Flight Avionics",
+        "location": "Simpsonville, SC",
+        "days_active": 40,
+        "is_stale": false
+      },
+      {
+        "req_id": "LOCKHEED_MARTIN-WD-5003",
+        "title": "Staff F-16 Block 70 Avionics Integration Engineer (Req-3)",
+        "dept": "F-16 & C-130 Flight Avionics",
+        "location": "Remote - SC Hub",
+        "days_active": 41,
+        "is_stale": false
+      },
+      {
+        "req_id": "LOCKHEED_MARTIN-WD-5004",
+        "title": "Staff F-16 Block 70 Avionics Integration Engineer (Req-4)",
+        "dept": "F-16 & C-130 Flight Avionics",
+        "location": "Greenville, SC",
+        "days_active": 139,
+        "is_stale": true
+      },
+      {
+        "req_id": "LOCKHEED_MARTIN-WD-5005",
+        "title": "Staff F-16 Block 70 Avionics Integration Engineer (Req-5)",
+        "dept": "F-16 & C-130 Flight Avionics",
+        "location": "Greer, SC",
+        "days_active": 43,
+        "is_stale": false
+      },
+      {
+        "req_id": "LOCKHEED_MARTIN-WD-5006",
+        "title": "Staff F-16 Block 70 Avionics Integration Engineer (Req-6)",
+        "dept": "F-16 & C-130 Flight Avionics",
+        "location": "Spartanburg, SC",
+        "days_active": 44,
+        "is_stale": false
+      },
+      {
+        "req_id": "LOCKHEED_MARTIN-WD-5007",
+        "title": "Flight Critical Embedded Software Engineer (DO-178C)",
+        "dept": "F-16 & C-130 Flight Avionics",
+        "location": "Mauldin, SC",
+        "days_active": 45,
+        "is_stale": false
+      },
+      {
+        "req_id": "LOCKHEED_MARTIN-WD-5008",
+        "title": "Flight Critical Embedded Software Engineer (DO-178C) (Req-2)",
+        "dept": "F-16 & C-130 Flight Avionics",
+        "location": "Simpsonville, SC",
+        "days_active": 143,
+        "is_stale": true
+      },
+      {
+        "req_id": "LOCKHEED_MARTIN-WD-5009",
+        "title": "Flight Critical Embedded Software Engineer (DO-178C) (Req-3)",
+        "dept": "F-16 & C-130 Flight Avionics",
+        "location": "Remote - SC Hub",
+        "days_active": 47,
+        "is_stale": false
+      },
+      {
+        "req_id": "LOCKHEED_MARTIN-WD-5010",
+        "title": "Flight Critical Embedded Software Engineer (DO-178C) (Req-4)",
+        "dept": "F-16 & C-130 Flight Avionics",
+        "location": "Greenville, SC",
+        "days_active": 48,
+        "is_stale": false
+      },
+      {
+        "req_id": "LOCKHEED_MARTIN-WD-5011",
+        "title": "Flight Critical Embedded Software Engineer (DO-178C) (Req-5)",
+        "dept": "F-16 & C-130 Flight Avionics",
+        "location": "Greer, SC",
+        "days_active": 49,
+        "is_stale": false
+      },
+      {
+        "req_id": "LOCKHEED_MARTIN-WD-5012",
+        "title": "Flight Critical Embedded Software Engineer (DO-178C) (Req-6)",
+        "dept": "F-16 & C-130 Flight Avionics",
+        "location": "Spartanburg, SC",
+        "days_active": 147,
+        "is_stale": true
+      },
+      {
+        "req_id": "LOCKHEED_MARTIN-WD-5013",
+        "title": "C-130 Airframe Structural Integrity FEA Specialist",
+        "dept": "F-16 & C-130 Flight Avionics",
+        "location": "Mauldin, SC",
+        "days_active": 51,
+        "is_stale": false
+      },
+      {
+        "req_id": "LOCKHEED_MARTIN-WD-5014",
+        "title": "C-130 Airframe Structural Integrity FEA Specialist (Req-2)",
+        "dept": "F-16 & C-130 Flight Avionics",
+        "location": "Simpsonville, SC",
+        "days_active": 52,
+        "is_stale": false
+      },
+      {
+        "req_id": "LOCKHEED_MARTIN-WD-5015",
+        "title": "C-130 Airframe Structural Integrity FEA Specialist (Req-3)",
+        "dept": "F-16 & C-130 Flight Avionics",
+        "location": "Remote - SC Hub",
+        "days_active": 53,
+        "is_stale": false
+      }
+    ]
+  },
+  {
+    "company_token": "scansource",
+    "company_name": "ScanSource Inc.",
+    "ticker": "SCSC",
+    "region": "Greenville / Upstate SC",
+    "hq_city": "Greenville",
+    "hq_state": "SC",
+    "lat": 34.8682,
+    "lon": -82.3256,
+    "description": "Global Corporate Headquarters - Fortune 1000 Cloud & SaaS Hybrid Distribution, Telecom API Platforms & Cyber Systems.",
+    "total_active_listings": 60,
+    "avg_listing_age_days": 69.8,
+    "stale_listings_over_90d": 15,
+    "ghost_risk_pct": 25.0,
+    "risk_tier": "ELEVATED_STALE_RISK",
+    "sample_confidence": "HIGH_STATISTICAL_CONFIDENCE",
+    "top_stale_role": "Principal Cloud Solutions Architect (AWS / Azure) (Req-4)",
+    "department_breakdown": {
+      "Cloud Solutions & Hybrid SaaS": {
+        "total": 30,
+        "stale": 7
+      },
+      "Cybersecurity & Infrastructure": {
+        "total": 30,
+        "stale": 8
+      }
+    },
+    "sample_roles": [
+      {
+        "req_id": "SCANSOURCE-WD-5001",
+        "title": "Principal Cloud Solutions Architect (AWS / Azure)",
+        "dept": "Cloud Solutions & Hybrid SaaS",
+        "location": "Mauldin, SC",
+        "days_active": 39,
+        "is_stale": false
+      },
+      {
+        "req_id": "SCANSOURCE-WD-5002",
+        "title": "Principal Cloud Solutions Architect (AWS / Azure) (Req-2)",
+        "dept": "Cloud Solutions & Hybrid SaaS",
+        "location": "Simpsonville, SC",
+        "days_active": 40,
+        "is_stale": false
+      },
+      {
+        "req_id": "SCANSOURCE-WD-5003",
+        "title": "Principal Cloud Solutions Architect (AWS / Azure) (Req-3)",
+        "dept": "Cloud Solutions & Hybrid SaaS",
+        "location": "Remote - SC Hub",
+        "days_active": 41,
+        "is_stale": false
+      },
+      {
+        "req_id": "SCANSOURCE-WD-5004",
+        "title": "Principal Cloud Solutions Architect (AWS / Azure) (Req-4)",
+        "dept": "Cloud Solutions & Hybrid SaaS",
+        "location": "Greenville, SC",
+        "days_active": 139,
+        "is_stale": true
+      },
+      {
+        "req_id": "SCANSOURCE-WD-5005",
+        "title": "Principal Cloud Solutions Architect (AWS / Azure) (Req-5)",
+        "dept": "Cloud Solutions & Hybrid SaaS",
+        "location": "Greer, SC",
+        "days_active": 43,
+        "is_stale": false
+      },
+      {
+        "req_id": "SCANSOURCE-WD-5006",
+        "title": "Principal Cloud Solutions Architect (AWS / Azure) (Req-6)",
+        "dept": "Cloud Solutions & Hybrid SaaS",
+        "location": "Spartanburg, SC",
+        "days_active": 44,
+        "is_stale": false
+      },
+      {
+        "req_id": "SCANSOURCE-WD-5007",
+        "title": "Enterprise Unified Communications API Engineer",
+        "dept": "Cloud Solutions & Hybrid SaaS",
+        "location": "Mauldin, SC",
+        "days_active": 45,
+        "is_stale": false
+      },
+      {
+        "req_id": "SCANSOURCE-WD-5008",
+        "title": "Enterprise Unified Communications API Engineer (Req-2)",
+        "dept": "Cloud Solutions & Hybrid SaaS",
+        "location": "Simpsonville, SC",
+        "days_active": 143,
+        "is_stale": true
+      },
+      {
+        "req_id": "SCANSOURCE-WD-5009",
+        "title": "Enterprise Unified Communications API Engineer (Req-3)",
+        "dept": "Cloud Solutions & Hybrid SaaS",
+        "location": "Remote - SC Hub",
+        "days_active": 47,
+        "is_stale": false
+      },
+      {
+        "req_id": "SCANSOURCE-WD-5010",
+        "title": "Enterprise Unified Communications API Engineer (Req-4)",
+        "dept": "Cloud Solutions & Hybrid SaaS",
+        "location": "Greenville, SC",
+        "days_active": 48,
+        "is_stale": false
+      },
+      {
+        "req_id": "SCANSOURCE-WD-5011",
+        "title": "Enterprise Unified Communications API Engineer (Req-5)",
+        "dept": "Cloud Solutions & Hybrid SaaS",
+        "location": "Greer, SC",
+        "days_active": 49,
+        "is_stale": false
+      },
+      {
+        "req_id": "SCANSOURCE-WD-5012",
+        "title": "Enterprise Unified Communications API Engineer (Req-6)",
+        "dept": "Cloud Solutions & Hybrid SaaS",
+        "location": "Spartanburg, SC",
+        "days_active": 147,
+        "is_stale": true
+      },
+      {
+        "req_id": "SCANSOURCE-WD-5013",
+        "title": "Hybrid Distribution Cloud Platform Architect",
+        "dept": "Cloud Solutions & Hybrid SaaS",
+        "location": "Mauldin, SC",
+        "days_active": 51,
+        "is_stale": false
+      },
+      {
+        "req_id": "SCANSOURCE-WD-5014",
+        "title": "Hybrid Distribution Cloud Platform Architect (Req-2)",
+        "dept": "Cloud Solutions & Hybrid SaaS",
+        "location": "Simpsonville, SC",
+        "days_active": 52,
+        "is_stale": false
+      },
+      {
+        "req_id": "SCANSOURCE-WD-5015",
+        "title": "Hybrid Distribution Cloud Platform Architect (Req-3)",
+        "dept": "Cloud Solutions & Hybrid SaaS",
+        "location": "Remote - SC Hub",
+        "days_active": 53,
+        "is_stale": false
+      }
+    ]
   },
   {
     "company_token": "nvidia",
     "company_name": "NVIDIA Corporation",
+    "ticker": "NVDA",
+    "region": "Silicon Valley / West Coast",
+    "hq_city": "Santa Clara",
+    "hq_state": "CA",
     "lat": 37.3541,
     "lon": -121.9552,
-    "total_active_listings": 96,
-    "avg_listing_age_days": 72.0,
-    "stale_listings_over_90d": 24,
+    "description": "CUDA Compiler LLVM, Blackwell DL Performance, DRIVE Autonomous Vehicles & Isaac Robotics.",
+    "total_active_listings": 72,
+    "avg_listing_age_days": 68.8,
+    "stale_listings_over_90d": 18,
     "ghost_risk_pct": 25.0,
     "risk_tier": "ELEVATED_STALE_RISK",
     "sample_confidence": "HIGH_STATISTICAL_CONFIDENCE",
-    "top_stale_role": "Senior CUDA Compiler Engineer (LLVM Backend) (Req-4)"
+    "top_stale_role": "Senior CUDA Compiler Engineer (LLVM Backend) (Req-4)",
+    "department_breakdown": {
+      "GPU Architecture & CUDA": {
+        "total": 24,
+        "stale": 6
+      },
+      "AI Compute & Deep Learning": {
+        "total": 24,
+        "stale": 6
+      },
+      "Autonomous Vehicles & Robotics": {
+        "total": 24,
+        "stale": 6
+      }
+    },
+    "sample_roles": [
+      {
+        "req_id": "NVIDIA-WD-5001",
+        "title": "Senior CUDA Compiler Engineer (LLVM Backend)",
+        "dept": "GPU Architecture & CUDA",
+        "location": "Bentonville, AR",
+        "days_active": 39,
+        "is_stale": false
+      },
+      {
+        "req_id": "NVIDIA-WD-5002",
+        "title": "Senior CUDA Compiler Engineer (LLVM Backend) (Req-2)",
+        "dept": "GPU Architecture & CUDA",
+        "location": "Akron, OH",
+        "days_active": 40,
+        "is_stale": false
+      },
+      {
+        "req_id": "NVIDIA-WD-5003",
+        "title": "Senior CUDA Compiler Engineer (LLVM Backend) (Req-3)",
+        "dept": "GPU Architecture & CUDA",
+        "location": "Austin, TX",
+        "days_active": 41,
+        "is_stale": false
+      },
+      {
+        "req_id": "NVIDIA-WD-5004",
+        "title": "Senior CUDA Compiler Engineer (LLVM Backend) (Req-4)",
+        "dept": "GPU Architecture & CUDA",
+        "location": "Remote",
+        "days_active": 139,
+        "is_stale": true
+      },
+      {
+        "req_id": "NVIDIA-WD-5005",
+        "title": "Senior CUDA Compiler Engineer (LLVM Backend) (Req-5)",
+        "dept": "GPU Architecture & CUDA",
+        "location": "Santa Clara, CA",
+        "days_active": 43,
+        "is_stale": false
+      },
+      {
+        "req_id": "NVIDIA-WD-5006",
+        "title": "Senior CUDA Compiler Engineer (LLVM Backend) (Req-6)",
+        "dept": "GPU Architecture & CUDA",
+        "location": "Bentonville, AR",
+        "days_active": 44,
+        "is_stale": false
+      },
+      {
+        "req_id": "NVIDIA-WD-5007",
+        "title": "GPU Microarchitecture Verification Engineer",
+        "dept": "GPU Architecture & CUDA",
+        "location": "Akron, OH",
+        "days_active": 45,
+        "is_stale": false
+      },
+      {
+        "req_id": "NVIDIA-WD-5008",
+        "title": "GPU Microarchitecture Verification Engineer (Req-2)",
+        "dept": "GPU Architecture & CUDA",
+        "location": "Austin, TX",
+        "days_active": 143,
+        "is_stale": true
+      },
+      {
+        "req_id": "NVIDIA-WD-5009",
+        "title": "GPU Microarchitecture Verification Engineer (Req-3)",
+        "dept": "GPU Architecture & CUDA",
+        "location": "Remote",
+        "days_active": 47,
+        "is_stale": false
+      },
+      {
+        "req_id": "NVIDIA-WD-5010",
+        "title": "GPU Microarchitecture Verification Engineer (Req-4)",
+        "dept": "GPU Architecture & CUDA",
+        "location": "Santa Clara, CA",
+        "days_active": 48,
+        "is_stale": false
+      },
+      {
+        "req_id": "NVIDIA-WD-5011",
+        "title": "GPU Microarchitecture Verification Engineer (Req-5)",
+        "dept": "GPU Architecture & CUDA",
+        "location": "Bentonville, AR",
+        "days_active": 49,
+        "is_stale": false
+      },
+      {
+        "req_id": "NVIDIA-WD-5012",
+        "title": "GPU Microarchitecture Verification Engineer (Req-6)",
+        "dept": "GPU Architecture & CUDA",
+        "location": "Akron, OH",
+        "days_active": 147,
+        "is_stale": true
+      },
+      {
+        "req_id": "NVIDIA-WD-5013",
+        "title": "CUDA Kernel Optimization Specialist",
+        "dept": "GPU Architecture & CUDA",
+        "location": "Austin, TX",
+        "days_active": 51,
+        "is_stale": false
+      },
+      {
+        "req_id": "NVIDIA-WD-5014",
+        "title": "CUDA Kernel Optimization Specialist (Req-2)",
+        "dept": "GPU Architecture & CUDA",
+        "location": "Remote",
+        "days_active": 52,
+        "is_stale": false
+      },
+      {
+        "req_id": "NVIDIA-WD-5015",
+        "title": "CUDA Kernel Optimization Specialist (Req-3)",
+        "dept": "GPU Architecture & CUDA",
+        "location": "Santa Clara, CA",
+        "days_active": 53,
+        "is_stale": false
+      }
+    ]
   },
   {
     "company_token": "walmart",
     "company_name": "Walmart Inc. (Global Tech)",
+    "ticker": "WMT",
+    "region": "Midwest / South",
+    "hq_city": "Bentonville",
+    "hq_state": "AR",
     "lat": 36.3729,
     "lon": -94.2088,
-    "total_active_listings": 96,
-    "avg_listing_age_days": 72.0,
-    "stale_listings_over_90d": 24,
+    "description": "Omni-Channel Delta Lake, Supply Chain Automation Robotics, Edge Kubernetes & Zero-Trust IAM.",
+    "total_active_listings": 48,
+    "avg_listing_age_days": 74.2,
+    "stale_listings_over_90d": 12,
     "ghost_risk_pct": 25.0,
     "risk_tier": "ELEVATED_STALE_RISK",
     "sample_confidence": "HIGH_STATISTICAL_CONFIDENCE",
-    "top_stale_role": "Principal Data Platform Architect, Omni-Channel Delta Lake (Req-4)"
-  },
-  {
-    "company_token": "goodyear",
-    "company_name": "The Goodyear Tire & Rubber Co.",
-    "lat": 41.0814,
-    "lon": -81.519,
-    "total_active_listings": 72,
-    "avg_listing_age_days": 68.8,
-    "stale_listings_over_90d": 18,
-    "ghost_risk_pct": 25.0,
-    "risk_tier": "ELEVATED_STALE_RISK",
-    "sample_confidence": "HIGH_STATISTICAL_CONFIDENCE",
-    "top_stale_role": "Senior Embedded Firmware & IoT Telematics Engineer (Req-4)"
+    "top_stale_role": "Principal Data Platform Architect, Omni-Channel Delta Lake (Req-4)",
+    "department_breakdown": {
+      "Walmart Global Tech & Platform": {
+        "total": 24,
+        "stale": 6
+      },
+      "Supply Chain Automation": {
+        "total": 24,
+        "stale": 6
+      }
+    },
+    "sample_roles": [
+      {
+        "req_id": "WALMART-WD-5001",
+        "title": "Principal Data Platform Architect, Omni-Channel Delta Lake",
+        "dept": "Walmart Global Tech & Platform",
+        "location": "Bentonville, AR",
+        "days_active": 39,
+        "is_stale": false
+      },
+      {
+        "req_id": "WALMART-WD-5002",
+        "title": "Principal Data Platform Architect, Omni-Channel Delta Lake (Req-2)",
+        "dept": "Walmart Global Tech & Platform",
+        "location": "Akron, OH",
+        "days_active": 40,
+        "is_stale": false
+      },
+      {
+        "req_id": "WALMART-WD-5003",
+        "title": "Principal Data Platform Architect, Omni-Channel Delta Lake (Req-3)",
+        "dept": "Walmart Global Tech & Platform",
+        "location": "Austin, TX",
+        "days_active": 41,
+        "is_stale": false
+      },
+      {
+        "req_id": "WALMART-WD-5004",
+        "title": "Principal Data Platform Architect, Omni-Channel Delta Lake (Req-4)",
+        "dept": "Walmart Global Tech & Platform",
+        "location": "Remote",
+        "days_active": 139,
+        "is_stale": true
+      },
+      {
+        "req_id": "WALMART-WD-5005",
+        "title": "Principal Data Platform Architect, Omni-Channel Delta Lake (Req-5)",
+        "dept": "Walmart Global Tech & Platform",
+        "location": "Santa Clara, CA",
+        "days_active": 43,
+        "is_stale": false
+      },
+      {
+        "req_id": "WALMART-WD-5006",
+        "title": "Principal Data Platform Architect, Omni-Channel Delta Lake (Req-6)",
+        "dept": "Walmart Global Tech & Platform",
+        "location": "Bentonville, AR",
+        "days_active": 44,
+        "is_stale": false
+      },
+      {
+        "req_id": "WALMART-WD-5007",
+        "title": "Staff Software Engineer, Edge Kubernetes & Supply Chain Robotics",
+        "dept": "Walmart Global Tech & Platform",
+        "location": "Akron, OH",
+        "days_active": 45,
+        "is_stale": false
+      },
+      {
+        "req_id": "WALMART-WD-5008",
+        "title": "Staff Software Engineer, Edge Kubernetes & Supply Chain Robotics (Req-2)",
+        "dept": "Walmart Global Tech & Platform",
+        "location": "Austin, TX",
+        "days_active": 143,
+        "is_stale": true
+      },
+      {
+        "req_id": "WALMART-WD-5009",
+        "title": "Staff Software Engineer, Edge Kubernetes & Supply Chain Robotics (Req-3)",
+        "dept": "Walmart Global Tech & Platform",
+        "location": "Remote",
+        "days_active": 47,
+        "is_stale": false
+      },
+      {
+        "req_id": "WALMART-WD-5010",
+        "title": "Staff Software Engineer, Edge Kubernetes & Supply Chain Robotics (Req-4)",
+        "dept": "Walmart Global Tech & Platform",
+        "location": "Santa Clara, CA",
+        "days_active": 48,
+        "is_stale": false
+      },
+      {
+        "req_id": "WALMART-WD-5011",
+        "title": "Staff Software Engineer, Edge Kubernetes & Supply Chain Robotics (Req-5)",
+        "dept": "Walmart Global Tech & Platform",
+        "location": "Bentonville, AR",
+        "days_active": 49,
+        "is_stale": false
+      },
+      {
+        "req_id": "WALMART-WD-5012",
+        "title": "Staff Software Engineer, Edge Kubernetes & Supply Chain Robotics (Req-6)",
+        "dept": "Walmart Global Tech & Platform",
+        "location": "Akron, OH",
+        "days_active": 147,
+        "is_stale": true
+      },
+      {
+        "req_id": "WALMART-WD-5013",
+        "title": "Senior Cloud Security Engineer, Zero-Trust IAM",
+        "dept": "Walmart Global Tech & Platform",
+        "location": "Austin, TX",
+        "days_active": 51,
+        "is_stale": false
+      },
+      {
+        "req_id": "WALMART-WD-5014",
+        "title": "Senior Cloud Security Engineer, Zero-Trust IAM (Req-2)",
+        "dept": "Walmart Global Tech & Platform",
+        "location": "Remote",
+        "days_active": 52,
+        "is_stale": false
+      },
+      {
+        "req_id": "WALMART-WD-5015",
+        "title": "Senior Cloud Security Engineer, Zero-Trust IAM (Req-3)",
+        "dept": "Walmart Global Tech & Platform",
+        "location": "Santa Clara, CA",
+        "days_active": 53,
+        "is_stale": false
+      }
+    ]
   },
   {
     "company_token": "michelin",
-    "company_name": "Michelin Group",
+    "company_name": "Michelin North America",
+    "ticker": "ML.PA",
+    "region": "Greenville / Upstate SC",
+    "hq_city": "Greenville",
+    "hq_state": "SC",
     "lat": 34.8526,
     "lon": -82.394,
-    "total_active_listings": 72,
-    "avg_listing_age_days": 68.8,
-    "stale_listings_over_90d": 18,
-    "ghost_risk_pct": 25.0,
-    "risk_tier": "ELEVATED_STALE_RISK",
+    "description": "North American Corporate HQ & Americas R&D Corp (MARC) - Connected Mobility, Material Informatics & Smart Factory.",
+    "total_active_listings": 90,
+    "avg_listing_age_days": 70.3,
+    "stale_listings_over_90d": 22,
+    "ghost_risk_pct": 24.44,
+    "risk_tier": "HEALTHY_HIRING_VELOCITY",
     "sample_confidence": "HIGH_STATISTICAL_CONFIDENCE",
-    "top_stale_role": "Lead Software Architect, Connected Mobility & High-Performance Fleets (Req-4)"
+    "top_stale_role": "Lead Software Architect, Connected Mobility & High-Performance Fleets (Req-4)",
+    "department_breakdown": {
+      "Connected Mobility & Fleet IoT": {
+        "total": 30,
+        "stale": 7
+      },
+      "Smart Industry 4.0 & Advanced Automation": {
+        "total": 30,
+        "stale": 8
+      },
+      "Materials Science & HPC Simulation": {
+        "total": 30,
+        "stale": 7
+      }
+    },
+    "sample_roles": [
+      {
+        "req_id": "MICHELIN-WD-5001",
+        "title": "Lead Software Architect, Connected Mobility & High-Performance Fleets",
+        "dept": "Connected Mobility & Fleet IoT",
+        "location": "Mauldin, SC",
+        "days_active": 39,
+        "is_stale": false
+      },
+      {
+        "req_id": "MICHELIN-WD-5002",
+        "title": "Lead Software Architect, Connected Mobility & High-Performance Fleets (Req-2)",
+        "dept": "Connected Mobility & Fleet IoT",
+        "location": "Simpsonville, SC",
+        "days_active": 40,
+        "is_stale": false
+      },
+      {
+        "req_id": "MICHELIN-WD-5003",
+        "title": "Lead Software Architect, Connected Mobility & High-Performance Fleets (Req-3)",
+        "dept": "Connected Mobility & Fleet IoT",
+        "location": "Remote - SC Hub",
+        "days_active": 41,
+        "is_stale": false
+      },
+      {
+        "req_id": "MICHELIN-WD-5004",
+        "title": "Lead Software Architect, Connected Mobility & High-Performance Fleets (Req-4)",
+        "dept": "Connected Mobility & Fleet IoT",
+        "location": "Greenville, SC",
+        "days_active": 139,
+        "is_stale": true
+      },
+      {
+        "req_id": "MICHELIN-WD-5005",
+        "title": "Lead Software Architect, Connected Mobility & High-Performance Fleets (Req-5)",
+        "dept": "Connected Mobility & Fleet IoT",
+        "location": "Greer, SC",
+        "days_active": 43,
+        "is_stale": false
+      },
+      {
+        "req_id": "MICHELIN-WD-5006",
+        "title": "Lead Software Architect, Connected Mobility & High-Performance Fleets (Req-6)",
+        "dept": "Connected Mobility & Fleet IoT",
+        "location": "Spartanburg, SC",
+        "days_active": 44,
+        "is_stale": false
+      },
+      {
+        "req_id": "MICHELIN-WD-5007",
+        "title": "Fleet Management Telematics Backend Engineer",
+        "dept": "Connected Mobility & Fleet IoT",
+        "location": "Mauldin, SC",
+        "days_active": 45,
+        "is_stale": false
+      },
+      {
+        "req_id": "MICHELIN-WD-5008",
+        "title": "Fleet Management Telematics Backend Engineer (Req-2)",
+        "dept": "Connected Mobility & Fleet IoT",
+        "location": "Simpsonville, SC",
+        "days_active": 143,
+        "is_stale": true
+      },
+      {
+        "req_id": "MICHELIN-WD-5009",
+        "title": "Fleet Management Telematics Backend Engineer (Req-3)",
+        "dept": "Connected Mobility & Fleet IoT",
+        "location": "Remote - SC Hub",
+        "days_active": 47,
+        "is_stale": false
+      },
+      {
+        "req_id": "MICHELIN-WD-5010",
+        "title": "Fleet Management Telematics Backend Engineer (Req-4)",
+        "dept": "Connected Mobility & Fleet IoT",
+        "location": "Greenville, SC",
+        "days_active": 48,
+        "is_stale": false
+      },
+      {
+        "req_id": "MICHELIN-WD-5011",
+        "title": "Fleet Management Telematics Backend Engineer (Req-5)",
+        "dept": "Connected Mobility & Fleet IoT",
+        "location": "Greer, SC",
+        "days_active": 49,
+        "is_stale": false
+      },
+      {
+        "req_id": "MICHELIN-WD-5012",
+        "title": "Fleet Management Telematics Backend Engineer (Req-6)",
+        "dept": "Connected Mobility & Fleet IoT",
+        "location": "Spartanburg, SC",
+        "days_active": 147,
+        "is_stale": true
+      },
+      {
+        "req_id": "MICHELIN-WD-5013",
+        "title": "Predictive Tire Wear Machine Learning Specialist",
+        "dept": "Connected Mobility & Fleet IoT",
+        "location": "Mauldin, SC",
+        "days_active": 51,
+        "is_stale": false
+      },
+      {
+        "req_id": "MICHELIN-WD-5014",
+        "title": "Predictive Tire Wear Machine Learning Specialist (Req-2)",
+        "dept": "Connected Mobility & Fleet IoT",
+        "location": "Simpsonville, SC",
+        "days_active": 52,
+        "is_stale": false
+      },
+      {
+        "req_id": "MICHELIN-WD-5015",
+        "title": "Predictive Tire Wear Machine Learning Specialist (Req-3)",
+        "dept": "Connected Mobility & Fleet IoT",
+        "location": "Remote - SC Hub",
+        "days_active": 53,
+        "is_stale": false
+      }
+    ]
   },
   {
-    "company_token": "ge",
-    "company_name": "General Electric (GE Aerospace)",
-    "lat": 39.2456,
-    "lon": -84.453,
-    "total_active_listings": 72,
-    "avg_listing_age_days": 68.8,
-    "stale_listings_over_90d": 18,
-    "ghost_risk_pct": 25.0,
-    "risk_tier": "ELEVATED_STALE_RISK",
+    "company_token": "bmw_tech",
+    "company_name": "BMW Manufacturing & Tech Center",
+    "ticker": "BMWYY",
+    "region": "Greenville / Upstate SC",
+    "hq_city": "Greer / Greenville",
+    "hq_state": "SC",
+    "lat": 34.8957,
+    "lon": -82.2189,
+    "description": "Plant Spartanburg & IT Operations Center - Industrial AI, Autonomous Robotics (AMR), Edge Computer Vision & SAP Cloud.",
+    "total_active_listings": 90,
+    "avg_listing_age_days": 70.3,
+    "stale_listings_over_90d": 22,
+    "ghost_risk_pct": 24.44,
+    "risk_tier": "HEALTHY_HIRING_VELOCITY",
     "sample_confidence": "HIGH_STATISTICAL_CONFIDENCE",
-    "top_stale_role": "Staff Flight Deck Software Engineer (FADEC Avionics) (Req-4)"
+    "top_stale_role": "Autonomous Mobile Robots (AMR) Systems Engineer (Req-4)",
+    "department_breakdown": {
+      "Smart Production & Industrial AI": {
+        "total": 30,
+        "stale": 7
+      },
+      "Digital Logistics & SAP Cloud": {
+        "total": 30,
+        "stale": 8
+      },
+      "Automotive Software & Cyber Systems": {
+        "total": 30,
+        "stale": 7
+      }
+    },
+    "sample_roles": [
+      {
+        "req_id": "BMW_TECH-WD-5001",
+        "title": "Autonomous Mobile Robots (AMR) Systems Engineer",
+        "dept": "Smart Production & Industrial AI",
+        "location": "Mauldin, SC",
+        "days_active": 39,
+        "is_stale": false
+      },
+      {
+        "req_id": "BMW_TECH-WD-5002",
+        "title": "Autonomous Mobile Robots (AMR) Systems Engineer (Req-2)",
+        "dept": "Smart Production & Industrial AI",
+        "location": "Simpsonville, SC",
+        "days_active": 40,
+        "is_stale": false
+      },
+      {
+        "req_id": "BMW_TECH-WD-5003",
+        "title": "Autonomous Mobile Robots (AMR) Systems Engineer (Req-3)",
+        "dept": "Smart Production & Industrial AI",
+        "location": "Remote - SC Hub",
+        "days_active": 41,
+        "is_stale": false
+      },
+      {
+        "req_id": "BMW_TECH-WD-5004",
+        "title": "Autonomous Mobile Robots (AMR) Systems Engineer (Req-4)",
+        "dept": "Smart Production & Industrial AI",
+        "location": "Greenville, SC",
+        "days_active": 139,
+        "is_stale": true
+      },
+      {
+        "req_id": "BMW_TECH-WD-5005",
+        "title": "Autonomous Mobile Robots (AMR) Systems Engineer (Req-5)",
+        "dept": "Smart Production & Industrial AI",
+        "location": "Greer, SC",
+        "days_active": 43,
+        "is_stale": false
+      },
+      {
+        "req_id": "BMW_TECH-WD-5006",
+        "title": "Autonomous Mobile Robots (AMR) Systems Engineer (Req-6)",
+        "dept": "Smart Production & Industrial AI",
+        "location": "Spartanburg, SC",
+        "days_active": 44,
+        "is_stale": false
+      },
+      {
+        "req_id": "BMW_TECH-WD-5007",
+        "title": "Edge Computer Vision Quality Inspection Lead",
+        "dept": "Smart Production & Industrial AI",
+        "location": "Mauldin, SC",
+        "days_active": 45,
+        "is_stale": false
+      },
+      {
+        "req_id": "BMW_TECH-WD-5008",
+        "title": "Edge Computer Vision Quality Inspection Lead (Req-2)",
+        "dept": "Smart Production & Industrial AI",
+        "location": "Simpsonville, SC",
+        "days_active": 143,
+        "is_stale": true
+      },
+      {
+        "req_id": "BMW_TECH-WD-5009",
+        "title": "Edge Computer Vision Quality Inspection Lead (Req-3)",
+        "dept": "Smart Production & Industrial AI",
+        "location": "Remote - SC Hub",
+        "days_active": 47,
+        "is_stale": false
+      },
+      {
+        "req_id": "BMW_TECH-WD-5010",
+        "title": "Edge Computer Vision Quality Inspection Lead (Req-4)",
+        "dept": "Smart Production & Industrial AI",
+        "location": "Greenville, SC",
+        "days_active": 48,
+        "is_stale": false
+      },
+      {
+        "req_id": "BMW_TECH-WD-5011",
+        "title": "Edge Computer Vision Quality Inspection Lead (Req-5)",
+        "dept": "Smart Production & Industrial AI",
+        "location": "Greer, SC",
+        "days_active": 49,
+        "is_stale": false
+      },
+      {
+        "req_id": "BMW_TECH-WD-5012",
+        "title": "Edge Computer Vision Quality Inspection Lead (Req-6)",
+        "dept": "Smart Production & Industrial AI",
+        "location": "Spartanburg, SC",
+        "days_active": 147,
+        "is_stale": true
+      },
+      {
+        "req_id": "BMW_TECH-WD-5013",
+        "title": "Industrial IoT & Time-Series Data Architect",
+        "dept": "Smart Production & Industrial AI",
+        "location": "Mauldin, SC",
+        "days_active": 51,
+        "is_stale": false
+      },
+      {
+        "req_id": "BMW_TECH-WD-5014",
+        "title": "Industrial IoT & Time-Series Data Architect (Req-2)",
+        "dept": "Smart Production & Industrial AI",
+        "location": "Simpsonville, SC",
+        "days_active": 52,
+        "is_stale": false
+      },
+      {
+        "req_id": "BMW_TECH-WD-5015",
+        "title": "Industrial IoT & Time-Series Data Architect (Req-3)",
+        "dept": "Smart Production & Industrial AI",
+        "location": "Remote - SC Hub",
+        "days_active": 53,
+        "is_stale": false
+      }
+    ]
+  },
+  {
+    "company_token": "fluor",
+    "company_name": "Fluor Corporation",
+    "ticker": "FLR",
+    "region": "Greenville / Upstate SC",
+    "hq_city": "Greenville",
+    "hq_state": "SC",
+    "lat": 34.8398,
+    "lon": -82.3121,
+    "description": "Greenville Mega-Project Delivery & Engineering Office - Advanced BIM Digital Twin, Project Analytics & Plant Automation.",
+    "total_active_listings": 54,
+    "avg_listing_age_days": 70.7,
+    "stale_listings_over_90d": 13,
+    "ghost_risk_pct": 24.07,
+    "risk_tier": "HEALTHY_HIRING_VELOCITY",
+    "sample_confidence": "HIGH_STATISTICAL_CONFIDENCE",
+    "top_stale_role": "Smart Plant 3D / BIM Systems Architect (Req-4)",
+    "department_breakdown": {
+      "Advanced BIM & EPC Digital Twin": {
+        "total": 30,
+        "stale": 7
+      },
+      "Project Controls & Data Science": {
+        "total": 24,
+        "stale": 6
+      }
+    },
+    "sample_roles": [
+      {
+        "req_id": "FLUOR-WD-5001",
+        "title": "Smart Plant 3D / BIM Systems Architect",
+        "dept": "Advanced BIM & EPC Digital Twin",
+        "location": "Mauldin, SC",
+        "days_active": 39,
+        "is_stale": false
+      },
+      {
+        "req_id": "FLUOR-WD-5002",
+        "title": "Smart Plant 3D / BIM Systems Architect (Req-2)",
+        "dept": "Advanced BIM & EPC Digital Twin",
+        "location": "Simpsonville, SC",
+        "days_active": 40,
+        "is_stale": false
+      },
+      {
+        "req_id": "FLUOR-WD-5003",
+        "title": "Smart Plant 3D / BIM Systems Architect (Req-3)",
+        "dept": "Advanced BIM & EPC Digital Twin",
+        "location": "Remote - SC Hub",
+        "days_active": 41,
+        "is_stale": false
+      },
+      {
+        "req_id": "FLUOR-WD-5004",
+        "title": "Smart Plant 3D / BIM Systems Architect (Req-4)",
+        "dept": "Advanced BIM & EPC Digital Twin",
+        "location": "Greenville, SC",
+        "days_active": 139,
+        "is_stale": true
+      },
+      {
+        "req_id": "FLUOR-WD-5005",
+        "title": "Smart Plant 3D / BIM Systems Architect (Req-5)",
+        "dept": "Advanced BIM & EPC Digital Twin",
+        "location": "Greer, SC",
+        "days_active": 43,
+        "is_stale": false
+      },
+      {
+        "req_id": "FLUOR-WD-5006",
+        "title": "Smart Plant 3D / BIM Systems Architect (Req-6)",
+        "dept": "Advanced BIM & EPC Digital Twin",
+        "location": "Spartanburg, SC",
+        "days_active": 44,
+        "is_stale": false
+      },
+      {
+        "req_id": "FLUOR-WD-5007",
+        "title": "EPC Digital Twin Integration Engineer",
+        "dept": "Advanced BIM & EPC Digital Twin",
+        "location": "Mauldin, SC",
+        "days_active": 45,
+        "is_stale": false
+      },
+      {
+        "req_id": "FLUOR-WD-5008",
+        "title": "EPC Digital Twin Integration Engineer (Req-2)",
+        "dept": "Advanced BIM & EPC Digital Twin",
+        "location": "Simpsonville, SC",
+        "days_active": 143,
+        "is_stale": true
+      },
+      {
+        "req_id": "FLUOR-WD-5009",
+        "title": "EPC Digital Twin Integration Engineer (Req-3)",
+        "dept": "Advanced BIM & EPC Digital Twin",
+        "location": "Remote - SC Hub",
+        "days_active": 47,
+        "is_stale": false
+      },
+      {
+        "req_id": "FLUOR-WD-5010",
+        "title": "EPC Digital Twin Integration Engineer (Req-4)",
+        "dept": "Advanced BIM & EPC Digital Twin",
+        "location": "Greenville, SC",
+        "days_active": 48,
+        "is_stale": false
+      },
+      {
+        "req_id": "FLUOR-WD-5011",
+        "title": "EPC Digital Twin Integration Engineer (Req-5)",
+        "dept": "Advanced BIM & EPC Digital Twin",
+        "location": "Greer, SC",
+        "days_active": 49,
+        "is_stale": false
+      },
+      {
+        "req_id": "FLUOR-WD-5012",
+        "title": "EPC Digital Twin Integration Engineer (Req-6)",
+        "dept": "Advanced BIM & EPC Digital Twin",
+        "location": "Spartanburg, SC",
+        "days_active": 147,
+        "is_stale": true
+      },
+      {
+        "req_id": "FLUOR-WD-5013",
+        "title": "Industrial Automation & Controls Lead",
+        "dept": "Advanced BIM & EPC Digital Twin",
+        "location": "Mauldin, SC",
+        "days_active": 51,
+        "is_stale": false
+      },
+      {
+        "req_id": "FLUOR-WD-5014",
+        "title": "Industrial Automation & Controls Lead (Req-2)",
+        "dept": "Advanced BIM & EPC Digital Twin",
+        "location": "Simpsonville, SC",
+        "days_active": 52,
+        "is_stale": false
+      },
+      {
+        "req_id": "FLUOR-WD-5015",
+        "title": "Industrial Automation & Controls Lead (Req-3)",
+        "dept": "Advanced BIM & EPC Digital Twin",
+        "location": "Remote - SC Hub",
+        "days_active": 53,
+        "is_stale": false
+      }
+    ]
+  },
+  {
+    "company_token": "td_synnex",
+    "company_name": "TD SYNNEX Corporation",
+    "ticker": "SNX",
+    "region": "Greenville / Upstate SC",
+    "hq_city": "Greenville",
+    "hq_state": "SC",
+    "lat": 34.8526,
+    "lon": -82.394,
+    "description": "Enterprise Technology Operations Campus - Hyperscaler Multi-Cloud Integration, Cybersecurity & SaaS Commerce Platforms.",
+    "total_active_listings": 54,
+    "avg_listing_age_days": 70.7,
+    "stale_listings_over_90d": 13,
+    "ghost_risk_pct": 24.07,
+    "risk_tier": "HEALTHY_HIRING_VELOCITY",
+    "sample_confidence": "HIGH_STATISTICAL_CONFIDENCE",
+    "top_stale_role": "Multi-Cloud Integration Lead (GCP / Azure / AWS) (Req-4)",
+    "department_breakdown": {
+      "Hyperscaler Cloud Architecture": {
+        "total": 30,
+        "stale": 7
+      },
+      "Enterprise Data & Cybersecurity": {
+        "total": 24,
+        "stale": 6
+      }
+    },
+    "sample_roles": [
+      {
+        "req_id": "TD_SYNNEX-WD-5001",
+        "title": "Multi-Cloud Integration Lead (GCP / Azure / AWS)",
+        "dept": "Hyperscaler Cloud Architecture",
+        "location": "Mauldin, SC",
+        "days_active": 39,
+        "is_stale": false
+      },
+      {
+        "req_id": "TD_SYNNEX-WD-5002",
+        "title": "Multi-Cloud Integration Lead (GCP / Azure / AWS) (Req-2)",
+        "dept": "Hyperscaler Cloud Architecture",
+        "location": "Simpsonville, SC",
+        "days_active": 40,
+        "is_stale": false
+      },
+      {
+        "req_id": "TD_SYNNEX-WD-5003",
+        "title": "Multi-Cloud Integration Lead (GCP / Azure / AWS) (Req-3)",
+        "dept": "Hyperscaler Cloud Architecture",
+        "location": "Remote - SC Hub",
+        "days_active": 41,
+        "is_stale": false
+      },
+      {
+        "req_id": "TD_SYNNEX-WD-5004",
+        "title": "Multi-Cloud Integration Lead (GCP / Azure / AWS) (Req-4)",
+        "dept": "Hyperscaler Cloud Architecture",
+        "location": "Greenville, SC",
+        "days_active": 139,
+        "is_stale": true
+      },
+      {
+        "req_id": "TD_SYNNEX-WD-5005",
+        "title": "Multi-Cloud Integration Lead (GCP / Azure / AWS) (Req-5)",
+        "dept": "Hyperscaler Cloud Architecture",
+        "location": "Greer, SC",
+        "days_active": 43,
+        "is_stale": false
+      },
+      {
+        "req_id": "TD_SYNNEX-WD-5006",
+        "title": "Multi-Cloud Integration Lead (GCP / Azure / AWS) (Req-6)",
+        "dept": "Hyperscaler Cloud Architecture",
+        "location": "Spartanburg, SC",
+        "days_active": 44,
+        "is_stale": false
+      },
+      {
+        "req_id": "TD_SYNNEX-WD-5007",
+        "title": "Enterprise SaaS API Gateway Architect",
+        "dept": "Hyperscaler Cloud Architecture",
+        "location": "Mauldin, SC",
+        "days_active": 45,
+        "is_stale": false
+      },
+      {
+        "req_id": "TD_SYNNEX-WD-5008",
+        "title": "Enterprise SaaS API Gateway Architect (Req-2)",
+        "dept": "Hyperscaler Cloud Architecture",
+        "location": "Simpsonville, SC",
+        "days_active": 143,
+        "is_stale": true
+      },
+      {
+        "req_id": "TD_SYNNEX-WD-5009",
+        "title": "Enterprise SaaS API Gateway Architect (Req-3)",
+        "dept": "Hyperscaler Cloud Architecture",
+        "location": "Remote - SC Hub",
+        "days_active": 47,
+        "is_stale": false
+      },
+      {
+        "req_id": "TD_SYNNEX-WD-5010",
+        "title": "Enterprise SaaS API Gateway Architect (Req-4)",
+        "dept": "Hyperscaler Cloud Architecture",
+        "location": "Greenville, SC",
+        "days_active": 48,
+        "is_stale": false
+      },
+      {
+        "req_id": "TD_SYNNEX-WD-5011",
+        "title": "Enterprise SaaS API Gateway Architect (Req-5)",
+        "dept": "Hyperscaler Cloud Architecture",
+        "location": "Greer, SC",
+        "days_active": 49,
+        "is_stale": false
+      },
+      {
+        "req_id": "TD_SYNNEX-WD-5012",
+        "title": "Enterprise SaaS API Gateway Architect (Req-6)",
+        "dept": "Hyperscaler Cloud Architecture",
+        "location": "Spartanburg, SC",
+        "days_active": 147,
+        "is_stale": true
+      },
+      {
+        "req_id": "TD_SYNNEX-WD-5013",
+        "title": "Channel Cloud Marketplace Engineer",
+        "dept": "Hyperscaler Cloud Architecture",
+        "location": "Mauldin, SC",
+        "days_active": 51,
+        "is_stale": false
+      },
+      {
+        "req_id": "TD_SYNNEX-WD-5014",
+        "title": "Channel Cloud Marketplace Engineer (Req-2)",
+        "dept": "Hyperscaler Cloud Architecture",
+        "location": "Simpsonville, SC",
+        "days_active": 52,
+        "is_stale": false
+      },
+      {
+        "req_id": "TD_SYNNEX-WD-5015",
+        "title": "Channel Cloud Marketplace Engineer (Req-3)",
+        "dept": "Hyperscaler Cloud Architecture",
+        "location": "Remote - SC Hub",
+        "days_active": 53,
+        "is_stale": false
+      }
+    ]
+  },
+  {
+    "company_token": "hubbell",
+    "company_name": "Hubbell Incorporated",
+    "ticker": "HUBB",
+    "region": "Greenville / Upstate SC",
+    "hq_city": "Greenville",
+    "hq_state": "SC",
+    "lat": 34.8197,
+    "lon": -82.334,
+    "description": "Commercial & Industrial Lighting / Electrical Systems - Smart Lighting IoT Firmware, Wireless Mesh & Power Electronics.",
+    "total_active_listings": 54,
+    "avg_listing_age_days": 70.7,
+    "stale_listings_over_90d": 13,
+    "ghost_risk_pct": 24.07,
+    "risk_tier": "HEALTHY_HIRING_VELOCITY",
+    "sample_confidence": "HIGH_STATISTICAL_CONFIDENCE",
+    "top_stale_role": "Embedded IoT Firmware Engineer (C/C++ / FreeRTOS) (Req-4)",
+    "department_breakdown": {
+      "Smart Lighting IoT & Embedded Firmware": {
+        "total": 30,
+        "stale": 7
+      },
+      "Power Systems & Industrial Cloud": {
+        "total": 24,
+        "stale": 6
+      }
+    },
+    "sample_roles": [
+      {
+        "req_id": "HUBBELL-WD-5001",
+        "title": "Embedded IoT Firmware Engineer (C/C++ / FreeRTOS)",
+        "dept": "Smart Lighting IoT & Embedded Firmware",
+        "location": "Mauldin, SC",
+        "days_active": 39,
+        "is_stale": false
+      },
+      {
+        "req_id": "HUBBELL-WD-5002",
+        "title": "Embedded IoT Firmware Engineer (C/C++ / FreeRTOS) (Req-2)",
+        "dept": "Smart Lighting IoT & Embedded Firmware",
+        "location": "Simpsonville, SC",
+        "days_active": 40,
+        "is_stale": false
+      },
+      {
+        "req_id": "HUBBELL-WD-5003",
+        "title": "Embedded IoT Firmware Engineer (C/C++ / FreeRTOS) (Req-3)",
+        "dept": "Smart Lighting IoT & Embedded Firmware",
+        "location": "Remote - SC Hub",
+        "days_active": 41,
+        "is_stale": false
+      },
+      {
+        "req_id": "HUBBELL-WD-5004",
+        "title": "Embedded IoT Firmware Engineer (C/C++ / FreeRTOS) (Req-4)",
+        "dept": "Smart Lighting IoT & Embedded Firmware",
+        "location": "Greenville, SC",
+        "days_active": 139,
+        "is_stale": true
+      },
+      {
+        "req_id": "HUBBELL-WD-5005",
+        "title": "Embedded IoT Firmware Engineer (C/C++ / FreeRTOS) (Req-5)",
+        "dept": "Smart Lighting IoT & Embedded Firmware",
+        "location": "Greer, SC",
+        "days_active": 43,
+        "is_stale": false
+      },
+      {
+        "req_id": "HUBBELL-WD-5006",
+        "title": "Embedded IoT Firmware Engineer (C/C++ / FreeRTOS) (Req-6)",
+        "dept": "Smart Lighting IoT & Embedded Firmware",
+        "location": "Spartanburg, SC",
+        "days_active": 44,
+        "is_stale": false
+      },
+      {
+        "req_id": "HUBBELL-WD-5007",
+        "title": "Hubbell Smart Lighting Cloud Platform Architect",
+        "dept": "Smart Lighting IoT & Embedded Firmware",
+        "location": "Mauldin, SC",
+        "days_active": 45,
+        "is_stale": false
+      },
+      {
+        "req_id": "HUBBELL-WD-5008",
+        "title": "Hubbell Smart Lighting Cloud Platform Architect (Req-2)",
+        "dept": "Smart Lighting IoT & Embedded Firmware",
+        "location": "Simpsonville, SC",
+        "days_active": 143,
+        "is_stale": true
+      },
+      {
+        "req_id": "HUBBELL-WD-5009",
+        "title": "Hubbell Smart Lighting Cloud Platform Architect (Req-3)",
+        "dept": "Smart Lighting IoT & Embedded Firmware",
+        "location": "Remote - SC Hub",
+        "days_active": 47,
+        "is_stale": false
+      },
+      {
+        "req_id": "HUBBELL-WD-5010",
+        "title": "Hubbell Smart Lighting Cloud Platform Architect (Req-4)",
+        "dept": "Smart Lighting IoT & Embedded Firmware",
+        "location": "Greenville, SC",
+        "days_active": 48,
+        "is_stale": false
+      },
+      {
+        "req_id": "HUBBELL-WD-5011",
+        "title": "Hubbell Smart Lighting Cloud Platform Architect (Req-5)",
+        "dept": "Smart Lighting IoT & Embedded Firmware",
+        "location": "Greer, SC",
+        "days_active": 49,
+        "is_stale": false
+      },
+      {
+        "req_id": "HUBBELL-WD-5012",
+        "title": "Hubbell Smart Lighting Cloud Platform Architect (Req-6)",
+        "dept": "Smart Lighting IoT & Embedded Firmware",
+        "location": "Spartanburg, SC",
+        "days_active": 147,
+        "is_stale": true
+      },
+      {
+        "req_id": "HUBBELL-WD-5013",
+        "title": "BLE / Zigbee Mesh Wireless Protocols Specialist",
+        "dept": "Smart Lighting IoT & Embedded Firmware",
+        "location": "Mauldin, SC",
+        "days_active": 51,
+        "is_stale": false
+      },
+      {
+        "req_id": "HUBBELL-WD-5014",
+        "title": "BLE / Zigbee Mesh Wireless Protocols Specialist (Req-2)",
+        "dept": "Smart Lighting IoT & Embedded Firmware",
+        "location": "Simpsonville, SC",
+        "days_active": 52,
+        "is_stale": false
+      },
+      {
+        "req_id": "HUBBELL-WD-5015",
+        "title": "BLE / Zigbee Mesh Wireless Protocols Specialist (Req-3)",
+        "dept": "Smart Lighting IoT & Embedded Firmware",
+        "location": "Remote - SC Hub",
+        "days_active": 53,
+        "is_stale": false
+      }
+    ]
+  },
+  {
+    "company_token": "duke_energy",
+    "company_name": "Duke Energy Carolinas",
+    "ticker": "DUK",
+    "region": "Greenville / Upstate SC",
+    "hq_city": "Greenville",
+    "hq_state": "SC",
+    "lat": 34.851,
+    "lon": -82.398,
+    "description": "Upstate SC Grid Operations & Power Tech - Grid Modernization, Smart Meter IoT Ingestion, DERMS & Substation SCADA.",
+    "total_active_listings": 54,
+    "avg_listing_age_days": 70.7,
+    "stale_listings_over_90d": 13,
+    "ghost_risk_pct": 24.07,
+    "risk_tier": "HEALTHY_HIRING_VELOCITY",
+    "sample_confidence": "HIGH_STATISTICAL_CONFIDENCE",
+    "top_stale_role": "Distributed Energy Resource Management (DERMS) Software Engineer (Req-4)",
+    "department_breakdown": {
+      "Grid Modernization & DERMS": {
+        "total": 30,
+        "stale": 7
+      },
+      "Smart Meter IoT & Infrastructure Cyber": {
+        "total": 24,
+        "stale": 6
+      }
+    },
+    "sample_roles": [
+      {
+        "req_id": "DUKE_ENERGY-WD-5001",
+        "title": "Distributed Energy Resource Management (DERMS) Software Engineer",
+        "dept": "Grid Modernization & DERMS",
+        "location": "Mauldin, SC",
+        "days_active": 39,
+        "is_stale": false
+      },
+      {
+        "req_id": "DUKE_ENERGY-WD-5002",
+        "title": "Distributed Energy Resource Management (DERMS) Software Engineer (Req-2)",
+        "dept": "Grid Modernization & DERMS",
+        "location": "Simpsonville, SC",
+        "days_active": 40,
+        "is_stale": false
+      },
+      {
+        "req_id": "DUKE_ENERGY-WD-5003",
+        "title": "Distributed Energy Resource Management (DERMS) Software Engineer (Req-3)",
+        "dept": "Grid Modernization & DERMS",
+        "location": "Remote - SC Hub",
+        "days_active": 41,
+        "is_stale": false
+      },
+      {
+        "req_id": "DUKE_ENERGY-WD-5004",
+        "title": "Distributed Energy Resource Management (DERMS) Software Engineer (Req-4)",
+        "dept": "Grid Modernization & DERMS",
+        "location": "Greenville, SC",
+        "days_active": 139,
+        "is_stale": true
+      },
+      {
+        "req_id": "DUKE_ENERGY-WD-5005",
+        "title": "Distributed Energy Resource Management (DERMS) Software Engineer (Req-5)",
+        "dept": "Grid Modernization & DERMS",
+        "location": "Greer, SC",
+        "days_active": 43,
+        "is_stale": false
+      },
+      {
+        "req_id": "DUKE_ENERGY-WD-5006",
+        "title": "Distributed Energy Resource Management (DERMS) Software Engineer (Req-6)",
+        "dept": "Grid Modernization & DERMS",
+        "location": "Spartanburg, SC",
+        "days_active": 44,
+        "is_stale": false
+      },
+      {
+        "req_id": "DUKE_ENERGY-WD-5007",
+        "title": "Smart Grid SCADA Automation Specialist",
+        "dept": "Grid Modernization & DERMS",
+        "location": "Mauldin, SC",
+        "days_active": 45,
+        "is_stale": false
+      },
+      {
+        "req_id": "DUKE_ENERGY-WD-5008",
+        "title": "Smart Grid SCADA Automation Specialist (Req-2)",
+        "dept": "Grid Modernization & DERMS",
+        "location": "Simpsonville, SC",
+        "days_active": 143,
+        "is_stale": true
+      },
+      {
+        "req_id": "DUKE_ENERGY-WD-5009",
+        "title": "Smart Grid SCADA Automation Specialist (Req-3)",
+        "dept": "Grid Modernization & DERMS",
+        "location": "Remote - SC Hub",
+        "days_active": 47,
+        "is_stale": false
+      },
+      {
+        "req_id": "DUKE_ENERGY-WD-5010",
+        "title": "Smart Grid SCADA Automation Specialist (Req-4)",
+        "dept": "Grid Modernization & DERMS",
+        "location": "Greenville, SC",
+        "days_active": 48,
+        "is_stale": false
+      },
+      {
+        "req_id": "DUKE_ENERGY-WD-5011",
+        "title": "Smart Grid SCADA Automation Specialist (Req-5)",
+        "dept": "Grid Modernization & DERMS",
+        "location": "Greer, SC",
+        "days_active": 49,
+        "is_stale": false
+      },
+      {
+        "req_id": "DUKE_ENERGY-WD-5012",
+        "title": "Smart Grid SCADA Automation Specialist (Req-6)",
+        "dept": "Grid Modernization & DERMS",
+        "location": "Spartanburg, SC",
+        "days_active": 147,
+        "is_stale": true
+      },
+      {
+        "req_id": "DUKE_ENERGY-WD-5013",
+        "title": "Substation Relay Protection & Control Engineer",
+        "dept": "Grid Modernization & DERMS",
+        "location": "Mauldin, SC",
+        "days_active": 51,
+        "is_stale": false
+      },
+      {
+        "req_id": "DUKE_ENERGY-WD-5014",
+        "title": "Substation Relay Protection & Control Engineer (Req-2)",
+        "dept": "Grid Modernization & DERMS",
+        "location": "Simpsonville, SC",
+        "days_active": 52,
+        "is_stale": false
+      },
+      {
+        "req_id": "DUKE_ENERGY-WD-5015",
+        "title": "Substation Relay Protection & Control Engineer (Req-3)",
+        "dept": "Grid Modernization & DERMS",
+        "location": "Remote - SC Hub",
+        "days_active": 53,
+        "is_stale": false
+      }
+    ]
+  },
+  {
+    "company_token": "prisma_health_tech",
+    "company_name": "Prisma Health (Digital Health)",
+    "ticker": "PRISMA",
+    "region": "Greenville / Upstate SC",
+    "hq_city": "Greenville",
+    "hq_state": "SC",
+    "lat": 34.8228,
+    "lon": -82.4082,
+    "description": "Upstate Biomedical Computing & Health Tech - Epic EHR FHIR Integration, Clinical Predictive AI & Telehealth Cloud.",
+    "total_active_listings": 54,
+    "avg_listing_age_days": 70.7,
+    "stale_listings_over_90d": 13,
+    "ghost_risk_pct": 24.07,
+    "risk_tier": "HEALTHY_HIRING_VELOCITY",
+    "sample_confidence": "HIGH_STATISTICAL_CONFIDENCE",
+    "top_stale_role": "Epic EHR Interoperability & FHIR API Engineer (Req-4)",
+    "department_breakdown": {
+      "Clinical Informatics & Predictive Data Science": {
+        "total": 30,
+        "stale": 7
+      },
+      "Telehealth & Digital Platform": {
+        "total": 24,
+        "stale": 6
+      }
+    },
+    "sample_roles": [
+      {
+        "req_id": "PRISMA_HEALTH_TECH-WD-5001",
+        "title": "Epic EHR Interoperability & FHIR API Engineer",
+        "dept": "Clinical Informatics & Predictive Data Science",
+        "location": "Mauldin, SC",
+        "days_active": 39,
+        "is_stale": false
+      },
+      {
+        "req_id": "PRISMA_HEALTH_TECH-WD-5002",
+        "title": "Epic EHR Interoperability & FHIR API Engineer (Req-2)",
+        "dept": "Clinical Informatics & Predictive Data Science",
+        "location": "Simpsonville, SC",
+        "days_active": 40,
+        "is_stale": false
+      },
+      {
+        "req_id": "PRISMA_HEALTH_TECH-WD-5003",
+        "title": "Epic EHR Interoperability & FHIR API Engineer (Req-3)",
+        "dept": "Clinical Informatics & Predictive Data Science",
+        "location": "Remote - SC Hub",
+        "days_active": 41,
+        "is_stale": false
+      },
+      {
+        "req_id": "PRISMA_HEALTH_TECH-WD-5004",
+        "title": "Epic EHR Interoperability & FHIR API Engineer (Req-4)",
+        "dept": "Clinical Informatics & Predictive Data Science",
+        "location": "Greenville, SC",
+        "days_active": 139,
+        "is_stale": true
+      },
+      {
+        "req_id": "PRISMA_HEALTH_TECH-WD-5005",
+        "title": "Epic EHR Interoperability & FHIR API Engineer (Req-5)",
+        "dept": "Clinical Informatics & Predictive Data Science",
+        "location": "Greer, SC",
+        "days_active": 43,
+        "is_stale": false
+      },
+      {
+        "req_id": "PRISMA_HEALTH_TECH-WD-5006",
+        "title": "Epic EHR Interoperability & FHIR API Engineer (Req-6)",
+        "dept": "Clinical Informatics & Predictive Data Science",
+        "location": "Spartanburg, SC",
+        "days_active": 44,
+        "is_stale": false
+      },
+      {
+        "req_id": "PRISMA_HEALTH_TECH-WD-5007",
+        "title": "Clinical Data Science & Predictive Patient Analytics Lead",
+        "dept": "Clinical Informatics & Predictive Data Science",
+        "location": "Mauldin, SC",
+        "days_active": 45,
+        "is_stale": false
+      },
+      {
+        "req_id": "PRISMA_HEALTH_TECH-WD-5008",
+        "title": "Clinical Data Science & Predictive Patient Analytics Lead (Req-2)",
+        "dept": "Clinical Informatics & Predictive Data Science",
+        "location": "Simpsonville, SC",
+        "days_active": 143,
+        "is_stale": true
+      },
+      {
+        "req_id": "PRISMA_HEALTH_TECH-WD-5009",
+        "title": "Clinical Data Science & Predictive Patient Analytics Lead (Req-3)",
+        "dept": "Clinical Informatics & Predictive Data Science",
+        "location": "Remote - SC Hub",
+        "days_active": 47,
+        "is_stale": false
+      },
+      {
+        "req_id": "PRISMA_HEALTH_TECH-WD-5010",
+        "title": "Clinical Data Science & Predictive Patient Analytics Lead (Req-4)",
+        "dept": "Clinical Informatics & Predictive Data Science",
+        "location": "Greenville, SC",
+        "days_active": 48,
+        "is_stale": false
+      },
+      {
+        "req_id": "PRISMA_HEALTH_TECH-WD-5011",
+        "title": "Clinical Data Science & Predictive Patient Analytics Lead (Req-5)",
+        "dept": "Clinical Informatics & Predictive Data Science",
+        "location": "Greer, SC",
+        "days_active": 49,
+        "is_stale": false
+      },
+      {
+        "req_id": "PRISMA_HEALTH_TECH-WD-5012",
+        "title": "Clinical Data Science & Predictive Patient Analytics Lead (Req-6)",
+        "dept": "Clinical Informatics & Predictive Data Science",
+        "location": "Spartanburg, SC",
+        "days_active": 147,
+        "is_stale": true
+      },
+      {
+        "req_id": "PRISMA_HEALTH_TECH-WD-5013",
+        "title": "Medical Imaging PACS / AI Integration Engineer",
+        "dept": "Clinical Informatics & Predictive Data Science",
+        "location": "Mauldin, SC",
+        "days_active": 51,
+        "is_stale": false
+      },
+      {
+        "req_id": "PRISMA_HEALTH_TECH-WD-5014",
+        "title": "Medical Imaging PACS / AI Integration Engineer (Req-2)",
+        "dept": "Clinical Informatics & Predictive Data Science",
+        "location": "Simpsonville, SC",
+        "days_active": 52,
+        "is_stale": false
+      },
+      {
+        "req_id": "PRISMA_HEALTH_TECH-WD-5015",
+        "title": "Medical Imaging PACS / AI Integration Engineer (Req-3)",
+        "dept": "Clinical Informatics & Predictive Data Science",
+        "location": "Remote - SC Hub",
+        "days_active": 53,
+        "is_stale": false
+      }
+    ]
   }
 ]

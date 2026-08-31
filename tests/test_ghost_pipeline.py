@@ -1,5 +1,5 @@
 """
-Unit tests for Ghost Job Ingestion, Medallion Architecture, and Tech / Industrial Scrapers.
+Unit tests for Ghost Job Ingestion, Medallion Architecture, and Greenville SC Tech Hub & Public Enterprise Scrapers.
 """
 
 from src.scrapers.ats_scraper import ATSScraper
@@ -9,10 +9,14 @@ from src.medallion.pipeline_silver_lifecycle import SilverLifecycleEngine
 from src.medallion.pipeline_gold_ghost_metrics import GoldGhostMetricsEngine
 from src.config import TOP_100_PUBLIC_COMPANIES
 
-def test_ats_scraper_mega_caps_and_industrials():
-    """Verify ATS scraper successfully parses Google, Microsoft, Meta, NVIDIA, Walmart, Goodyear, Michelin, and GE."""
+def test_ats_scraper_greenville_and_tech_giants():
+    """Verify ATS scraper successfully parses Top 10 Greenville SC companies and national tech giants."""
     scraper = ATSScraper()
-    test_tokens = ["google", "microsoft", "meta", "nvidia", "walmart", "goodyear", "michelin", "ge"]
+    test_tokens = [
+        "michelin", "bmw_tech", "ge_vernova", "lockheed_martin", 
+        "scansource", "fluor", "td_synnex", "hubbell", "duke_energy", "prisma_health_tech",
+        "google", "microsoft", "meta", "nvidia"
+    ]
     for token in test_tokens:
         meta = next((c for c in TOP_100_PUBLIC_COMPANIES if c["token"] == token), None)
         assert meta is not None, f"Company {token} missing from config"
@@ -29,9 +33,9 @@ def test_ghost_news_scraper():
     assert any("Clarify Capital" in n["title"] for n in news)
 
 def test_medallion_pipeline_execution():
-    """Verify full Bronze -> Silver -> Gold execution across tech and industrial companies."""
+    """Verify full Bronze -> Silver -> Gold execution across Greenville SC and tech companies."""
     bronze = BronzeIngestionEngine()
-    b_res = bronze.run_bronze_ingestion(max_companies=10)
+    b_res = bronze.run_bronze_ingestion(max_companies=15)
     assert b_res["status"] == "success"
     assert b_res["total_raw_jobs"] > 0
 
@@ -43,5 +47,4 @@ def test_medallion_pipeline_execution():
     gold = GoldGhostMetricsEngine()
     g_res = gold.run_gold_aggregation()
     assert g_res["status"] == "success"
-    assert len(g_res["summary"]) >= 5
-
+    assert g_res["companies_evaluated"] >= 10
