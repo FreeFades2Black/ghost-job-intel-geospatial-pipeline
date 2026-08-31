@@ -5,17 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>👻 Ghost Job Intelligence &amp; Medallion Analytics Engine — Greenville, SC &amp; Public Tech</title>
   
-  <!-- CDN Dependencies: TailwindCSS, Chart.js -->
+  <!-- CDN Dependencies: TailwindCSS, Leaflet, Chart.js -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <style>
     body { background-color: #0b0f19; color: #e2e8f0; font-family: system-ui, -apple-system, sans-serif; }
-    .glass-card { background: rgba(17, 24, 39, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(245, 158, 11, 0.25); }
+    .glass-card { background: rgba(17, 24, 39, 0.88); backdrop-filter: blur(12px); border: 1px solid rgba(245, 158, 11, 0.25); }
     .glow-amber { text-shadow: 0 0 15px rgba(245, 158, 11, 0.6); }
+    .glow-cyan { text-shadow: 0 0 15px rgba(6, 182, 212, 0.6); }
     .glow-emerald { text-shadow: 0 0 15px rgba(16, 185, 129, 0.6); }
-    .glow-rose { text-shadow: 0 0 15px rgba(244, 63, 94, 0.6); }
-    .filter-btn-active { background: #d97706; color: #ffffff; font-weight: bold; border-color: #f59e0b; }
+    #hubMap { height: 280px; width: 100%; border-radius: 0.75rem; z-index: 10; }
+    
+    /* Modal transitions */
+    .modal-backdrop { background: rgba(0, 0, 0, 0.75); backdrop-filter: blur(8px); }
+    
+    /* Radar Ping Beacon */
+    .hub-ping-gvl {
+      width: 14px; height: 14px; background: #f59e0b; border: 2px solid #ffffff; border-radius: 50%;
+      box-shadow: 0 0 10px #f59e0b, 0 0 20px #f59e0b; cursor: pointer;
+    }
+    .hub-ping-tech {
+      width: 12px; height: 12px; background: #38bdf8; border: 2px solid #ffffff; border-radius: 50%;
+      box-shadow: 0 0 8px #38bdf8, 0 0 16px #38bdf8; cursor: pointer;
+    }
   </style>
 </head>
 <body class="min-h-screen p-4 md:p-8">
@@ -35,20 +50,20 @@
       <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-300 border border-emerald-500/30">
         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> 🌲 Greenville SC Tech Live
       </span>
-      <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-300 border border-amber-500/30">
-        <span class="w-2 h-2 rounded-full bg-amber-400"></span> Medallion Gold Active
-      </span>
-      <a href="https://github.com/FreeFades2Black/ghost-job-intel-geospatial-pipeline" target="_blank" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-amber-600 hover:bg-amber-500 text-white transition">
+      <button onclick="exportFullAuditCSV()" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-amber-600 hover:bg-amber-500 text-white transition flex items-center gap-1.5 shadow-[0_0_12px_rgba(217,119,6,0.5)]">
+        <span>📥</span> Export Audit CSV
+      </button>
+      <a href="https://github.com/FreeFades2Black/ghost-job-intel-geospatial-pipeline" target="_blank" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-cyan-800/40 transition">
         GitHub Repo ↗
       </a>
     </div>
   </header>
 
-  <!-- Region & Scope Filter Bar -->
-  <section class="max-w-7xl mx-auto mb-6 flex flex-wrap items-center justify-between gap-3 bg-slate-900/80 p-3 rounded-xl border border-slate-800">
+  <!-- Scope & Region Filter Bar -->
+  <section class="max-w-7xl mx-auto mb-6 flex flex-wrap items-center justify-between gap-3 bg-slate-900/90 p-3 rounded-xl border border-slate-800">
     <div class="flex items-center gap-2 flex-wrap">
       <span class="text-xs text-slate-400 font-semibold uppercase tracking-wider px-2">Scope Filter:</span>
-      <button onclick="setFilter('greenville')" id="btn-filter-greenville" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-amber-600/30 hover:bg-amber-600/50 text-amber-300 border border-amber-500/50 transition flex items-center gap-1.5">
+      <button onclick="setFilter('greenville')" id="btn-filter-greenville" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-amber-600 text-white border border-amber-400 transition flex items-center gap-1.5 shadow-[0_0_10px_#d97706]">
         <span>🌲</span> Greenville, SC Top 10 Tech Hub
       </button>
       <button onclick="setFilter('all')" id="btn-filter-all" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition">
@@ -58,8 +73,8 @@
         🚀 Silicon Valley / Big Tech (10)
       </button>
     </div>
-    <div class="text-xs text-amber-300/90 font-mono">
-      MIN_SAMPLE_THRESHOLD = 30 Requisitions Enforced
+    <div class="text-xs text-amber-300/90 font-mono flex items-center gap-2">
+      <span>📐 MIN_SAMPLE_THRESHOLD = 30 Requisitions Enforced</span>
     </div>
   </section>
 
@@ -72,17 +87,17 @@
     </div>
     <div class="glass-card p-4 rounded-xl">
       <div class="text-[11px] uppercase tracking-wider text-cyan-400 font-semibold mb-1">📋 Active Requisitions</div>
-      <div class="text-3xl font-black text-cyan-300" id="kpi-listings">1,084</div>
+      <div class="text-3xl font-black text-cyan-300" id="kpi-listings">654</div>
       <div class="text-[10px] text-slate-400 mt-1">Live Ingested from Workday &amp; ATS</div>
     </div>
     <div class="glass-card p-4 rounded-xl">
       <div class="text-[11px] uppercase tracking-wider text-rose-400 font-semibold mb-1">⏱️ Stale Postings (&gt;90d)</div>
-      <div class="text-3xl font-black text-rose-400" id="kpi-stale">260</div>
+      <div class="text-3xl font-black text-rose-400" id="kpi-stale">160</div>
       <div class="text-[10px] text-rose-300/80 mt-1">Algorithmic Repost Loops</div>
     </div>
     <div class="glass-card p-4 rounded-xl">
       <div class="text-[11px] uppercase tracking-wider text-purple-400 font-semibold mb-1">📊 Average Ghost Index</div>
-      <div class="text-3xl font-black text-purple-300" id="kpi-ghost-avg">24.0%</div>
+      <div class="text-3xl font-black text-purple-300" id="kpi-ghost-avg">24.4%</div>
       <div class="text-[10px] text-slate-400 mt-1">Stale / Total Requisition Ratio</div>
     </div>
   </section>
@@ -96,128 +111,57 @@
         <h2 class="text-base md:text-lg font-bold text-white flex items-center gap-2">
           <span>🌲</span> Top 10 Largest Public Companies &amp; Tech Hubs — Greenville, SC
         </h2>
-        <p class="text-xs text-amber-300/80">Major Upstate South Carolina Employers across Aerospace, Advanced Manufacturing AI, Cloud, Smart Power Grid, and Health Tech.</p>
+        <p class="text-xs text-amber-300/80">Major Upstate South Carolina Employers across Aerospace, Advanced Manufacturing AI, Cloud, Smart Power Grid, and Health Tech. <strong>Click any card for requisition drilldown!</strong></p>
       </div>
       <div class="text-xs text-slate-400 font-mono">📍 GREENVILLE / GREER / SPARTANBURG CORRIDOR</div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 text-xs">
-      <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800">
-        <div class="flex justify-between items-center mb-1">
-          <strong class="text-white font-bold text-sm">🚗 Michelin North America</strong>
-          <span class="px-1.5 py-0.5 rounded bg-blue-950 text-blue-300 font-mono text-[10px]">ML.PA</span>
-        </div>
-        <div class="text-slate-400 text-[11px] mb-2">North American HQ &amp; Americas R&amp;D Corp (MARC) • Greenville, SC</div>
-        <p class="text-slate-300 text-[11px] leading-snug">Connected Mobility IoT, Material Informatics AI, Digital Twin Smart Factory &amp; Non-Pneumatic Uptis R&amp;D.</p>
-      </div>
-
-      <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800">
-        <div class="flex justify-between items-center mb-1">
-          <strong class="text-white font-bold text-sm">🚙 BMW Tech &amp; Manufacturing</strong>
-          <span class="px-1.5 py-0.5 rounded bg-blue-950 text-blue-300 font-mono text-[10px]">BMWYY</span>
-        </div>
-        <div class="text-slate-400 text-[11px] mb-2">Plant Spartanburg &amp; IT Operations Center • Greer / Greenville, SC</div>
-        <p class="text-slate-300 text-[11px] leading-snug">Autonomous Mobile Robots (AMR), Edge Computer Vision, SAP S/4HANA Cloud &amp; High-Voltage Battery Automation.</p>
-      </div>
-
-      <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800">
-        <div class="flex justify-between items-center mb-1">
-          <strong class="text-white font-bold text-sm">⚡ GE Vernova (Power &amp; Turbines)</strong>
-          <span class="px-1.5 py-0.5 rounded bg-blue-950 text-blue-300 font-mono text-[10px]">GEV</span>
-        </div>
-        <div class="text-slate-400 text-[11px] mb-2">Global Gas Turbine Campus • Greenville, SC</div>
-        <p class="text-slate-300 text-[11px] leading-snug">HA-Class Turbomachinery Aerodynamics, Power Grid Simulation, Mark VIe SCADA Systems &amp; Hydrogen Decarbonization.</p>
-      </div>
-
-      <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800">
-        <div class="flex justify-between items-center mb-1">
-          <strong class="text-white font-bold text-sm">✈️ Lockheed Martin (Aviation)</strong>
-          <span class="px-1.5 py-0.5 rounded bg-blue-950 text-blue-300 font-mono text-[10px]">LMT</span>
-        </div>
-        <div class="text-slate-400 text-[11px] mb-2">Greenville Center of Excellence • Greenville, SC</div>
-        <p class="text-slate-300 text-[11px] leading-snug">F-16 Block 70 Avionics, C-130 DO-178C Safety Critical Software, Radar Signal Processing &amp; Defense Cyber.</p>
-      </div>
-
-      <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800">
-        <div class="flex justify-between items-center mb-1">
-          <strong class="text-white font-bold text-sm">☁️ ScanSource Inc.</strong>
-          <span class="px-1.5 py-0.5 rounded bg-blue-950 text-blue-300 font-mono text-[10px]">SCSC</span>
-        </div>
-        <div class="text-slate-400 text-[11px] mb-2">Global Corporate Headquarters • Greenville, SC</div>
-        <p class="text-slate-300 text-[11px] leading-snug">Fortune 1000 Cloud &amp; SaaS Hybrid Distribution, Telecom API Platform, Zero-Trust Cyber &amp; Enterprise Commerce.</p>
-      </div>
-
-      <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800">
-        <div class="flex justify-between items-center mb-1">
-          <strong class="text-white font-bold text-sm">🏗️ Fluor Corporation</strong>
-          <span class="px-1.5 py-0.5 rounded bg-blue-950 text-blue-300 font-mono text-[10px]">FLR</span>
-        </div>
-        <div class="text-slate-400 text-[11px] mb-2">Engineering &amp; Mega-Project Center • Greenville, SC</div>
-        <p class="text-slate-300 text-[11px] leading-snug">Advanced BIM / SmartPlant 3D Digital Twin, EPC Automation, Predictive Schedule AI &amp; Industrial Cost Engineering.</p>
-      </div>
-
-      <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800">
-        <div class="flex justify-between items-center mb-1">
-          <strong class="text-white font-bold text-sm">💻 TD SYNNEX Corporation</strong>
-          <span class="px-1.5 py-0.5 rounded bg-blue-950 text-blue-300 font-mono text-[10px]">SNX</span>
-        </div>
-        <div class="text-slate-400 text-[11px] mb-2">Enterprise Technology Operations • Greenville, SC</div>
-        <p class="text-slate-300 text-[11px] leading-snug">Hyperscaler Multi-Cloud Integration (GCP/Azure/AWS), Real-Time Transaction Data Streaming &amp; Cloud Security.</p>
-      </div>
-
-      <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800">
-        <div class="flex justify-between items-center mb-1">
-          <strong class="text-white font-bold text-sm">💡 Hubbell Incorporated</strong>
-          <span class="px-1.5 py-0.5 rounded bg-blue-950 text-blue-300 font-mono text-[10px]">HUBB</span>
-        </div>
-        <div class="text-slate-400 text-[11px] mb-2">Commercial &amp; Industrial Systems Hub • Greenville, SC</div>
-        <p class="text-slate-300 text-[11px] leading-snug">Embedded IoT Firmware (FreeRTOS), BLE/Zigbee Wireless Mesh, Smart Lighting Cloud &amp; Power Electronics Controls.</p>
-      </div>
-
-      <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800">
-        <div class="flex justify-between items-center mb-1">
-          <strong class="text-white font-bold text-sm">🔌 Duke Energy Carolinas</strong>
-          <span class="px-1.5 py-0.5 rounded bg-blue-950 text-blue-300 font-mono text-[10px]">DUK</span>
-        </div>
-        <div class="text-slate-400 text-[11px] mb-2">Upstate SC Grid Operations • Greenville, SC</div>
-        <p class="text-slate-300 text-[11px] leading-snug">DERMS Distributed Energy Software, Smart Grid SCADA, AMI Smart Meter IoT Ingestion &amp; NERC-CIP Cyber.</p>
-      </div>
-
-      <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800 md:col-span-2 lg:col-span-3">
-        <div class="flex justify-between items-center mb-1">
-          <strong class="text-white font-bold text-sm">🏥 Prisma Health (Digital Health Division)</strong>
-          <span class="px-1.5 py-0.5 rounded bg-emerald-950 text-emerald-300 font-mono text-[10px]">PRISMA HEALTH TECH</span>
-        </div>
-        <div class="text-slate-400 text-[11px] mb-2">Upstate Health Informatics &amp; Biomedical Computing • Greenville, SC</div>
-        <p class="text-slate-300 text-[11px] leading-snug">Epic EHR Interoperability &amp; FHIR APIs, Clinical Data Science &amp; Predictive Patient Analytics, Healthcare HIPAA Cloud Security &amp; Telehealth WebRTC Platform.</p>
-      </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 text-xs" id="spotlightCardsContainer">
+      <!-- Injected dynamically via JS with click-to-open drilldown -->
     </div>
   </section>
 
-  <!-- Visual Analytics Grid (3 Charts) -->
-  <section class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+  <!-- Visual Analytics Grid (3 Charts + Hub Radar Map) -->
+  <section class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
     <!-- Chart 1: Top Ghost Risk Ranking -->
-    <div class="glass-card p-5 rounded-xl md:col-span-2">
-      <div class="flex justify-between items-center mb-3">
-        <h3 class="text-sm font-bold text-white flex items-center gap-2">
+    <div class="glass-card p-4 rounded-xl md:col-span-2">
+      <div class="flex justify-between items-center mb-2">
+        <h3 class="text-xs font-bold text-white flex items-center gap-2">
           <span>📊</span> Enterprise Ghost Risk Ratio (%) by Company
         </h3>
         <span class="text-[10px] text-slate-400 font-mono">STALE &gt;90 DAYS</span>
       </div>
-      <div class="h-64 flex items-center justify-center">
+      <div class="h-60 flex items-center justify-center">
         <canvas id="chartGhostRanking"></canvas>
       </div>
     </div>
 
     <!-- Chart 2: Risk Tier Distribution -->
-    <div class="glass-card p-5 rounded-xl">
-      <h3 class="text-sm font-bold text-white mb-3 flex items-center gap-2">
+    <div class="glass-card p-4 rounded-xl">
+      <h3 class="text-xs font-bold text-white mb-2 flex items-center gap-2">
         <span>🎯</span> Enterprise Risk Tier Distribution
       </h3>
-      <div class="h-64 flex items-center justify-center">
+      <div class="h-60 flex items-center justify-center">
         <canvas id="chartRiskTiers"></canvas>
       </div>
     </div>
+  </section>
+
+  <!-- Hub Geospatial Map Section -->
+  <section class="max-w-7xl mx-auto glass-card p-5 rounded-2xl mb-6 shadow-xl">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-3 mb-3">
+      <div>
+        <h3 class="text-sm font-bold text-white flex items-center gap-2">
+          <span>🗺️</span> Enterprise Headquarters &amp; Upstate Tech Corridor Map
+        </h3>
+        <p class="text-xs text-slate-400">Geospatial coordinate mapping of regional facilities and national corporate hubs.</p>
+      </div>
+      <div class="flex items-center gap-3 text-xs">
+        <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span> Greenville, SC Hub</span>
+        <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-cyan-400"></span> National Tech Hubs</span>
+      </div>
+    </div>
+    <div id="hubMap"></div>
   </section>
 
   <!-- Data Tables & OSINT Grid -->
@@ -229,7 +173,7 @@
           <h3 class="text-sm font-bold text-white flex items-center gap-2">
             <span>🏢</span> Enterprise Ghost Postings Matrix (Databricks Gold Layer)
           </h3>
-          <p class="text-[11px] text-slate-400">SCD Type 2 Requisition Age, Stale Postings (&gt;90d), and Phantom Risk Scoring</p>
+          <p class="text-[11px] text-slate-400">Click any company to open full requisition lifecycle audit and department drilldown</p>
         </div>
         <input 
           type="text" 
@@ -250,6 +194,7 @@
               <th class="py-2.5 px-3">Stale (&gt;90d)</th>
               <th class="py-2.5 px-3">Ghost Risk (%)</th>
               <th class="py-2.5 px-3">Risk Tier</th>
+              <th class="py-2.5 px-3">Action</th>
             </tr>
           </thead>
           <tbody id="companyTableBody" class="divide-y divide-slate-800 text-slate-300">
@@ -261,16 +206,70 @@
 
     <!-- Live OSINT Intelligence & News Feed -->
     <div class="glass-card p-5 rounded-xl">
-      <h3 class="text-sm font-bold text-white mb-3 flex items-center gap-2">
+      <h3 class="text-sm font-bold text-white mb-2 flex items-center gap-2">
         <span>📰</span> Live Ghost Job OSINT &amp; News Intelligence
       </h3>
-      <p class="text-[11px] text-slate-400 mb-4">Investigative Reports, SEC Disclosures &amp; ATS Repost Telemetry</p>
+      <p class="text-[11px] text-slate-400 mb-3">Investigative Reports, SEC Disclosures &amp; ATS Repost Telemetry</p>
       
       <div class="space-y-3 max-h-96 overflow-y-auto pr-1" id="newsFeedContainer">
         <!-- News items injected -->
       </div>
     </div>
   </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════ -->
+  <!-- REQUISITION DRILLDOWN MODAL (COMPANY AUDIT VIEW)                       -->
+  <!-- ═══════════════════════════════════════════════════════════════════════ -->
+  <div id="companyModal" class="fixed inset-0 z-50 modal-backdrop hidden items-center justify-center p-4">
+    <div class="glass-card max-w-3xl w-full max-h-[85vh] rounded-2xl p-6 overflow-y-auto border border-amber-500/60 shadow-2xl relative">
+      <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg font-bold">✕</button>
+      
+      <div class="flex items-start justify-between border-b border-slate-800 pb-4 mb-4">
+        <div>
+          <span id="modalTicker" class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-amber-950 text-amber-300 border border-amber-800"></span>
+          <h2 id="modalCompanyName" class="text-xl font-extrabold text-white mt-1"></h2>
+          <p id="modalLocation" class="text-xs text-slate-400"></p>
+        </div>
+        <div class="text-right">
+          <div id="modalRiskScore" class="text-2xl font-black"></div>
+          <span id="modalRiskBadge" class="px-2 py-0.5 rounded text-[10px] font-mono font-bold"></span>
+        </div>
+      </div>
+
+      <p id="modalDescription" class="text-xs text-slate-300 mb-4 bg-slate-900/60 p-3 rounded-lg border border-slate-800"></p>
+
+      <!-- Department Breakdown -->
+      <h3 class="text-xs font-bold text-amber-300 uppercase tracking-wider mb-2">Department Requisition Breakdown</h3>
+      <div id="modalDepartments" class="grid grid-cols-1 md:grid-cols-2 gap-2 mb-4 text-xs">
+        <!-- Injected -->
+      </div>
+
+      <!-- Sample Roles Table -->
+      <div class="flex justify-between items-center mb-2">
+        <h3 class="text-xs font-bold text-cyan-300 uppercase tracking-wider">Active Requisitions Sample Pool</h3>
+        <button onclick="exportCurrentCompanyCSV()" class="text-xs bg-slate-800 hover:bg-slate-700 text-amber-300 px-2.5 py-1 rounded border border-amber-800/60 transition">
+          Export This Company CSV ↗
+        </button>
+      </div>
+
+      <div class="overflow-x-auto max-h-60 overflow-y-auto border border-slate-800 rounded-lg">
+        <table class="w-full text-left text-xs">
+          <thead class="sticky top-0 bg-slate-900 text-slate-400 border-b border-slate-800">
+            <tr>
+              <th class="py-2 px-2.5">Requisition Title</th>
+              <th class="py-2 px-2.5">Department</th>
+              <th class="py-2 px-2.5">Location</th>
+              <th class="py-2 px-2.5">Days Open</th>
+              <th class="py-2 px-2.5">Status</th>
+            </tr>
+          </thead>
+          <tbody id="modalRolesBody" class="divide-y divide-slate-800 text-slate-300">
+            <!-- Injected -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer class="max-w-7xl mx-auto text-center text-xs text-slate-600 border-t border-slate-800/80 pt-6">
@@ -282,6 +281,8 @@
     let rawSummaryData = [];
     let activeFilter = 'greenville';
     let chartRanking, chartTiers;
+    let hubMap, hubMarkers;
+    let currentSelectedCompany = null;
 
     async function loadData() {
       try {
@@ -300,14 +301,24 @@
         }
       }
 
+      initHubMap();
       applyFilterAndRender();
       loadNews();
+    }
+
+    function initHubMap() {
+      if (hubMap) return;
+      hubMap = L.map('hubMap').setView([35.5, -83.0], 5);
+      L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+        attribution: '&copy; ESRI &copy; OpenStreetMap',
+        maxZoom: 18
+      }).addTo(hubMap);
+      hubMarkers = L.layerGroup().addTo(hubMap);
     }
 
     function setFilter(filterType) {
       activeFilter = filterType;
       
-      // Update filter buttons styling
       document.getElementById("btn-filter-greenville").className = filterType === 'greenville' 
         ? "px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-amber-600 text-white border border-amber-400 transition flex items-center gap-1.5 shadow-[0_0_10px_#d97706]" 
         : "px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition flex items-center gap-1.5";
@@ -329,16 +340,21 @@
       if (activeFilter === 'greenville') {
         filtered = filtered.filter(c => (c.region && c.region.includes("Greenville")) || (c.hq_city && c.hq_city.includes("Greenville")) || c.hq_state === "SC");
         document.getElementById("kpi-companies-sub").innerText = "Greenville SC & Upstate Tech";
+        if (hubMap) hubMap.setView([34.8526, -82.3940], 9);
       } else if (activeFilter === 'tech') {
         filtered = filtered.filter(c => !(c.region && c.region.includes("Greenville")) && c.hq_state !== "SC");
         document.getElementById("kpi-companies-sub").innerText = "National Tech & Cloud Giants";
+        if (hubMap) hubMap.setView([39.5, -98.0], 4);
       } else {
         document.getElementById("kpi-companies-sub").innerText = "All Enterprise Companies";
+        if (hubMap) hubMap.setView([37.5, -95.0], 4);
       }
 
       renderKPIs(filtered);
+      renderSpotlightCards(filtered);
       renderCharts(filtered);
       renderTable(filtered);
+      renderHubMapMarkers(filtered);
     }
 
     function renderKPIs(data) {
@@ -351,6 +367,67 @@
       document.getElementById("kpi-listings").innerText = totalReqs.toLocaleString();
       document.getElementById("kpi-stale").innerText = totalStale.toLocaleString();
       document.getElementById("kpi-ghost-avg").innerText = `${avgGhost}%`;
+    }
+
+    function renderSpotlightCards(data) {
+      const container = document.getElementById("spotlightCardsContainer");
+      container.innerHTML = "";
+
+      const gvlCompanies = rawSummaryData.filter(c => (c.region && c.region.includes("Greenville")) || (c.hq_city && c.hq_city.includes("Greenville")) || c.hq_state === "SC");
+
+      gvlCompanies.forEach(c => {
+        const card = document.createElement("div");
+        card.className = "p-3 rounded-xl bg-slate-900/90 border border-slate-800 hover:border-amber-500/50 cursor-pointer transition flex flex-col justify-between";
+        card.onclick = () => openCompanyModal(c);
+
+        card.innerHTML = `
+          <div>
+            <div class="flex justify-between items-center mb-1">
+              <strong class="text-white font-bold text-sm hover:text-amber-300 transition">${c.company_name}</strong>
+              <span class="px-1.5 py-0.5 rounded bg-blue-950 text-blue-300 font-mono text-[10px] border border-blue-800">${c.ticker || 'N/A'}</span>
+            </div>
+            <div class="text-slate-400 text-[10px] mb-1.5">📍 ${c.hq_city || 'Greenville'}, ${c.hq_state || 'SC'} • ${c.region || ''}</div>
+            <p class="text-slate-300 text-[11px] leading-snug line-clamp-2 mb-2">${c.description || ''}</p>
+          </div>
+          <div class="flex justify-between items-center pt-2 border-t border-slate-800/80 text-[10px]">
+            <span class="text-cyan-300 font-semibold">${c.total_active_listings} Active Reqs</span>
+            <span class="${c.ghost_risk_pct >= 25 ? 'text-amber-400' : 'text-emerald-400'} font-bold">${c.ghost_risk_pct}% Ghost Risk</span>
+            <span class="text-slate-400 underline">Drilldown ➔</span>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function renderHubMapMarkers(data) {
+      if (!hubMarkers) return;
+      hubMarkers.clearLayers();
+
+      data.forEach(c => {
+        if (c.lat && c.lon) {
+          const isGVL = (c.region && c.region.includes("Greenville")) || c.hq_state === "SC";
+          const markerColor = isGVL ? "#f59e0b" : "#38bdf8";
+
+          const icon = L.divIcon({
+            className: 'hub-pin-container',
+            html: `<div class="${isGVL ? 'hub-ping-gvl' : 'hub-ping-tech'}"></div>`,
+            iconSize: [14, 14],
+            iconAnchor: [7, 7]
+          });
+
+          const m = L.marker([c.lat, c.lon], { icon: icon });
+          m.bindTooltip(`
+            <div style="font-size:11px; font-family:sans-serif; color:#0f172a;">
+              <strong style="color:${markerColor}">${c.company_name}</strong><br/>
+              <span>${c.hq_city}, ${c.hq_state} • <strong>${c.total_active_listings} Reqs</strong></span><br/>
+              <span>Ghost Risk: <strong>${c.ghost_risk_pct}%</strong> (${c.risk_tier})</span>
+            </div>
+          `, { direction: 'top', opacity: 0.95 });
+
+          m.on('click', () => openCompanyModal(c));
+          hubMarkers.addLayer(m);
+        }
+      });
     }
 
     function renderCharts(data) {
@@ -426,7 +503,10 @@
 
       data.forEach(c => {
         const tr = document.createElement("tr");
-        tr.className = "hover:bg-slate-800/40 transition";
+        tr.className = "hover:bg-slate-800/40 transition cursor-pointer";
+        tr.onclick = (e) => {
+          if (!e.target.closest('button')) openCompanyModal(c);
+        };
         
         let tierClass = "bg-emerald-950 text-emerald-300 border border-emerald-800";
         if (c.risk_tier === "CRITICAL_GHOST_RISK") tierClass = "bg-rose-950 text-rose-300 border border-rose-800";
@@ -444,9 +524,105 @@
           <td class="py-2 px-3 font-mono text-rose-400 font-bold">${c.stale_listings_over_90d || 0}</td>
           <td class="py-2 px-3 font-bold ${c.ghost_risk_pct >= 45 ? 'text-rose-400' : c.ghost_risk_pct >= 25 ? 'text-amber-400' : 'text-emerald-400'}">${c.ghost_risk_pct || 0}%</td>
           <td class="py-2 px-3"><span class="px-2 py-0.5 rounded text-[10px] font-mono ${tierClass}">${c.risk_tier || 'HEALTHY'}</span></td>
+          <td class="py-2 px-3"><button onclick="openCompanyModal(rawSummaryData.find(x => x.company_token === '${c.company_token}'))" class="text-xs text-amber-400 hover:text-amber-300 font-semibold underline">Audit ➔</button></td>
         `;
         tbody.appendChild(tr);
       });
+    }
+
+    // Modal & Drilldown Logic
+    function openCompanyModal(company) {
+      if (!company) return;
+      currentSelectedCompany = company;
+
+      document.getElementById("modalCompanyName").innerText = company.company_name;
+      document.getElementById("modalTicker").innerText = company.ticker || 'N/A';
+      document.getElementById("modalLocation").innerText = `📍 Headquarters / Campus: ${company.hq_city}, ${company.hq_state} (${company.region || 'Enterprise'})`;
+      document.getElementById("modalDescription").innerText = company.description || 'Enterprise Technology & Engineering Division';
+
+      const riskEl = document.getElementById("modalRiskScore");
+      riskEl.innerText = `${company.ghost_risk_pct}% Ghost Risk`;
+      riskEl.className = `text-2xl font-black ${company.ghost_risk_pct >= 45 ? 'text-rose-400' : company.ghost_risk_pct >= 25 ? 'text-amber-400' : 'text-emerald-400'}`;
+
+      const badgeEl = document.getElementById("modalRiskBadge");
+      badgeEl.innerText = company.risk_tier;
+      badgeEl.className = `px-2 py-0.5 rounded text-[10px] font-mono font-bold ${company.risk_tier === 'HEALTHY_HIRING_VELOCITY' ? 'bg-emerald-950 text-emerald-300 border border-emerald-800' : 'bg-amber-950 text-amber-300 border border-amber-800'}`;
+
+      // Departments
+      const deptContainer = document.getElementById("modalDepartments");
+      deptContainer.innerHTML = "";
+      const depts = company.department_breakdown || {};
+      Object.entries(depts).forEach(([deptName, stats]) => {
+        const dItem = document.createElement("div");
+        dItem.className = "p-2.5 rounded bg-slate-900 border border-slate-800 flex justify-between items-center";
+        dItem.innerHTML = `
+          <div>
+            <strong class="text-white">${deptName}</strong>
+            <div class="text-[10px] text-slate-400">${stats.total} total requisitions</div>
+          </div>
+          <div class="text-right">
+            <span class="font-mono text-rose-400 font-bold">${stats.stale} stale</span>
+            <div class="text-[10px] text-slate-400">${((stats.stale / stats.total)*100).toFixed(0)}%</div>
+          </div>
+        `;
+        deptContainer.appendChild(dItem);
+      });
+
+      // Sample Roles
+      const rolesBody = document.getElementById("modalRolesBody");
+      rolesBody.innerHTML = "";
+      const roles = company.sample_roles || [];
+      roles.forEach(r => {
+        const row = document.createElement("tr");
+        row.className = "hover:bg-slate-800/40";
+        row.innerHTML = `
+          <td class="py-2 px-2.5 font-semibold text-white">${r.title}</td>
+          <td class="py-2 px-2.5 text-slate-300">${r.dept}</td>
+          <td class="py-2 px-2.5 text-slate-400">${r.location}</td>
+          <td class="py-2 px-2.5 font-mono text-cyan-300">${r.days_active}d</td>
+          <td class="py-2 px-2.5"><span class="px-1.5 py-0.5 rounded text-[9px] font-mono ${r.is_stale ? 'bg-rose-950 text-rose-300 border border-rose-800' : 'bg-emerald-950 text-emerald-300 border border-emerald-800'}">${r.is_stale ? 'STALE >90D' : 'ACTIVE'}</span></td>
+        `;
+        rolesBody.appendChild(row);
+      });
+
+      document.getElementById("companyModal").classList.remove("hidden");
+      document.getElementById("companyModal").classList.add("flex");
+    }
+
+    function closeModal() {
+      document.getElementById("companyModal").classList.add("hidden");
+      document.getElementById("companyModal").classList.remove("flex");
+    }
+
+    // CSV Exporters
+    function exportFullAuditCSV() {
+      let csv = "Company Name,Ticker,Region,HQ City,HQ State,Active Requisitions,Avg Days Open,Stale Over 90d,Ghost Risk Pct,Risk Tier\n";
+      rawSummaryData.forEach(c => {
+        csv += `"${c.company_name}","${c.ticker}","${c.region}","${c.hq_city}","${c.hq_state}",${c.total_active_listings},${c.avg_listing_age_days},${c.stale_listings_over_90d},${c.ghost_risk_pct},"${c.risk_tier}"\n`;
+      });
+
+      const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `enterprise_ghost_job_audit_${new Date().toISOString().substring(0,10)}.csv`;
+      a.click();
+    }
+
+    function exportCurrentCompanyCSV() {
+      if (!currentSelectedCompany) return;
+      const c = currentSelectedCompany;
+      let csv = "Company,Requisition Title,Department,Location,Days Open,Is Stale\n";
+      (c.sample_roles || []).forEach(r => {
+        csv += `"${c.company_name}","${r.title}","${r.dept}","${r.location}",${r.days_active},${r.is_stale}\n`;
+      });
+
+      const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `${c.company_token}_requisitions_audit.csv`;
+      a.click();
     }
 
     async function loadNews() {
@@ -466,29 +642,27 @@
           news = [];
         }
       }
+
       const container = document.getElementById("newsFeedContainer");
       container.innerHTML = "";
 
-        news.forEach(n => {
-          const item = document.createElement("div");
-          item.className = "p-3 rounded-lg bg-slate-900 border border-slate-800 hover:border-amber-500/40 transition";
-          item.innerHTML = `
-            <div class="flex justify-between items-center mb-1">
-              <span class="text-[9px] uppercase font-bold px-1.5 py-0.5 rounded bg-amber-950 text-amber-300 border border-amber-800">${n.category || 'OSINT'}</span>
-              <span class="text-[10px] text-slate-500">${(n.published_at || '').substring(0, 10)}</span>
-            </div>
-            <h4 class="font-bold text-xs text-white mb-1 leading-snug">${n.title}</h4>
-            <p class="text-[11px] text-slate-400 leading-snug">${n.summary || ''}</p>
-            <div class="mt-2 flex justify-between items-center text-[10px]">
-              <span class="text-slate-500 font-mono">${n.source}</span>
-              ${n.url ? `<a href="${n.url}" target="_blank" class="text-amber-400 hover:underline">Read Dispatch ↗</a>` : ''}
-            </div>
-          `;
-          container.appendChild(item);
-        });
-      } catch (e) {
-        console.warn("Failed to load news feed", e);
-      }
+      news.forEach(n => {
+        const item = document.createElement("div");
+        item.className = "p-3 rounded-lg bg-slate-900 border border-slate-800 hover:border-amber-500/40 transition";
+        item.innerHTML = `
+          <div class="flex justify-between items-center mb-1">
+            <span class="text-[9px] uppercase font-bold px-1.5 py-0.5 rounded bg-amber-950 text-amber-300 border border-amber-800">${n.category || 'OSINT'}</span>
+            <span class="text-[10px] text-slate-500">${(n.published_at || '').substring(0, 10)}</span>
+          </div>
+          <h4 class="font-bold text-xs text-white mb-1 leading-snug">${n.title}</h4>
+          <p class="text-[11px] text-slate-400 leading-snug">${n.summary || ''}</p>
+          <div class="mt-2 flex justify-between items-center text-[10px]">
+            <span class="text-slate-500 font-mono">${n.source}</span>
+            ${n.url ? `<a href="${n.url}" target="_blank" class="text-amber-400 hover:underline">Read Dispatch ↗</a>` : ''}
+          </div>
+        `;
+        container.appendChild(item);
+      });
     }
 
     document.getElementById("companySearchInput").addEventListener("input", (e) => {
