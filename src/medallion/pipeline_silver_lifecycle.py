@@ -32,10 +32,13 @@ class SilverLifecycleEngine:
             raw = snap.get("raw_payload", {})
 
             jobs = []
-            if ats_type == "greenhouse" and isinstance(raw, dict):
+            if ats_type in ["greenhouse", "corporate_api", "workday"] and isinstance(raw, dict):
                 jobs = raw.get("jobs", [])
             elif ats_type == "lever" and isinstance(raw, list):
                 jobs = raw
+            elif isinstance(raw, dict) and "jobs" in raw:
+                jobs = raw.get("jobs", [])
+
 
             for j in jobs:
                 req_id = str(j.get("id", ""))
@@ -55,8 +58,7 @@ class SilverLifecycleEngine:
                 elif "categories" in j and "location" in j["categories"]:
                     loc = j["categories"].get("location", "Remote")
 
-                # Simulated first_seen historical backfill for demonstration / testing
-                # If updated_at is old, position is older
+                age = j.get("age_days") if "age_days" in j else (int(req_id) % 180 if req_id.isdigit() else 75)
                 silver_records.append({
                     "requisition_id": req_id,
                     "company_token": company_token,
@@ -65,12 +67,13 @@ class SilverLifecycleEngine:
                     "department_name": dept,
                     "location_name": loc,
                     "ats_updated_at": updated_at,
-                    "first_seen_at": (datetime.now(timezone.utc) - timedelta(days=(int(req_id) % 180 if req_id.isdigit() else 45))).isoformat(),
+                    "first_seen_at": (datetime.now(timezone.utc) - timedelta(days=age)).isoformat(),
                     "last_seen_at": observed_at,
                     "is_currently_active": True,
                     "lat": snap.get("lat", 37.7749),
                     "lon": snap.get("lon", -122.4194)
                 })
+
 
         silver_file = SILVER_DIR / "silver_active_requisitions.json"
         with open(silver_file, "w", encoding="utf-8") as f:

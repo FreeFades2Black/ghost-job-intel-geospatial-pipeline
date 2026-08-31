@@ -17,10 +17,22 @@ for d in [BRONZE_DIR, SILVER_DIR, GOLD_DIR, UI_DIR]:
     d.mkdir(parents=True, exist_ok=True)
 
 TOP_100_PUBLIC_COMPANIES: List[Dict[str, str]] = [
+    # Top Global Mega-Caps & Industrial Giants
+    {"token": "google", "name": "Google (Alphabet Inc.)", "ats": "corporate_api", "ticker": "GOOGL", "hq_city": "Mountain View", "hq_state": "CA", "lat": 37.4220, "lon": -122.0841},
+    {"token": "microsoft", "name": "Microsoft Corporation", "ats": "corporate_api", "ticker": "MSFT", "hq_city": "Redmond", "hq_state": "WA", "lat": 47.6740, "lon": -122.1215},
+    {"token": "meta", "name": "Meta Platforms Inc.", "ats": "corporate_api", "ticker": "META", "hq_city": "Menlo Park", "hq_state": "CA", "lat": 37.4538, "lon": -122.1822},
+    {"token": "nvidia", "name": "NVIDIA Corporation", "ats": "workday", "ticker": "NVDA", "hq_city": "Santa Clara", "hq_state": "CA", "lat": 37.3541, "lon": -121.9552},
+    {"token": "walmart", "name": "Walmart Inc. (Global Tech)", "ats": "workday", "ticker": "WMT", "hq_city": "Bentonville", "hq_state": "AR", "lat": 36.3729, "lon": -94.2088},
+    {"token": "goodyear", "name": "The Goodyear Tire & Rubber Co.", "ats": "workday", "ticker": "GT", "hq_city": "Akron", "hq_state": "OH", "lat": 41.0814, "lon": -81.5190},
+    {"token": "michelin", "name": "Michelin Group", "ats": "workday", "ticker": "ML.PA", "hq_city": "Greenville / Clermont", "hq_state": "SC", "lat": 34.8526, "lon": -82.3940},
+    {"token": "ge", "name": "General Electric (GE Aerospace)", "ats": "workday", "ticker": "GE", "hq_city": "Evendale / Boston", "hq_state": "OH", "lat": 39.2456, "lon": -84.4530},
+    
+    # Public Cloud, SaaS & High-Growth Tech
     {"token": "gitlab", "name": "GitLab Inc.", "ats": "greenhouse", "ticker": "GTLB", "hq_city": "San Francisco", "hq_state": "CA", "lat": 37.7749, "lon": -122.4194},
     {"token": "block", "name": "Block Inc.", "ats": "greenhouse", "ticker": "SQ", "hq_city": "San Francisco", "hq_state": "CA", "lat": 37.7749, "lon": -122.4194},
     {"token": "robinhood", "name": "Robinhood Markets", "ats": "greenhouse", "ticker": "HOOD", "hq_city": "Menlo Park", "hq_state": "CA", "lat": 37.4538, "lon": -122.1822},
     {"token": "cloudflare", "name": "Cloudflare Inc.", "ats": "greenhouse", "ticker": "NET", "hq_city": "Austin", "hq_state": "TX", "lat": 30.2672, "lon": -97.7431},
+
     {"token": "datadog", "name": "Datadog Inc.", "ats": "greenhouse", "ticker": "DDOG", "hq_city": "New York", "hq_state": "NY", "lat": 40.7128, "lon": -74.0060},
     {"token": "snowflake", "name": "Snowflake Inc.", "ats": "greenhouse", "ticker": "SNOW", "hq_city": "Bozeman", "hq_state": "MT", "lat": 45.6770, "lon": -111.0429},
     {"token": "crowdstrike", "name": "CrowdStrike Holdings", "ats": "greenhouse", "ticker": "CRWD", "hq_city": "Austin", "hq_state": "TX", "lat": 30.2672, "lon": -97.7431},

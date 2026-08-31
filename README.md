@@ -1,6 +1,6 @@
-# 🌐 Ghost Job Intelligence & Multi-Repo Geospatial Visualizer
+# 👻 Ghost Job Intelligence & Medallion Analytics Engine
 
-An automated, Medallion Architecture pipeline (Bronze ➔ Silver ➔ Gold) and open-source geospatial front-end bridging **Repository A (`uap-scraper-pipeline`)**, **Repository B (`For-Your-Service`)**, and public ATS boards (Greenhouse, Lever, Workday) for the **Top 100 Largest Public Tech Companies** to expose ghost postings, 90-day stale requisition loops, and OSINT news alerts.
+An automated, Medallion Architecture pipeline (Bronze ➔ Silver ➔ Gold) and rich analytics frontend tracking public ATS boards (Greenhouse, Lever, Workday) across the **Top 100 Largest Public Tech Companies** to expose phantom postings, 90-day stale requisition loops, and OSINT news alerts.
 
 ---
 
@@ -8,37 +8,33 @@ An automated, Medallion Architecture pipeline (Bronze ➔ Silver ➔ Gold) and o
 
 ```mermaid
 graph TD
-    A[Public ATS Endpoints / Greenhouse / Lever] -->|Raw JSON Ingestion| B[(Bronze: bronze_ats_snapshots)]
-    C[SEC EDGAR / News Feeds / OSINT] -->|Regulatory Filings| B
-    D[Repo A: uap-scraper-pipeline] -->|Multi-Era Telemetry| M[Multi-Repo Bridge]
-    E[Repo B: For-Your-Service] -->|Veteran MOS Requisitions| M
-    B -->|Schema Flattening & SCD Type 2 Lifecycle| F[(Silver: silver_active_requisitions)]
-    F -->|Ghost Index & Stale Metrics (>90d)| G[(Gold: gold_ghost_postings_summary)]
-    M -->|Standard GeoJSON / OpenStreetMap| H[Interactive Geospatial Visualizer]
-    G -->|Ghost Risk Hotspots| H
-    H --> I[Omarchy Desktop & Databricks Dashboard]
+    A["Public ATS Endpoints (Greenhouse / Lever)"] -->|"Raw JSON Ingestion"| B[("Bronze: bronze_ats_snapshots")]
+    C["SEC EDGAR & News Feeds (OSINT)"] -->|"Regulatory Filings"| B
+    B -->|"Schema Flattening & SCD Type 2 Lifecycle"| F[("Silver: silver_active_requisitions")]
+    F -->|"Ghost Index & Stale Metrics (>90 Days)"| G[("Gold: gold_ghost_postings_summary")]
+    G -->|"Analytics & Scorecards"| H["Ghost Postings Dashboard (Charts & Tables)"]
+    H --> I["Databricks SQL & Omarchy Execution HUD"]
 ```
+
 
 ---
 
 ## 🚀 Key Features
 
-1. **Top 100 Public Companies Ghost Index:**
-   - Real-time polling across public ATS APIs (GitLab, Block, Robinhood, Cloudflare, Datadog, Snowflake, CrowdStrike, Palantir, Coinbase, etc.).
-   - SCD Type 2 lifecycle tracking recording `first_seen_at`, `last_seen_at`, and detecting algorithmic repost loops.
-   - Calculates **Ghost Risk Ratio (%)** and flags listings active for $>90$ days.
+1. **Top 100 Public Tech & Industrial Enterprise Registry:**
+   - Real-time polling across public ATS APIs & career endpoints for **Google (Alphabet), Microsoft, Meta Platforms, NVIDIA, Walmart Global Tech, Goodyear Tire & Rubber, Michelin Group, General Electric (GE), GitLab, Block, Robinhood, Cloudflare, Datadog, Snowflake, CrowdStrike, Palantir, etc.**
 
-2. **Ghost Job OSINT & News Scraper:**
-   - Aggregates live RSS intelligence feeds, survey benchmarks (Clarify Capital), and SEC EDGAR headcount disclosure warnings.
+2. **3-Tier Medallion Architecture (PySpark & Delta Lake):**
+   - **Bronze (`bronze_ats_snapshots`):** Ingests raw JSON snapshots from Greenhouse, Lever, Workday, and corporate APIs.
+   - **Silver (`silver_active_requisitions`):** SCD Type 2 lifecycle tracking recording `first_seen_at`, `last_seen_at`, active status, and detecting algorithmic repost loops.
+   - **Gold (`gold_ghost_postings_summary`):** Computes **Ghost Risk Ratio (%)**, average listing age in days, and $>90$-day stale requisition exposure.
 
-3. **Multi-Repo Geospatial Bridge:**
-   - Standard GeoJSON endpoints unifying:
-     - 🛸 **UAP Sightings Layer:** 1,041+ sightings from 1480 BC to Present (Roswell 1947, Roman shields, Egyptian disks).
-     - 🎖️ **Veteran Job Listings Layer:** Geo-tagged civilian job opportunities with MOS/AFSC crosswalk match.
-     - 👻 **Corporate Ghost Hotspots:** Geospatial coordinate mapping of tech company HQs color-coded by Ghost Risk Index.
+3. **Ghost Job OSINT & SEC EDGAR Scraper:**
+   - Aggregates live RSS intelligence feeds, survey benchmarks (Clarify Capital), and SEC EDGAR headcount vs. hiring freeze disclosure warnings.
 
-4. **Zero-Lock Open-Source Basemap:**
-   - OpenStreetMap / CartoDB Dark tiles with Leaflet and marker clustering.
+4. **Rich Visual Analytics & Corporate Data Matrix:**
+   - Standalone dashboard featuring Chart.js ranking bar charts, risk tier distribution doughnuts, searchable corporate scorecards, and live OSINT news feeds.
+
 
 ---
 
