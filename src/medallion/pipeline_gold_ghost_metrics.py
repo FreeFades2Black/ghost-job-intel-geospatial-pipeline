@@ -66,11 +66,21 @@ class GoldGhostMetricsEngine:
             stale = stats["stale_listings_over_90d"]
             ghost_pct = round((stale / total) * 100, 2) if total > 0 else 0.0
 
-            risk_tier = "LOW"
-            if ghost_pct > 50:
+            # Statistical Minimum Sample Size Enforcement (Databricks Rigor)
+            MIN_SAMPLE_THRESHOLD = 30
+            
+            if total < MIN_SAMPLE_THRESHOLD:
+                risk_tier = "LOW_SAMPLE_MONITORING"
+                confidence = "INSUFFICIENT_DATA_SAMPLE"
+            elif ghost_pct >= 45.0:
                 risk_tier = "CRITICAL_GHOST_RISK"
-            elif ghost_pct > 25:
+                confidence = "HIGH_STATISTICAL_CONFIDENCE"
+            elif ghost_pct >= 25.0:
                 risk_tier = "ELEVATED_STALE_RISK"
+                confidence = "HIGH_STATISTICAL_CONFIDENCE"
+            else:
+                risk_tier = "HEALTHY_HIRING_VELOCITY"
+                confidence = "HIGH_STATISTICAL_CONFIDENCE"
 
             gold_summary.append({
                 "company_token": token,
@@ -82,8 +92,10 @@ class GoldGhostMetricsEngine:
                 "stale_listings_over_90d": stale,
                 "ghost_risk_pct": ghost_pct,
                 "risk_tier": risk_tier,
+                "sample_confidence": confidence,
                 "top_stale_role": next((x["title"] for x in stats["roles"] if x["is_stale"]), "N/A")
             })
+
 
         # Sort descending by ghost_risk_pct
         gold_summary.sort(key=lambda x: x["ghost_risk_pct"], reverse=True)
