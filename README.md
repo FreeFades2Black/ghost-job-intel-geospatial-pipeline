@@ -42,7 +42,7 @@ flowchart TD
     end
 
     subgraph S4["4. Gold Aggregation Layer (Statistical Analytics)"]
-        D1[("gold_ghost_postings_summary.json<br/>- Ghost Risk Ratio (%) with Decimal Precision<br/>- Sample Threshold Enforcement: N ≥ 30<br/>- Databricks 2022-2026 Historical Trends<br/>- Departmental Stale Velocity Progress")]
+        D1[("gold_ghost_postings_summary.json<br/>- Ghost Risk Ratio (%) with Decimal Precision<br/>- Sample Threshold Enforcement: N >= 30<br/>- Databricks 2022-2026 Historical Trends<br/>- Departmental Stale Velocity Progress")]
     end
 
     subgraph S5["5. Presentation & Delivery Surfaces"]
