@@ -6,15 +6,9 @@
 [![Medallion Architecture](https://img.shields.io/badge/Architecture-Bronze%20%E2%9E%94%20Silver%20%E2%9E%94%20Gold-emerald?style=for-the-badge&logo=databricks&logoColor=white)](https://github.com/FreeFades2Black/ghost-job-intel-geospatial-pipeline)
 [![Build Status](https://img.shields.io/badge/PyTest-100%25%20Passed-brightgreen?style=for-the-badge&logo=pytest&logoColor=white)](https://github.com/FreeFades2Black/ghost-job-intel-geospatial-pipeline)
 
----
-
-## 🎯 Executive Summary & Mission
-
-The **Ghost Job Intelligence & Medallion Analytics Engine** provides institutional-grade talent acquisition analytics and workforce velocity benchmarks. By continuously monitoring public Applicant Tracking Systems (ATS) — including **Workday, Greenhouse, Lever, and enterprise career portals** — across a high-volume pool of **3,200+ active requisitions**, this platform isolates genuine hiring velocity from phantom requisitions, stale postings, and algorithmic repost loops.
-
-This platform empowers corporate talent acquisition executives, organizational researchers, economic development leaders, and candidates by establishing transparent, mathematically rigorous benchmarks for hiring integrity and **longitudinal hiring trends (2022–2026)**.
-
-👉 **[Launch the Live Interactive Web Dashboard ↗](https://freefades2black.github.io/ghost-job-intel-geospatial-pipeline/)**
+> [!TIP]
+> ### 🌐 **[👉 CLICK HERE TO LAUNCH LIVE GHOST JOB INTELLIGENCE DASHBOARD ↗](https://freefades2black.github.io/ghost-job-intel-geospatial-pipeline/)**
+> **Zero installation or cloud setup required.** Click the link above to explore the live interactive Medallion talent visualizer, Greenville SC regional geospatial radar, and multi-year hiring velocity trend lines directly in your browser.
 
 ---
 
