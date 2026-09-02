@@ -24,6 +24,19 @@ The platform integrates **Google TimesFM-3** architecture principles to transfor
 | **Energy & Smart Grid (GE Vernova / Duke Energy)** | 34.5% | 28.18% | **26.90%** | **25.40%** | `22.4% - 28.4%` | 🟡 **Direct Engineering Conversion** |
 | **Aerospace & Defense (Lockheed Martin / Fluor)** | 39.2% | 34.76% | **32.80%** | **30.50%** | `27.0% - 34.0%` | 🟡 **Security Clearance Queue Gradual Resolution** |
 
+### 🧠 How TimesFM-3 Foundation Forecasting is Incorporated
+1. **Longitudinal Context Ingestion:** The model consumes 19 historical quarters (2022 Q1 to 2026 Q3) of Databricks Gold Delta tables, representing over 3,200 active and historical enterprise requisitions.
+2. **Zero-Shot Multi-Scale Attention:** Applies Google TimesFM-3 decoder-only temporal attention layers to detect annual hiring freezes (Q4 holiday freezes) versus Q1 fiscal budget expansions without manual parameter tuning.
+3. **Probabilistic Uncertainty Cones:** Outputs $P_{10}$ (optimistic hiring velocity), $P_{50}$ (expected trajectory), and $P_{90}$ (stagnation boundary) quantile cones:
+   $$\hat{R}_{\text{ghost}}(t+h) = \mathcal{F}_{\text{TimesFM-3}}\left(R_{1:t}, h=9, \text{covariates}_{\text{macro}}\right)$$
+4. **Promotion to Gold Layer:** Forecast dossiers are serialized to `data/gold/gold_timesfm_hiring_forecasts.json` and consumed directly by the live interactive dashboard.
+
+### 🖥️ The Omarchy Machine as a High-Performance Compute Asset
+All TimesFM-3 foundation model inference runs and multi-source ATS web scrapers execute on the **Omarchy Arch Linux Dedicated Node (`192.168.50.53` Kernel 7.1.9-arch1-2)**:
+* **High-Throughput Scraping & Normalization:** Ingests Workday, Greenhouse, and Lever ATS feeds concurrently across corporate careers portals.
+* **Bare-Metal Vectorized Inference:** Executes the TimesFM-3 autoregressive forecasting pipeline with sub-second execution times.
+* **Continuous Integration & Staging:** Serves as the primary automated deployment harness for GitHub Pages and FastAPI service endpoints.
+
 ---
 
 ## 🏛️ 3-Tier Medallion Data Engineering Architecture
