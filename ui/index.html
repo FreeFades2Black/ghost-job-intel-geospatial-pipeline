@@ -700,22 +700,22 @@
       if (!mapInstance) {
         mapInstance = L.map('hubMap').setView([34.8526, -82.3940], 6);
         
+        const osmTiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 19,
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        });
+
         const darkTiles = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
           subdomains: 'abcd',
           maxZoom: 19,
-          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+          attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
         });
 
-        const osmTiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          maxZoom: 19,
-          attribution: '&copy; OpenStreetMap contributors'
-        });
-
-        darkTiles.addTo(mapInstance);
+        osmTiles.addTo(mapInstance);
 
         const baseMaps = {
-          "🌌 Dark Radar Canvas": darkTiles,
-          "🛰️ OpenStreetMap": osmTiles
+          "🛰️ Clean OpenStreetMap (Zero Watermark)": osmTiles,
+          "🌌 Dark Radar Canvas": darkTiles
         };
         L.control.layers(baseMaps, null, { position: 'topright' }).addTo(mapInstance);
 
