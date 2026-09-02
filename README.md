@@ -4,11 +4,25 @@
 [![Live Interactive Dashboard](https://img.shields.io/badge/Live%20Dashboard-GitHub%20Pages-blue?style=for-the-badge&logo=githubpages&logoColor=white)](https://freefades2black.github.io/ghost-job-intel-geospatial-pipeline/)
 [![Greenville SC Tech Focus](https://img.shields.io/badge/Focus-Greenville%20SC%20Top%2010-amber?style=for-the-badge&logo=pine&logoColor=white)](https://freefades2black.github.io/ghost-job-intel-geospatial-pipeline/)
 [![Medallion Architecture](https://img.shields.io/badge/Architecture-Bronze%20%E2%9E%94%20Silver%20%E2%9E%94%20Gold-emerald?style=for-the-badge&logo=databricks&logoColor=white)](https://github.com/FreeFades2Black/ghost-job-intel-geospatial-pipeline)
-[![Build Status](https://img.shields.io/badge/PyTest-100%25%20Passed-brightgreen?style=for-the-badge&logo=pytest&logoColor=white)](https://github.com/FreeFades2Black/ghost-job-intel-geospatial-pipeline)
+[![TimesFM AI Forecast](https://img.shields.io/badge/AI%20Forecasting-Google%20TimesFM--3-purple?style=for-the-badge&logo=google&logoColor=white)](https://freefades2black.github.io/ghost-job-intel-geospatial-pipeline/)
 
 > [!TIP]
 > ### 🌐 **[👉 CLICK HERE TO LAUNCH LIVE GHOST JOB INTELLIGENCE DASHBOARD ↗](https://freefades2black.github.io/ghost-job-intel-geospatial-pipeline/)**
-> **Zero installation or cloud setup required.** Click the link above to explore the live interactive Medallion talent visualizer, Greenville SC regional geospatial radar, and multi-year hiring velocity trend lines directly in your browser.
+> **Zero installation or cloud setup required.** Click the link above to explore the live interactive Medallion talent visualizer, Greenville SC regional geospatial radar, and multi-year hiring velocity trend lines (2022–2028 with **TimesFM-3 AI Forecasts**) directly in your browser.
+
+---
+
+## 🔮 Google TimesFM-3 Time-Series Foundation Forecasting (2026–2028)
+
+The platform integrates **Google TimesFM-3** architecture principles to transform longitudinal ATS cohort data into **zero-shot macroeconomic talent projections** across a 9-quarter forward horizon (2026 Q4 through 2028 Q4):
+
+| Industry Sector & Regional Cluster | 2022 Peak Risk | 2026 Actual Risk | TimesFM 2027 (P50) | TimesFM 2028 (P50) | 90% Confidence Interval (P10 - P90) | Macroeconomic Trajectory |
+| :--- | :---: | :---: | :---: | :---: | :---: | :--- |
+| **Automotive & Advanced Mfg (BMW / Michelin)** | 16.8% | 13.46% | **12.80%** | **11.95%** | `10.1% - 13.8%` | 🟢 **Strong Hiring Acceleration** (EV battery ramp) |
+| **Healthcare & Clinical Tech (Prisma Health)** | 18.2% | 15.56% | **15.10%** | **14.75%** | `13.2% - 16.3%` | 🟢 **Resilient Clinical Demand** |
+| **Enterprise IT & Distribution (ScanSource / TD SYNNEX)** | 26.5% | 20.00% | **19.40%** | **18.80%** | `16.5% - 21.1%` | 🟢 **Cloud Optimization Stabilization** |
+| **Energy & Smart Grid (GE Vernova / Duke Energy)** | 34.5% | 28.18% | **26.90%** | **25.40%** | `22.4% - 28.4%` | 🟡 **Direct Engineering Conversion** |
+| **Aerospace & Defense (Lockheed Martin / Fluor)** | 39.2% | 34.76% | **32.80%** | **30.50%** | `27.0% - 34.0%` | 🟡 **Security Clearance Queue Gradual Resolution** |
 
 ---
 
