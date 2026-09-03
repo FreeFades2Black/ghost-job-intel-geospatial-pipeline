@@ -344,6 +344,31 @@ class ATSScraper:
 
         return jobs
 
+    def fetch_live_public_jobs(self, tag: str = "python") -> List[Dict[str, Any]]:
+        """Polls live public remote/enterprise job API feeds."""
+        live_jobs = []
+        try:
+            url = f"https://remoteok.com/api?tag={tag}"
+            headers = {"User-Agent": "GhostJobIntelPipeline/2.4 (OpenDataResearchClient)"}
+            req = requests.get(url, headers=headers, timeout=8)
+            if req.status_code == 200:
+                data = req.json()
+                for item in data:
+                    if isinstance(item, dict) and item.get("position"):
+                        live_jobs.append({
+                            "external_id": str(item.get("id")),
+                            "title": item.get("position"),
+                            "company": item.get("company"),
+                            "location": item.get("location") or "Remote - US / Global",
+                            "tags": item.get("tags", []),
+                            "date": item.get("date"),
+                            "url": item.get("url")
+                        })
+                logger.info(f"Polled {len(live_jobs)} live requisitions from public API.")
+        except Exception as e:
+            logger.warning(f"Live job polling notice: {e}")
+        return live_jobs
+
     def scrape_company(self, company_meta: Dict[str, Any]) -> Dict[str, Any]:
         """Fetch or synthesize high-precision snapshot with historical trend telemetry."""
         token = company_meta["token"]
@@ -351,6 +376,7 @@ class ATSScraper:
         
         jobs = self.generate_company_requisition_pool(token, company_meta)
         profile = COMPANY_TALENT_PROFILES.get(token, {})
+        live_stream = self.fetch_live_public_jobs(tag="devops") if token in ["google", "microsoft"] else []
 
         return {
             "company_token": token,
@@ -366,5 +392,7 @@ class ATSScraper:
             "scraped_at": scraped_at,
             "job_count": len(jobs),
             "historical_trend": profile.get("historical_trend", []),
-            "raw_payload": {"jobs": jobs}
+            "live_public_feed_count": len(live_stream),
+            "raw_payload": {"jobs": jobs, "live_feed": live_stream[:5]}
         }
+

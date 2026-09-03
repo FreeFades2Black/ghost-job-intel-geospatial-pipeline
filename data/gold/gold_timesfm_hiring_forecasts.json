@@ -1,7 +1,7 @@
 {
   "model_metadata": {
     "foundation_model": "Google-TimesFM-3.0-Industrial-Forecaster",
-    "inference_timestamp_utc": "2026-09-02T13:56:25.029719+00:00",
+    "inference_timestamp_utc": "2026-09-03T15:56:09.514975+00:00",
     "context_window": "2022 Q1 - 2026 Q3 (19 Quarters)",
     "forecast_horizon": "2026 Q4 - 2028 Q4 (9 Quarters)",
     "total_active_requisitions_grounding": 3200
