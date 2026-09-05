@@ -1,0 +1,17 @@
+services:
+  ghost-job-pipeline:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: freefades2black/ghost-job-intel-geospatial-pipeline:latest
+    container_name: ghost-job-intel-geospatial-pipeline
+    restart: unless-stopped
+    ports:
+      - "8900:8900"
+    environment:
+      - PORT=8900
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8900/api/v1/ghost/summary || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
