@@ -1,4 +1,4 @@
-# 👻 Ghost Job Intelligence & Medallion Analytics Engine
+# Ghost Job Intelligence & Medallion Analytics Engine
 ### *Institutional Requisition Lifecycle Tracking, Databricks Multi-Year Trends (2022–2026) & Regional Tech Benchmarks*
 
 [![Live Interactive Dashboard](https://img.shields.io/badge/Live%20Dashboard-GitHub%20Pages-blue?style=for-the-badge&logo=githubpages&logoColor=white)](https://freefades2black.github.io/ghost-job-intel-geospatial-pipeline/)
@@ -7,39 +7,33 @@
 [![TimesFM AI Forecast](https://img.shields.io/badge/AI%20Forecasting-Google%20TimesFM--3-purple?style=for-the-badge&logo=google&logoColor=white)](https://freefades2black.github.io/ghost-job-intel-geospatial-pipeline/)
 
 > [!TIP]
-> ### 🌐 **[👉 CLICK HERE TO LAUNCH LIVE GHOST JOB INTELLIGENCE DASHBOARD ↗](https://freefades2black.github.io/ghost-job-intel-geospatial-pipeline/)**
-> **Zero installation or cloud setup required.** Click the link above to explore the live interactive Medallion talent visualizer, Greenville SC regional geospatial radar, and multi-year hiring velocity trend lines (2022–2028 with **TimesFM-3 AI Forecasts**) directly in your browser.
+> ### [Launch Live Ghost Job Intelligence Dashboard](https://freefades2black.github.io/ghost-job-intel-geospatial-pipeline/)
+> Explore the live interactive Medallion talent visualizer, Greenville SC regional geospatial radar, and multi-year hiring velocity trend lines (2022–2028 with TimesFM-3 forecasts) directly in your browser.
 
 ---
 
-## 🔮 Google TimesFM-3 Time-Series Foundation Forecasting (2026–2028)
+## Google TimesFM-3 Time-Series Foundation Forecasting (2026–2028)
 
 The platform integrates **Google TimesFM-3** architecture principles to transform longitudinal ATS cohort data into **zero-shot macroeconomic talent projections** across a 9-quarter forward horizon (2026 Q4 through 2028 Q4):
 
 | Industry Sector & Regional Cluster | 2022 Peak Risk | 2026 Actual Risk | TimesFM 2027 (P50) | TimesFM 2028 (P50) | 90% Confidence Interval (P10 - P90) | Macroeconomic Trajectory |
 | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
-| **Automotive & Advanced Mfg (BMW / Michelin)** | 16.8% | 13.46% | **12.80%** | **11.95%** | `10.1% - 13.8%` | 🟢 **Strong Hiring Acceleration** (EV battery ramp) |
-| **Healthcare & Clinical Tech (Prisma Health)** | 18.2% | 15.56% | **15.10%** | **14.75%** | `13.2% - 16.3%` | 🟢 **Resilient Clinical Demand** |
-| **Enterprise IT & Distribution (ScanSource / TD SYNNEX)** | 26.5% | 20.00% | **19.40%** | **18.80%** | `16.5% - 21.1%` | 🟢 **Cloud Optimization Stabilization** |
-| **Energy & Smart Grid (GE Vernova / Duke Energy)** | 34.5% | 28.18% | **26.90%** | **25.40%** | `22.4% - 28.4%` | 🟡 **Direct Engineering Conversion** |
-| **Aerospace & Defense (Lockheed Martin / Fluor)** | 39.2% | 34.76% | **32.80%** | **30.50%** | `27.0% - 34.0%` | 🟡 **Security Clearance Queue Gradual Resolution** |
+| **Automotive & Advanced Mfg (BMW / Michelin)** | 16.8% | 13.46% | **12.80%** | **11.95%** | `10.1% - 13.8%` | Strong Hiring Acceleration (EV battery ramp) |
+| **Healthcare & Clinical Tech (Prisma Health)** | 18.2% | 15.56% | **15.10%** | **14.75%** | `13.2% - 16.3%` | Resilient Clinical Demand |
+| **Enterprise IT & Distribution (ScanSource / TD SYNNEX)** | 26.5% | 20.00% | **19.40%** | **18.80%** | `16.5% - 21.1%` | Cloud Optimization Stabilization |
+| **Energy & Smart Grid (GE Vernova / Duke Energy)** | 34.5% | 28.18% | **26.90%** | **25.40%** | `22.4% - 28.4%` | Direct Engineering Conversion |
+| **Aerospace & Defense (Lockheed Martin / Fluor)** | 39.2% | 34.76% | **32.80%** | **30.50%** | `27.0% - 34.0%` | Security Clearance Queue Gradual Resolution |
 
-### 🧠 How TimesFM-3 Foundation Forecasting is Incorporated
+### TimesFM-3 Foundation Forecasting Methodology
 1. **Longitudinal Context Ingestion:** The model consumes 19 historical quarters (2022 Q1 to 2026 Q3) of Databricks Gold Delta tables, representing over 3,200 active and historical enterprise requisitions.
 2. **Zero-Shot Multi-Scale Attention:** Applies Google TimesFM-3 decoder-only temporal attention layers to detect annual hiring freezes (Q4 holiday freezes) versus Q1 fiscal budget expansions without manual parameter tuning.
 3. **Probabilistic Uncertainty Cones:** Outputs $P_{10}$ (optimistic hiring velocity), $P_{50}$ (expected trajectory), and $P_{90}$ (stagnation boundary) quantile cones:
    $$\hat{R}_{\text{ghost}}(t+h) = \mathcal{F}_{\text{TimesFM-3}}\left(R_{1:t}, h=9, \text{covariates}_{\text{macro}}\right)$$
 4. **Promotion to Gold Layer:** Forecast dossiers are serialized to `data/gold/gold_timesfm_hiring_forecasts.json` and consumed directly by the live interactive dashboard.
 
-### 🖥️ The Omarchy Machine as a High-Performance Compute Asset
-All TimesFM-3 foundation model inference runs and multi-source ATS web scrapers execute on the **Omarchy Arch Linux Dedicated Node (`192.168.50.53` Kernel 7.1.9-arch1-2)**:
-* **High-Throughput Scraping & Normalization:** Ingests Workday, Greenhouse, and Lever ATS feeds concurrently across corporate careers portals.
-* **Bare-Metal Vectorized Inference:** Executes the TimesFM-3 autoregressive forecasting pipeline with sub-second execution times.
-* **Continuous Integration & Staging:** Serves as the primary automated deployment harness for GitHub Pages and FastAPI service endpoints.
-
 ---
 
-## 🏛️ 3-Tier Medallion Data Engineering Architecture
+## 3-Tier Medallion Data Engineering Architecture
 
 The engine follows Databricks / Delta Lake **Medallion Architecture** principles to ingest, clean, track, and aggregate hiring data with complete lineage:
 
@@ -81,7 +75,7 @@ flowchart TD
 
 ---
 
-## 📐 Mathematical Methodology & Statistical Rigor
+## Mathematical Methodology & Statistical Rigor
 
 ### 1. Ghost Risk Ratio Formula
 A requisition is classified as **stale / phantom** if its continuous active lifespan exceeds **90 calendar days** without status transition to interviewing, offer, or fill:
@@ -95,41 +89,76 @@ To prevent sample distortion and avoid unfairly penalizing small corporate depar
 
 * **$N < 30$ Active Requisitions:** Designated as `LOW_SAMPLE_MONITORING` (`INSUFFICIENT_DATA_SAMPLE`). No critical ratings are generated.
 * **$N \ge 30$ Active Requisitions:** Evaluated with `HIGH_STATISTICAL_CONFIDENCE` across standardized risk tiers:
-  * 🟢 **`HEALTHY_HIRING_VELOCITY`:** Ghost Risk $< 25.0\%$ (Active requisition turnover, steady candidate screening).
-  * 🟡 **`ELEVATED_STALE_RISK`:** Ghost Risk $25.0\% - 44.9\%$ (Moderate backlog of aging postings).
-  * 🔴 **`CRITICAL_GHOST_RISK`:** Ghost Risk $\ge 45.0\%$ (Heavy concentration of long-dormant postings).
+  * **`HEALTHY_HIRING_VELOCITY`:** Ghost Risk $< 25.0\%$ (Active requisition turnover, steady candidate screening).
+  * **`ELEVATED_STALE_RISK`:** Ghost Risk $25.0\% - 44.9\%$ (Moderate backlog of aging postings).
+  * **`CRITICAL_GHOST_RISK`:** Ghost Risk $\ge 45.0\%$ (Heavy concentration of long-dormant postings).
 
 ---
 
-## 🌲 Regional Benchmark: Top 10 Greenville, SC & Upstate Tech Employers
+## Verified Test Execution
+
+The automated verification suite tests ATS scraping ingestion, OSINT news parsing, Medallion layer execution (Bronze to Gold), and TimesFM-3 inference:
+
+```text
+============================= test session starts =============================
+platform win32 -- Python 3.11.0, pytest-9.1.1, pluggy-1.6.0 -- C:\Python311\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\FreeF\projects\ghost-job-intel-geospatial-pipeline
+plugins: anyio-4.14.2
+collecting ... collected 4 items
+
+tests/test_ghost_pipeline.py::test_ats_scraper_greenville_and_tech_giants PASSED [ 25%]
+tests/test_ghost_pipeline.py::test_ghost_news_scraper PASSED             [ 50%]
+tests/test_ghost_pipeline.py::test_medallion_pipeline_execution PASSED   [ 75%]
+tests/test_timesfm_forecast.py::test_timesfm_hiring_forecaster_execution PASSED [100%]
+
+============================== 4 passed in 6.07s ==============================
+```
+
+---
+
+## Data Engineering Edge Cases & Operational Trade-offs
+
+### 1. ATS Endpoint Rate Limits and JSON Schema Drift
+Public careers endpoints (Workday JSON APIs, Greenhouse boards, Lever postings) enforce varying rate limits and often adjust JSON key structures (e.g. nesting `categories.location` vs flat `location.name`). The Bronze ingestion engine uses an adaptive schema unifier with fallback dictionary parsing and exponential backoff retry logic, ensuring transient 429 or 503 errors do not invalidate the snapshot.
+
+### 2. Requisition Repost Detection vs Authentic New Roles
+Companies frequently close and immediately re-open identical job descriptions with a new requisition ID to appear recently posted. The Silver layer implements fingerprint hashing across normalized title, location, department, and sanitized description text. If a new posting matches a closed requisition within a 14-day window, the original `first_seen_at` timestamp is preserved rather than resetting the clock to zero.
+
+### 3. Small-Cohort Metric Volatility ($N < 30$ Threshold)
+In departments with fewer than 10 requisitions, closing a single position can shift the ghost ratio by 10 to 20 percentage points in a single snapshot. The engine enforces the $N \ge 30$ threshold before assigning non-monitoring risk categories, preventing false critical alerts caused by small denominator effects.
+
+---
+
+## Regional Benchmark: Top 10 Greenville, SC & Upstate Tech Employers
 
 Greenville and the Upstate South Carolina corridor represent one of the fastest-growing advanced manufacturing, aerospace, and computing hubs in the Southeast. Below are the **verified Gold Layer metrics** across **2,030 active Upstate requisitions** with exact decimal precision and multi-year trajectory:
 
 | Company & Upstate Presence | Public Ticker | Active Ingested Pool ($N$) | Avg Age (Days) | Stale Postings (>90d) | Ghost Risk (%) | 2022 ➔ 2026 Trend Trajectory | Risk Tier ($N \ge 30$) | Core Technology & Engineering Domains |
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :--- | :--- |
-| **BMW Manufacturing & Tech** *(Greer / GVL)* | `ETR: BMW` | **260** | 56.4d | 35 | **13.46%** | 20.9% ➔ **13.5%** | 🟢 `HEALTHY` | Autonomous Mobile Robots (AMR), Edge Computer Vision, SAP S/4HANA Cloud, Battery Automation |
-| **Prisma Health** *(Digital Health Division)* | `PRISMA TECH` | **180** | 58.2d | 28 | **15.56%** | 23.8% ➔ **15.6%** | 🟢 `HEALTHY` | Epic EHR Interoperability (FHIR), Clinical Predictive AI, Healthcare HIPAA Cloud, Telehealth WebRTC |
-| **Michelin North America** *(HQ & MARC)* | `EURONEXT: ML` | **240** | 60.8d | 43 | **17.92%** | 26.2% ➔ **17.9%** | 🟢 `HEALTHY` | Connected Mobility IoT, Material Informatics AI, Digital Twin Smart Factory, Non-Pneumatic Uptis R&D |
-| **TD SYNNEX Corporation** *(Tech Center)* | `NYSE: SNX` | **190** | 63.5d | 38 | **20.00%** | 27.3% ➔ **19.8%** | 🟢 `HEALTHY` | Hyperscaler Multi-Cloud Integration (GCP/AWS/Azure), Real-Time Transaction Data Streaming, CSPM Cyber |
-| **ScanSource Inc.** *(Global Corporate HQ)* | `NASDAQ: SCSC` | **180** | 64.9d | 38 | **21.11%** | 28.3% ➔ **21.3%** | 🟢 `HEALTHY` | Cloud & SaaS Hybrid Distribution, Telecom API Platform, Zero-Trust IAM, Enterprise Commerce Systems |
-| **Duke Energy Carolinas** *(Upstate Grid Hub)* | `NYSE: DUK` | **185** | 66.8d | 42 | **22.70%** | 29.5% ➔ **22.9%** | 🟢 `HEALTHY` | DERMS Distributed Energy Management, Smart Grid SCADA, AMI Smart Meter Ingestion, NERC-CIP Cyber |
-| **Hubbell Incorporated** *(Industrial Systems)* | `NYSE: HUBB` | **175** | 69.1d | 46 | **26.29%** | 33.2% ➔ **26.5%** | 🟡 `ELEVATED` | Embedded IoT Firmware (FreeRTOS), BLE/Zigbee Wireless Mesh, Smart Lighting Cloud, Power Electronics |
-| **GE Vernova** *(Gas Turbine & Power Campus)* | `NYSE: GEV` | **220** | 71.4d | 62 | **28.18%** | 36.4% ➔ **28.4%** | 🟡 `ELEVATED` | HA-Class Turbomachinery Aerodynamics, Power Grid Simulation, Mark VIe SCADA Systems, Decarbonization |
-| **Fluor Corporation** *(Engineering & Delivery Hub)* | `NYSE: FLR` | **190** | 74.2d | 60 | **31.58%** | 38.2% ➔ **31.7%** | 🟡 `ELEVATED` | SmartPlant 3D / BIM Digital Twin, EPC Automation, Predictive Schedule AI, Structural Finite Element Analysis |
-| **Lockheed Martin** *(Aviation Center of Excellence)* | `NYSE: LMT` | **210** | 77.8d | 73 | **34.76%** | 41.4% ➔ **34.8%** | 🟡 `ELEVATED` | F-16 Block 70 Avionics, C-130 Flight Controls (DO-178C), Radar Signal Processing, Defense Cyber Systems |
+| **BMW Manufacturing & Tech** *(Greer / GVL)* | `ETR: BMW` | **260** | 56.4d | 35 | **13.46%** | 20.9% ➔ **13.5%** | `HEALTHY` | Autonomous Mobile Robots (AMR), Edge Computer Vision, SAP S/4HANA Cloud, Battery Automation |
+| **Prisma Health** *(Digital Health Division)* | `PRISMA TECH` | **180** | 58.2d | 28 | **15.56%** | 23.8% ➔ **15.6%** | `HEALTHY` | Epic EHR Interoperability (FHIR), Clinical Predictive AI, Healthcare HIPAA Cloud, Telehealth WebRTC |
+| **Michelin North America** *(HQ & MARC)* | `EURONEXT: ML` | **240** | 60.8d | 43 | **17.92%** | 26.2% ➔ **17.9%** | `HEALTHY` | Connected Mobility IoT, Material Informatics AI, Digital Twin Smart Factory, Non-Pneumatic Uptis R&D |
+| **TD SYNNEX Corporation** *(Tech Center)* | `NYSE: SNX` | **190** | 63.5d | 38 | **20.00%** | 27.3% ➔ **19.8%** | `HEALTHY` | Hyperscaler Multi-Cloud Integration (GCP/AWS/Azure), Real-Time Transaction Data Streaming, CSPM Cyber |
+| **ScanSource Inc.** *(Global Corporate HQ)* | `NASDAQ: SCSC` | **180** | 64.9d | 38 | **21.11%** | 28.3% ➔ **21.3%** | `HEALTHY` | Cloud & SaaS Hybrid Distribution, Telecom API Platform, Zero-Trust IAM, Enterprise Commerce Systems |
+| **Duke Energy Carolinas** *(Upstate Grid Hub)* | `NYSE: DUK` | **185** | 66.8d | 42 | **22.70%** | 29.5% ➔ **22.9%** | `HEALTHY` | DERMS Distributed Energy Management, Smart Grid SCADA, AMI Smart Meter Ingestion, NERC-CIP Cyber |
+| **Hubbell Incorporated** *(Industrial Systems)* | `NYSE: HUBB` | **175** | 69.1d | 46 | **26.29%** | 33.2% ➔ **26.5%** | `ELEVATED` | Embedded IoT Firmware (FreeRTOS), BLE/Zigbee Wireless Mesh, Smart Lighting Cloud, Power Electronics |
+| **GE Vernova** *(Gas Turbine & Power Campus)* | `NYSE: GEV` | **220** | 71.4d | 62 | **28.18%** | 36.4% ➔ **28.4%** | `ELEVATED` | HA-Class Turbomachinery Aerodynamics, Power Grid Simulation, Mark VIe SCADA Systems, Decarbonization |
+| **Fluor Corporation** *(Engineering & Delivery Hub)* | `NYSE: FLR` | **190** | 74.2d | 60 | **31.58%** | 38.2% ➔ **31.7%** | `ELEVATED` | SmartPlant 3D / BIM Digital Twin, EPC Automation, Predictive Schedule AI, Structural Finite Element Analysis |
+| **Lockheed Martin** *(Aviation Center of Excellence)* | `NYSE: LMT` | **210** | 77.8d | 73 | **34.76%** | 41.4% ➔ **34.8%** | `ELEVATED` | F-16 Block 70 Avionics, C-130 Flight Controls (DO-178C), Radar Signal Processing, Defense Cyber Systems |
 
 ---
 
-## 📈 Multi-Year Longitudinal Trends (Databricks Cohort Analysis 2022–2026)
+## Multi-Year Longitudinal Trends (Databricks Cohort Analysis 2022–2026)
 
-By analyzing multi-year historical cohorts, the engine tracks how labor velocity has recovered post-2022 across industries:
+By analyzing multi-year historical cohorts, the engine tracks how labor velocity has shifted post-2022 across industries:
 * **Aerospace & Defense:** Longer candidate clearance verification pipelines maintain average posting durations above 75 days.
-* **Automotive & EV Production:** Massive acceleration in hiring velocity (BMW dropped from 20.9% to 13.5% stale) driven by Upstate high-voltage battery plant commissioning.
-* **Clinical Health Tech:** Strong hiring velocity with rapid requisition closure (Prisma Health at 15.56% stale).
+* **Automotive & EV Production:** Significant acceleration in hiring velocity (BMW dropped from 20.9% to 13.5% stale) driven by Upstate high-voltage battery plant commissioning.
+* **Clinical Health Tech:** Consistent hiring velocity with regular requisition turnover (Prisma Health at 15.56% stale).
 
 ---
 
-## 🔌 REST API Endpoints & Programmatic Access
+## REST API Endpoints & Programmatic Access
 
 When running the service via FastAPI, the following standardized REST endpoints are available:
 
@@ -143,15 +172,15 @@ When running the service via FastAPI, the following standardized REST endpoints 
 
 ---
 
-## 🏢 How Companies Can Audit & Verify Their Data
+## Data Audits & Corrections
 
-1. **Verify Your Requisitions:** Review your company's live active pool and department breakdown on the [Live Dashboard](https://freefades2black.github.io/ghost-job-intel-geospatial-pipeline/).
-2. **Direct ATS Webhook Integration:** If your organization utilizes custom Workday, Greenhouse, or SAP SuccessFactors webhooks and wishes to stream closed/filled requisition events in real time to maintain a 100% `HEALTHY_HIRING_VELOCITY` score, contact our data team or submit an integration PR.
-3. **Report Discrepancies:** Open an issue on GitHub with your official ATS job board token or corporate careers endpoint for rapid automated recalibration.
+1. **Requisition Verification:** Review company active pools and department breakdowns on the [Live Dashboard](https://freefades2black.github.io/ghost-job-intel-geospatial-pipeline/).
+2. **Direct ATS Webhook Integration:** Organizations utilizing custom Workday, Greenhouse, or SAP SuccessFactors webhooks can stream closed/filled requisition events in real time.
+3. **Discrepancy Reporting:** Open an issue on GitHub with official ATS job board token or corporate careers endpoint for automated recalibration.
 
 ---
 
-## 💻 Local Quickstart & Development
+## Local Quickstart & Development
 
 ```bash
 # 1. Clone repository
@@ -161,7 +190,7 @@ cd ghost-job-intel-geospatial-pipeline
 # 2. Install dependencies
 pip install -r requirements.txt
 
-# 3. Execute Medallion Pipeline (Bronze ➔ Silver ➔ Gold)
+# 3. Execute Medallion Pipeline (Bronze -> Silver -> Gold)
 python -c "from src.medallion.pipeline_bronze_ingestion import BronzeIngestionEngine; BronzeIngestionEngine().run_bronze_ingestion(); from src.medallion.pipeline_silver_lifecycle import SilverLifecycleEngine; SilverLifecycleEngine().run_silver_processing(); from src.medallion.pipeline_gold_ghost_metrics import GoldGhostMetricsEngine; GoldGhostMetricsEngine().run_gold_aggregation()"
 
 # 4. Run PyTest Unit Test Suite
@@ -173,7 +202,7 @@ python -m uvicorn src.api:app --host 0.0.0.0 --port 8900
 
 ---
 
-## ⚖️ License & Attribution
+## License & Attribution
 
 * **License:** MIT Open Source License.
 * **Lead Architect:** Free (`FreeFades2Black`).
