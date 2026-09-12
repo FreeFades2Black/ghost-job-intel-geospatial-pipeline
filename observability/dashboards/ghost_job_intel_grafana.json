@@ -1,0 +1,70 @@
+{
+  "title": "Ghost Job Intelligence & Scraper Observability",
+  "schemaVersion": 38,
+  "panels": [
+    {
+      "title": "ATS Crawl Success Rate (%)",
+      "type": "gauge",
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "targets": [
+        {
+          "expr": "sum(rate(ats_scrape_success_total[5m])) / sum(rate(ats_scrape_requests_total[5m])) * 100",
+          "legendFormat": "% Success"
+        }
+      ]
+    },
+    {
+      "title": "Identified Ghost Job Vacancies",
+      "type": "stat",
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "targets": [
+        {
+          "expr": "sum(ghost_job_detected_total)",
+          "legendFormat": "Phantom Postings"
+        }
+      ]
+    },
+    {
+      "title": "Proxy Latency (ms)",
+      "type": "timeseries",
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 8
+      },
+      "targets": [
+        {
+          "expr": "rate(proxy_request_duration_ms_sum[5m]) / rate(proxy_request_duration_ms_count[5m])",
+          "legendFormat": "Proxy Latency"
+        }
+      ]
+    },
+    {
+      "title": "Cloudflare / Bot Challenge Rejections",
+      "type": "timeseries",
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 8
+      },
+      "targets": [
+        {
+          "expr": "sum(rate(scraper_bot_challenge_total[5m]))",
+          "legendFormat": "Captcha Blocks / s"
+        }
+      ]
+    }
+  ]
+}

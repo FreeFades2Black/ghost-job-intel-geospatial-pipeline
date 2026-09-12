@@ -1,0 +1,22 @@
+groups:
+  - name: ghost_job_pipeline_alerts
+    rules:
+      - alert: ScraperSuccessRateDegraded
+        expr: sum(rate(ats_scrape_success_total[5m])) / sum(rate(ats_scrape_requests_total[5m])) < 0.90
+        for: 3m
+        labels:
+          severity: critical
+          tier: data-scraping
+        annotations:
+          summary: "ATS Scraper success rate dropped below 90%"
+          description: "Potential anti-bot firewall block or proxy pool exhaustion."
+
+      - alert: ProxyBanSurge
+        expr: sum(rate(scraper_bot_challenge_total[5m])) > 2
+        for: 2m
+        labels:
+          severity: warning
+          tier: proxy-network
+        annotations:
+          summary: "High rate of Cloudflare / Akamai bot challenges"
+          description: "Rotate residential proxy pool and inspect JA3 TLS client fingerprints."
