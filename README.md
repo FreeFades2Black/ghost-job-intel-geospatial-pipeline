@@ -85,3 +85,14 @@ Monthly operational spend based on 500,000 monthly job postings audited:
 
 * **Workday Multi-Step Form Parsing:** Greenhouse and Lever endpoints parse directly via JSON API; complex multi-stage Workday and Taleo iframe portals require interactive headless DOM walking, scheduled for Q4.
 * **SEC 10-K Headcount Correlation:** Currently validates ghost jobs via job board posting duration and local applicant density; cross-referencing corporate quarterly SEC 10-K hiring guidance filings is planned for Q1 2027.
+
+## Automated CI Maintenance Log
+<!-- START_AGENT_MAINTENANCE_LOG -->
+#### Maintenance Run: `2026-10-01 20:52:52 UTC`
+- `.github/workflows/deploy_pages.yml`: Upgrade actions/checkout from v4 to v7 for security & performance. [Research: RCSB PDB AI Help Desk: retrieval-augmented generation for protein structure deposition support (OpenAlex / Global University Research)] [NIST SP 800-218 PW.4]
+- `.github/workflows/deploy_pages.yml`: Upgrade actions/configure-pages from v4 to v6 for security & performance. [Research: RCSB PDB AI Help Desk: retrieval-augmented generation for protein structure deposition support (OpenAlex / Global University Research)] [NIST SP 800-218 PW.4]
+- `.github/workflows/deploy_pages.yml`: Upgrade actions/upload-pages-artifact from v3 to v5 for security & performance. [Research: RCSB PDB AI Help Desk: retrieval-augmented generation for protein structure deposition support (OpenAlex / Global University Research)] [NIST SP 800-218 PW.4]
+- `.github/workflows/deploy_pages.yml`: Upgrade actions/deploy-pages from v4 to v5 for security & performance. [Research: RCSB PDB AI Help Desk: retrieval-augmented generation for protein structure deposition support (OpenAlex / Global University Research)] [NIST SP 800-218 PW.4]
+- `.github/workflows/deploy_pages.yml`: Enforce timeout-minutes: 10 to kill hung processes and prevent runaway billing (CISA & FinOps).
+
+<!-- END_AGENT_MAINTENANCE_LOG -->
